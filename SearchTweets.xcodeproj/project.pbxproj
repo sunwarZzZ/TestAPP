@@ -15,9 +15,16 @@
 		F1D564C21A6C614D002692BD /* SearchTweets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1D564B71A6C614D002692BD /* SearchTweets.xcdatamodeld */; };
 		F1D564C41A6C62DA002692BD /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D564C31A6C62DA002692BD /* Storyboard_iPhone.storyboard */; };
 		F1D564C61A6C62E1002692BD /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D564C51A6C62E1002692BD /* Storyboard_iPad.storyboard */; };
-		F1D564C91A6C6357002692BD /* STSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564C81A6C6357002692BD /* STSearchController.m */; };
-		F1D564CC1A6C636E002692BD /* STSearchController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564CB1A6C636E002692BD /* STSearchController_iPad.m */; };
-		F1D564CF1A6C6381002692BD /* STSearchController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564CE1A6C6381002692BD /* STSearchController_iPhone.m */; };
+		F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564DE1A6C6880002692BD /* STSearchController.m */; };
+		F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564E21A6C6888002692BD /* STSearchController_iPhone.m */; };
+		F1D564E71A6C6891002692BD /* STSearchController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564E61A6C6891002692BD /* STSearchController_iPad.m */; };
+		F1D564EA1A6C68AC002692BD /* STBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564E91A6C68AC002692BD /* STBaseViewController.m */; };
+		F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564EC1A6C68EE002692BD /* STAvtorizationViewController.m */; };
+		F1D564F01A6C6900002692BD /* STStartingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564EF1A6C6900002692BD /* STStartingViewController.m */; };
+		F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F21A6C69B8002692BD /* STAvtorizationViewController_iPhone.m */; };
+		F1D564F61A6C69D2002692BD /* STStartingViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F51A6C69D2002692BD /* STStartingViewController_iPhone.m */; };
+		F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */; };
+		F1D564FC1A6C6A57002692BD /* STStartingViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564FB1A6C6A57002692BD /* STStartingViewController_iPad.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,12 +51,26 @@
 		F1D564B81A6C614D002692BD /* SearchTweets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchTweets.xcdatamodel; sourceTree = "<group>"; };
 		F1D564C31A6C62DA002692BD /* Storyboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F1D564C51A6C62E1002692BD /* Storyboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPad.storyboard; sourceTree = "<group>"; };
-		F1D564C71A6C6357002692BD /* STSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController.h; sourceTree = "<group>"; };
-		F1D564C81A6C6357002692BD /* STSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController.m; sourceTree = "<group>"; };
-		F1D564CA1A6C636E002692BD /* STSearchController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController_iPad.h; sourceTree = "<group>"; };
-		F1D564CB1A6C636E002692BD /* STSearchController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController_iPad.m; sourceTree = "<group>"; };
-		F1D564CD1A6C6381002692BD /* STSearchController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController_iPhone.h; sourceTree = "<group>"; };
-		F1D564CE1A6C6381002692BD /* STSearchController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController_iPhone.m; sourceTree = "<group>"; };
+		F1D564DD1A6C6880002692BD /* STSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController.h; sourceTree = "<group>"; };
+		F1D564DE1A6C6880002692BD /* STSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController.m; sourceTree = "<group>"; };
+		F1D564E11A6C6888002692BD /* STSearchController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController_iPhone.h; sourceTree = "<group>"; };
+		F1D564E21A6C6888002692BD /* STSearchController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController_iPhone.m; sourceTree = "<group>"; };
+		F1D564E51A6C6891002692BD /* STSearchController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController_iPad.h; sourceTree = "<group>"; };
+		F1D564E61A6C6891002692BD /* STSearchController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController_iPad.m; sourceTree = "<group>"; };
+		F1D564E81A6C68AC002692BD /* STBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBaseViewController.h; sourceTree = "<group>"; };
+		F1D564E91A6C68AC002692BD /* STBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBaseViewController.m; sourceTree = "<group>"; };
+		F1D564EB1A6C68EE002692BD /* STAvtorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationViewController.h; sourceTree = "<group>"; };
+		F1D564EC1A6C68EE002692BD /* STAvtorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvtorizationViewController.m; sourceTree = "<group>"; };
+		F1D564EE1A6C6900002692BD /* STStartingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStartingViewController.h; sourceTree = "<group>"; };
+		F1D564EF1A6C6900002692BD /* STStartingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStartingViewController.m; sourceTree = "<group>"; };
+		F1D564F11A6C69B8002692BD /* STAvtorizationViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationViewController_iPhone.h; sourceTree = "<group>"; };
+		F1D564F21A6C69B8002692BD /* STAvtorizationViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvtorizationViewController_iPhone.m; sourceTree = "<group>"; };
+		F1D564F41A6C69D2002692BD /* STStartingViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStartingViewController_iPhone.h; sourceTree = "<group>"; };
+		F1D564F51A6C69D2002692BD /* STStartingViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStartingViewController_iPhone.m; sourceTree = "<group>"; };
+		F1D564F71A6C6A2E002692BD /* STAvtorizationViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationViewController_iPad.h; sourceTree = "<group>"; };
+		F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvtorizationViewController_iPad.m; sourceTree = "<group>"; };
+		F1D564FA1A6C6A57002692BD /* STStartingViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStartingViewController_iPad.h; sourceTree = "<group>"; };
+		F1D564FB1A6C6A57002692BD /* STStartingViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStartingViewController_iPad.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,18 +150,11 @@
 		F1D564A51A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F1D564A61A6C614D002692BD /* SerchViewController */,
+				F1D564E41A6C6891002692BD /* SearchViewController */,
+				F1D564DA1A6C6831002692BD /* AvtorizationViewController */,
+				F1D564DB1A6C6831002692BD /* StartingViewController */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		F1D564A61A6C614D002692BD /* SerchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564CA1A6C636E002692BD /* STSearchController_iPad.h */,
-				F1D564CB1A6C636E002692BD /* STSearchController_iPad.m */,
-			);
-			path = SerchViewController;
 			sourceTree = "<group>";
 		};
 		F1D564A71A6C614D002692BD /* iPhone */ = {
@@ -155,18 +169,11 @@
 		F1D564A81A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F1D564A91A6C614D002692BD /* SerchViewController */,
+				F1D564E01A6C6888002692BD /* SearchViewController */,
+				F1D564D91A6C6823002692BD /* AvtorizationViewController */,
+				F1D564D71A6C6817002692BD /* StartingViewController */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		F1D564A91A6C614D002692BD /* SerchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564CD1A6C6381002692BD /* STSearchController_iPhone.h */,
-				F1D564CE1A6C6381002692BD /* STSearchController_iPhone.m */,
-			);
-			path = SerchViewController;
 			sourceTree = "<group>";
 		};
 		F1D564AA1A6C614D002692BD /* Other */ = {
@@ -190,6 +197,7 @@
 		F1D564B31A6C614D002692BD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F1D564D01A6C67F6002692BD /* AbstractClasses */,
 				F1D564B41A6C614D002692BD /* AppDelegate.h */,
 				F1D564B51A6C614D002692BD /* AppDelegate.m */,
 				F1D564B61A6C614D002692BD /* DataBase */,
@@ -217,18 +225,109 @@
 		F1D564BA1A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F1D564BB1A6C614D002692BD /* SerchViewController */,
+				F1D564DC1A6C6880002692BD /* SearchViewController */,
+				F1D564D21A6C680A002692BD /* AvtorizationViewController */,
+				F1D564D31A6C680A002692BD /* StartingViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		F1D564BB1A6C614D002692BD /* SerchViewController */ = {
+		F1D564D01A6C67F6002692BD /* AbstractClasses */ = {
 			isa = PBXGroup;
 			children = (
-				F1D564C71A6C6357002692BD /* STSearchController.h */,
-				F1D564C81A6C6357002692BD /* STSearchController.m */,
+				F1D564D11A6C67F6002692BD /* BaseViewController */,
 			);
-			path = SerchViewController;
+			path = AbstractClasses;
+			sourceTree = "<group>";
+		};
+		F1D564D11A6C67F6002692BD /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564E81A6C68AC002692BD /* STBaseViewController.h */,
+				F1D564E91A6C68AC002692BD /* STBaseViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		F1D564D21A6C680A002692BD /* AvtorizationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564EB1A6C68EE002692BD /* STAvtorizationViewController.h */,
+				F1D564EC1A6C68EE002692BD /* STAvtorizationViewController.m */,
+			);
+			path = AvtorizationViewController;
+			sourceTree = "<group>";
+		};
+		F1D564D31A6C680A002692BD /* StartingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564EE1A6C6900002692BD /* STStartingViewController.h */,
+				F1D564EF1A6C6900002692BD /* STStartingViewController.m */,
+			);
+			path = StartingViewController;
+			sourceTree = "<group>";
+		};
+		F1D564D71A6C6817002692BD /* StartingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564F41A6C69D2002692BD /* STStartingViewController_iPhone.h */,
+				F1D564F51A6C69D2002692BD /* STStartingViewController_iPhone.m */,
+			);
+			path = StartingViewController;
+			sourceTree = "<group>";
+		};
+		F1D564D91A6C6823002692BD /* AvtorizationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564F11A6C69B8002692BD /* STAvtorizationViewController_iPhone.h */,
+				F1D564F21A6C69B8002692BD /* STAvtorizationViewController_iPhone.m */,
+			);
+			path = AvtorizationViewController;
+			sourceTree = "<group>";
+		};
+		F1D564DA1A6C6831002692BD /* AvtorizationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564F71A6C6A2E002692BD /* STAvtorizationViewController_iPad.h */,
+				F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */,
+			);
+			path = AvtorizationViewController;
+			sourceTree = "<group>";
+		};
+		F1D564DB1A6C6831002692BD /* StartingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564FA1A6C6A57002692BD /* STStartingViewController_iPad.h */,
+				F1D564FB1A6C6A57002692BD /* STStartingViewController_iPad.m */,
+			);
+			path = StartingViewController;
+			sourceTree = "<group>";
+		};
+		F1D564DC1A6C6880002692BD /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564DD1A6C6880002692BD /* STSearchController.h */,
+				F1D564DE1A6C6880002692BD /* STSearchController.m */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		F1D564E01A6C6888002692BD /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564E11A6C6888002692BD /* STSearchController_iPhone.h */,
+				F1D564E21A6C6888002692BD /* STSearchController_iPhone.m */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		F1D564E41A6C6891002692BD /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D564E51A6C6891002692BD /* STSearchController_iPad.h */,
+				F1D564E61A6C6891002692BD /* STSearchController_iPad.m */,
+			);
+			path = SearchViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,12 +431,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1D564CC1A6C636E002692BD /* STSearchController_iPad.m in Sources */,
-				F1D564C91A6C6357002692BD /* STSearchController.m in Sources */,
+				F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */,
+				F1D564E71A6C6891002692BD /* STSearchController_iPad.m in Sources */,
+				F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */,
 				F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */,
+				F1D564F01A6C6900002692BD /* STStartingViewController.m in Sources */,
+				F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */,
+				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
+				F1D564FC1A6C6A57002692BD /* STStartingViewController_iPad.m in Sources */,
+				F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */,
+				F1D564F61A6C69D2002692BD /* STStartingViewController_iPhone.m in Sources */,
 				F1D564C21A6C614D002692BD /* SearchTweets.xcdatamodeld in Sources */,
 				F1D564BD1A6C614D002692BD /* main.m in Sources */,
-				F1D564CF1A6C6381002692BD /* STSearchController_iPhone.m in Sources */,
+				F1D564EA1A6C68AC002692BD /* STBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
