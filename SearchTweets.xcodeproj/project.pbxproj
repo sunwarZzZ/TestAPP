@@ -26,6 +26,10 @@
 		F1D564F61A6C69D2002692BD /* STStartingViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F51A6C69D2002692BD /* STStartingViewController_iPhone.m */; };
 		F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */; };
 		F1D564FC1A6C6A57002692BD /* STStartingViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564FB1A6C6A57002692BD /* STStartingViewController_iPad.m */; };
+		F1D565161A6D923C002692BD /* STNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D565151A6D923C002692BD /* STNavigationController.m */; };
+		F1D5651B1A6D92E0002692BD /* STNavigationController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5651A1A6D92E0002692BD /* STNavigationController_iPad.m */; };
+		F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5651D1A6D92F2002692BD /* STNavigationController_iPhone.m */; };
+		F1D565251A6D9823002692BD /* STSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D565241A6D9823002692BD /* STSettingsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,15 @@
 		F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvtorizationViewController_iPad.m; sourceTree = "<group>"; };
 		F1D564FA1A6C6A57002692BD /* STStartingViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStartingViewController_iPad.h; sourceTree = "<group>"; };
 		F1D564FB1A6C6A57002692BD /* STStartingViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStartingViewController_iPad.m; sourceTree = "<group>"; };
+		F1D565141A6D923C002692BD /* STNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNavigationController.h; sourceTree = "<group>"; };
+		F1D565151A6D923C002692BD /* STNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNavigationController.m; sourceTree = "<group>"; };
+		F1D565191A6D92E0002692BD /* STNavigationController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNavigationController_iPad.h; sourceTree = "<group>"; };
+		F1D5651A1A6D92E0002692BD /* STNavigationController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNavigationController_iPad.m; sourceTree = "<group>"; };
+		F1D5651C1A6D92F2002692BD /* STNavigationController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNavigationController_iPhone.h; sourceTree = "<group>"; };
+		F1D5651D1A6D92F2002692BD /* STNavigationController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNavigationController_iPhone.m; sourceTree = "<group>"; };
+		F1D565201A6D96BF002692BD /* STSegueIdentifierConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSegueIdentifierConstant.h; sourceTree = "<group>"; };
+		F1D565231A6D9823002692BD /* STSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsManager.h; sourceTree = "<group>"; };
+		F1D565241A6D9823002692BD /* STSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSettingsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +175,7 @@
 		F1D564A51A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F1D565181A6D9276002692BD /* NavigationController */,
 				F1D564E41A6C6891002692BD /* SearchViewController */,
 				F1D564DA1A6C6831002692BD /* AvtorizationViewController */,
 				F1D564DB1A6C6831002692BD /* StartingViewController */,
@@ -181,6 +195,7 @@
 		F1D564A81A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F1D565171A6D926E002692BD /* NavigationController */,
 				F1D564E01A6C6888002692BD /* SearchViewController */,
 				F1D564D91A6C6823002692BD /* AvtorizationViewController */,
 				F1D564D71A6C6817002692BD /* StartingViewController */,
@@ -209,9 +224,11 @@
 		F1D564B31A6C614D002692BD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				F1D564D01A6C67F6002692BD /* AbstractClasses */,
 				F1D564B41A6C614D002692BD /* AppDelegate.h */,
 				F1D564B51A6C614D002692BD /* AppDelegate.m */,
+				F1D564D01A6C67F6002692BD /* AbstractClasses */,
+				F1D565211A6D9807002692BD /* Managers */,
+				F1D5651F1A6D9648002692BD /* Constans */,
 				F1D564B61A6C614D002692BD /* DataBase */,
 				F1D564B91A6C614D002692BD /* ServerAPI */,
 				F1D564BA1A6C614D002692BD /* ViewControllers */,
@@ -238,6 +255,7 @@
 		F1D564BA1A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F1D565131A6D921B002692BD /* NavigationController */,
 				F1D564DC1A6C6880002692BD /* SearchViewController */,
 				F1D564D21A6C680A002692BD /* AvtorizationViewController */,
 				F1D564D31A6C680A002692BD /* StartingViewController */,
@@ -343,6 +361,58 @@
 			path = SearchViewController;
 			sourceTree = "<group>";
 		};
+		F1D565131A6D921B002692BD /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D565141A6D923C002692BD /* STNavigationController.h */,
+				F1D565151A6D923C002692BD /* STNavigationController.m */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		F1D565171A6D926E002692BD /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D5651C1A6D92F2002692BD /* STNavigationController_iPhone.h */,
+				F1D5651D1A6D92F2002692BD /* STNavigationController_iPhone.m */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		F1D565181A6D9276002692BD /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				F1D565191A6D92E0002692BD /* STNavigationController_iPad.h */,
+				F1D5651A1A6D92E0002692BD /* STNavigationController_iPad.m */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		F1D5651F1A6D9648002692BD /* Constans */ = {
+			isa = PBXGroup;
+			children = (
+				F1D565201A6D96BF002692BD /* STSegueIdentifierConstant.h */,
+			);
+			path = Constans;
+			sourceTree = "<group>";
+		};
+		F1D565211A6D9807002692BD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F1D565221A6D9807002692BD /* SettingsManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F1D565221A6D9807002692BD /* SettingsManager */ = {
+			isa = PBXGroup;
+			children = (
+				F1D565231A6D9823002692BD /* STSettingsManager.h */,
+				F1D565241A6D9823002692BD /* STSettingsManager.m */,
+			);
+			path = SettingsManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -444,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D5651B1A6D92E0002692BD /* STNavigationController_iPad.m in Sources */,
 				F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */,
 				F1D564E71A6C6891002692BD /* STSearchController_iPad.m in Sources */,
 				F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */,
@@ -453,7 +524,10 @@
 				9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
 				F1D564FC1A6C6A57002692BD /* STStartingViewController_iPad.m in Sources */,
+				F1D565161A6D923C002692BD /* STNavigationController.m in Sources */,
+				F1D565251A6D9823002692BD /* STSettingsManager.m in Sources */,
 				F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */,
+				F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */,
 				F1D564F61A6C69D2002692BD /* STStartingViewController_iPhone.m in Sources */,
 				F1D564C21A6C614D002692BD /* SearchTweets.xcdatamodeld in Sources */,
 				F1D564BD1A6C614D002692BD /* main.m in Sources */,

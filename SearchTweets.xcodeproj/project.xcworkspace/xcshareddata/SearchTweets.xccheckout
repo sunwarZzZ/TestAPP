@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>4B2DA1A6-CD28-4C24-B2AF-4EE56282F759</string>
+	<string>F1EE99C8-0690-48F1-A48B-A7DF1609AA9F</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SearchTweets</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>49F35445EDA331AA83D409EE4E6205F20883983B</string>
 			<key>IDESourceControlWCCName</key>
-			<string>searchtweets</string>
+			<string>SearchTweets</string>
 		</dict>
 	</array>
 </dict>
