@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7D4161A6D018F003BA035 /* STWebCore.m */; };
 		F1D5649B1A6C6030002692BD /* SearchTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5649A1A6C6030002692BD /* SearchTweetsTests.m */; };
 		F1D564BD1A6C614D002692BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564AC1A6C614D002692BD /* main.m */; };
 		F1D564BE1A6C614D002692BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D564AE1A6C614D002692BD /* LaunchScreen.xib */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9DC7D4151A6D018F003BA035 /* STWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STWebCore.h; sourceTree = "<group>"; };
+		9DC7D4161A6D018F003BA035 /* STWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWebCore.m; sourceTree = "<group>"; };
 		F1D564781A6C6030002692BD /* SearchTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D564941A6C6030002692BD /* SearchTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D564991A6C6030002692BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DC7D4141A6D013B003BA035 /* WebCore */ = {
+			isa = PBXGroup;
+			children = (
+				9DC7D4151A6D018F003BA035 /* STWebCore.h */,
+				9DC7D4161A6D018F003BA035 /* STWebCore.m */,
+			);
+			path = WebCore;
+			sourceTree = "<group>";
+		};
 		F1D5646F1A6C6030002692BD = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +230,7 @@
 		F1D564B91A6C614D002692BD /* ServerAPI */ = {
 			isa = PBXGroup;
 			children = (
+				9DC7D4141A6D013B003BA035 /* WebCore */,
 			);
 			path = ServerAPI;
 			sourceTree = "<group>";
@@ -437,6 +450,7 @@
 				F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */,
 				F1D564F01A6C6900002692BD /* STStartingViewController.m in Sources */,
 				F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */,
+				9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
 				F1D564FC1A6C6A57002692BD /* STStartingViewController_iPad.m in Sources */,
 				F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */,
