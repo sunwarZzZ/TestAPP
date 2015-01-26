@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9eK-Ad-dad">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9eK-Ad-dad">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -15,8 +15,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="mtm-Ko-IYu" kind="custom" identifier="ShowSearchSegue" id="wlS-gT-sW9"/>
-                        <segue destination="21P-N0-h5D" kind="custom" id="Tkz-JB-wzQ"/>
-                        <segue destination="fMD-Bf-7GU" kind="custom" identifier="ShowAvtorizationSegue" id="318-6h-PIQ"/>
+                        <segue destination="21P-N0-h5D" kind="custom" identifier="ShowStartSegue" id="Tkz-JB-wzQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWt-yr-hkn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,7 +85,23 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="525" y="353"/>
+            <point key="canvasLocation" x="648" y="170"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Lx-O7-etP">
+            <objects>
+                <navigationController id="6Ri-19-CBA" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C1V-Nc-muK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fMD-Bf-7GU" kind="relationship" relationship="rootViewController" id="kgs-jg-Tsz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="anI-7i-WPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="860"/>
         </scene>
         <!--Avtorization View Controller i Phone-->
         <scene sceneID="e2i-pJ-87f">
@@ -99,12 +114,25 @@
                     <view key="view" contentMode="scaleToFill" id="Eqo-HO-I3a">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUy-u0-cpJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dUy-u0-cpJ" firstAttribute="leading" secondItem="Eqo-HO-I3a" secondAttribute="leadingMargin" constant="-16" id="AOB-Vh-LCW"/>
+                            <constraint firstItem="dUy-u0-cpJ" firstAttribute="top" secondItem="Eqo-HO-I3a" secondAttribute="topMargin" id="N2r-sq-hgS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dUy-u0-cpJ" secondAttribute="trailing" constant="-16" id="SHC-Bd-aY9"/>
+                            <constraint firstItem="Whn-YQ-dcb" firstAttribute="top" secondItem="dUy-u0-cpJ" secondAttribute="bottom" id="mCO-ml-ACx"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="TEx-Im-4CL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00D-2u-9QJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175" y="1099"/>
+            <point key="canvasLocation" x="2005" y="860"/>
         </scene>
         <!--Starting View Controller i Phone-->
         <scene sceneID="DuG-cB-M2R">
@@ -117,12 +145,49 @@
                     <view key="view" contentMode="scaleToFill" id="lyP-u1-hvf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wWH-Ix-FAY" userLabel="Image View - background">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l95-d2-cCi" userLabel="Button - LogIn">
+                                <rect key="frame" x="479" y="540" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2ga-c5-RcP"/>
+                                    <constraint firstAttribute="width" constant="100" id="oPa-4J-GCa"/>
+                                </constraints>
+                                <state key="normal" title="LogIn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6Ri-19-CBA" kind="presentation" id="pUf-r1-CEV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="wWH-Ix-FAY" secondAttribute="trailing" constant="-16" id="3dX-hM-jld"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l95-d2-cCi" secondAttribute="trailing" constant="5" id="5kK-2u-Ens"/>
+                            <constraint firstItem="wWH-Ix-FAY" firstAttribute="top" secondItem="lyP-u1-hvf" secondAttribute="topMargin" id="9V3-Pj-tHz"/>
+                            <constraint firstItem="wWH-Ix-FAY" firstAttribute="leading" secondItem="lyP-u1-hvf" secondAttribute="leadingMargin" constant="-16" id="DWx-mM-dlb"/>
+                            <constraint firstAttribute="centerX" secondItem="l95-d2-cCi" secondAttribute="centerX" id="LQw-JX-t30"/>
+                            <constraint firstItem="uUW-p4-o4Q" firstAttribute="top" secondItem="l95-d2-cCi" secondAttribute="bottom" constant="30" id="p4E-gV-nwJ"/>
+                            <constraint firstItem="uUW-p4-o4Q" firstAttribute="top" secondItem="wWH-Ix-FAY" secondAttribute="bottom" id="sCb-tr-ucK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="LQw-JX-t30"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="wWH-Ix-FAY" id="yDw-E6-L8b"/>
+                        <outlet property="logInButton" destination="l95-d2-cCi" id="MLJ-qu-ANS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RuB-Ou-uWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="525" y="1107"/>
+            <point key="canvasLocation" x="648" y="860"/>
         </scene>
     </scenes>
 </document>

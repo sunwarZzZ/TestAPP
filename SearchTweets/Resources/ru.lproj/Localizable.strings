@@ -1,0 +1,11 @@
+/* 
+  Localized.strings
+  SearchTweets
+
+  Created by aleksei on 26.01.15.
+  Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
+*/
+
+"LogIn" = "Войти";
+"Avtorization" = "Авторизация";
+"Cancel" = "Отмена";

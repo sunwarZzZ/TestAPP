@@ -32,8 +32,10 @@
     }
     else
     {
-        [self performSegueWithIdentifier:kShowAvtorizationSegue sender:self];
+        [self performSegueWithIdentifier:kShowStartSegue sender:self];
     }
 }
+
+
 
 @end

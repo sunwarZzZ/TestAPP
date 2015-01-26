@@ -21,10 +21,10 @@
 		9D51DD801A765621003E2D49 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D51DD7E1A765621003E2D49 /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9D51DD831A76563C003E2D49 /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D51DD811A76563C003E2D49 /* NSURL+Base.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9D51DD871A765685003E2D49 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D51DD851A765685003E2D49 /* Base64Transcoder.c */; };
+		9D51DD9B1A765BB2003E2D49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D51DD991A765BB2003E2D49 /* Localizable.strings */; };
 		9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7D4161A6D018F003BA035 /* STWebCore.m */; };
 		F1D5649B1A6C6030002692BD /* SearchTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5649A1A6C6030002692BD /* SearchTweetsTests.m */; };
 		F1D564BD1A6C614D002692BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564AC1A6C614D002692BD /* main.m */; };
-		F1D564BE1A6C614D002692BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D564AE1A6C614D002692BD /* LaunchScreen.xib */; };
 		F1D564C01A6C614D002692BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D564B21A6C614D002692BD /* Images.xcassets */; };
 		F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564B51A6C614D002692BD /* AppDelegate.m */; };
 		F1D564C21A6C614D002692BD /* SearchTweets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1D564B71A6C614D002692BD /* SearchTweets.xcdatamodeld */; };
@@ -87,6 +87,10 @@
 		9D51DD821A76563C003E2D49 /* NSURL+Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Base.h"; sourceTree = "<group>"; };
 		9D51DD851A765685003E2D49 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		9D51DD861A765685003E2D49 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		9D51DD9A1A765BB2003E2D49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9D51DD9C1A765BBE003E2D49 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9D51DD9E1A765C6B003E2D49 /* STMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMacros.h; sourceTree = "<group>"; };
+		9D51DD9F1A765D12003E2D49 /* SearchTweets-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchTweets-Prefix.pch"; sourceTree = "<group>"; };
 		9DC7D4151A6D018F003BA035 /* STWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STWebCore.h; sourceTree = "<group>"; };
 		9DC7D4161A6D018F003BA035 /* STWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWebCore.m; sourceTree = "<group>"; };
 		F1D564781A6C6030002692BD /* SearchTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +99,6 @@
 		F1D5649A1A6C6030002692BD /* SearchTweetsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTweetsTests.m; sourceTree = "<group>"; };
 		F1D564AB1A6C614D002692BD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1D564AC1A6C614D002692BD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F1D564AF1A6C614D002692BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F1D564B21A6C614D002692BD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1D564B41A6C614D002692BD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1D564B51A6C614D002692BD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -204,6 +207,14 @@
 			path = Crypto;
 			sourceTree = "<group>";
 		};
+		9D51DD9D1A765C5A003E2D49 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9D51DD9E1A765C6B003E2D49 /* STMacros.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		9DC7D4141A6D013B003BA035 /* WebCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +315,7 @@
 		F1D564AA1A6C614D002692BD /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9D51DD9F1A765D12003E2D49 /* SearchTweets-Prefix.pch */,
 				F1D564AB1A6C614D002692BD /* Info.plist */,
 				F1D564AC1A6C614D002692BD /* main.m */,
 			);
@@ -313,7 +325,7 @@
 		F1D564AD1A6C614D002692BD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F1D564AE1A6C614D002692BD /* LaunchScreen.xib */,
+				9D51DD991A765BB2003E2D49 /* Localizable.strings */,
 				F1D564B21A6C614D002692BD /* Images.xcassets */,
 			);
 			path = Resources;
@@ -324,6 +336,7 @@
 			children = (
 				F1D564B41A6C614D002692BD /* AppDelegate.h */,
 				F1D564B51A6C614D002692BD /* AppDelegate.m */,
+				9D51DD9D1A765C5A003E2D49 /* Utils */,
 				F1D564D01A6C67F6002692BD /* AbstractClasses */,
 				F1D565211A6D9807002692BD /* Managers */,
 				F1D5651F1A6D9648002692BD /* Constans */,
@@ -573,7 +586,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = F1D5646F1A6C6030002692BD;
 			productRefGroup = F1D564791A6C6030002692BD /* Products */;
@@ -592,9 +605,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D564C01A6C614D002692BD /* Images.xcassets in Resources */,
+				9D51DD9B1A765BB2003E2D49 /* Localizable.strings in Resources */,
 				F1D564C41A6C62DA002692BD /* Storyboard_iPhone.storyboard in Resources */,
 				F1D564C61A6C62E1002692BD /* Storyboard_iPad.storyboard in Resources */,
-				F1D564BE1A6C614D002692BD /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,12 +679,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F1D564AE1A6C614D002692BD /* LaunchScreen.xib */ = {
+		9D51DD991A765BB2003E2D49 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F1D564AF1A6C614D002692BD /* Base */,
+				9D51DD9A1A765BB2003E2D49 /* en */,
+				9D51DD9C1A765BBE003E2D49 /* ru */,
 			);
-			name = LaunchScreen.xib;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -759,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "SearchTweets/Other/SearchTweets-Prefix.pch";
 				INFOPLIST_FILE = SearchTweets/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -769,6 +784,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "SearchTweets/Other/SearchTweets-Prefix.pch";
 				INFOPLIST_FILE = SearchTweets/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
