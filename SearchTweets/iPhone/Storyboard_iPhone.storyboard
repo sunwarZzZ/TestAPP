@@ -129,6 +129,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TEx-Im-4CL"/>
+                    <connections>
+                        <outlet property="webView" destination="dUy-u0-cpJ" id="b5n-OG-zim"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00D-2u-9QJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
