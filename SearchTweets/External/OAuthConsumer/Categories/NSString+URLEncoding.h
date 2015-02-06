@@ -1,5 +1,5 @@
 //
-//  NSMutableURLRequest+Parameters.h
+//  NSString+URLEncoding.h
 //
 //  Created by Jon Crosby on 10/19/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
@@ -22,14 +22,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+
 #import <Foundation/Foundation.h>
-#import "OARequestParameter.h"
-#import "NSURL+Base.h"
 
 
-@interface NSMutableURLRequest (OAParameterAdditions)
+@interface NSString (OAURLEncodingAdditions)
 
-- (NSArray *)parameters;
-- (void)setParameters:(NSArray *)parameters;
-
+- (NSString *)oa_encodedURLString;
+- (NSString *)oa_encodedURLParameterString;
+- (NSString *)oa_decodedURLString;
+- (NSString *)oa_removeQuotes;
 @end

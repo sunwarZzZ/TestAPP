@@ -1,6 +1,5 @@
 //
-//  NSURL+Base.m
-//  OAuthConsumer
+//  NSMutableURLRequest+Parameters.h
 //
 //  Created by Jon Crosby on 10/19/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
@@ -23,16 +22,16 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
+#import <Foundation/Foundation.h>
+#import "OARequestParameter.h"
 #import "NSURL+Base.h"
 
 
-@implementation NSURL (OABaseAdditions)
+@interface NSMutableURLRequest (OAParameterAdditions)
 
-- (NSString *)URLStringWithoutQuery 
-{
-    NSArray *parts = [[self absoluteString] componentsSeparatedByString:@"?"];
-    return [parts objectAtIndex:0];
-}
+@property(nonatomic, retain) NSArray *oa_parameters;
+
+- (void)oa_setHTTPBodyWithString:(NSString *)body;
+- (void)oa_attachFileWithName:(NSString *)name filename:(NSString*)filename contentType:(NSString *)contentType data:(NSData*)data;
 
 @end

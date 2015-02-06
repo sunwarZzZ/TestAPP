@@ -8,10 +8,10 @@
 
 #import "STAvtorizationViewController.h"
 #import "OAuthConsumer.h"
+#import "NSMutableURLRequest+Parameters.h"
 
-static NSString *const CLIENT_ID = @"C53gFbMswkpfUgZ07EdU2N5wg";
-static NSString *const SECRET_KEY = @"mwusu3Fb9P68Uccy46MexcQnVeZkMIpJ0PSNcwCrnldrjGB1oL";
-static NSString *const CALLBACK_URL = @"http://codegerms.com/callback";
+static NSString *const CONSUMER_KEY = @"C53gFbMswkpfUgZ07EdU2N5wg";
+static NSString *const CONSUMER_SECRET_KEY = @"mwusu3Fb9P68Uccy46MexcQnVeZkMIpJ0PSNcwCrnldrjGB1oL";
 
 @interface STAvtorizationViewController()
 
@@ -33,18 +33,15 @@ static NSString *const CALLBACK_URL = @"http://codegerms.com/callback";
     [super viewDidLoad];
     [self p_setupUI];
     
-    self.consumer =  [[OAConsumer alloc] initWithKey:CLIENT_ID secret:SECRET_KEY callbackURL:CALLBACK_URL];
-    NSURL *requestTokenURL = [NSURL URLWithString:@"https:api.twitter.com/oauth/request_token"];
+    self.consumer =  [[OAConsumer alloc] initWithKey:CONSUMER_KEY secret:CONSUMER_SECRET_KEY];
+    NSURL *requestTokenURL = [NSURL URLWithString:@"https://api.twitter.com/oauth/request_token"];
     OAMutableURLRequest* requestTokenRequest = [[OAMutableURLRequest alloc] initWithURL:requestTokenURL
                                                                                consumer:self.consumer
                                                                                   token:nil
                                                                                   realm:nil
                                                                       signatureProvider:nil];
     
-    OARequestParameter* callbackParam = [[OARequestParameter alloc] initWithName:@"oauth_callback" value:CALLBACK_URL];
     [requestTokenRequest setHTTPMethod:@"POST"];
-    [requestTokenRequest setParameters:[NSArray arrayWithObject:callbackParam]];
-   
     OADataFetcher* dataFetcher = [[OADataFetcher alloc] init];
     [dataFetcher fetchDataWithRequest:requestTokenRequest
                              delegate:self
@@ -74,8 +71,8 @@ static NSString *const CALLBACK_URL = @"http://codegerms.com/callback";
                                                                    signatureProvider:nil];
     NSString* oauthToken = self.requestToken.key;
     OARequestParameter* oauthTokenParam = [[OARequestParameter alloc] initWithName:@"oauth_token" value:oauthToken];
-    [authorizeRequest setParameters:[NSArray arrayWithObject:oauthTokenParam]];
-    
+    authorizeRequest.oa_parameters = [NSArray arrayWithObject:oauthTokenParam];
+
     [self.webView loadRequest:authorizeRequest];
 }
 

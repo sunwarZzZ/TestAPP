@@ -31,12 +31,12 @@
 @protected
 	NSString *key;
 	NSString *secret;
-	NSString *callbackURL;
 }
-@property(retain) NSString *key;
-@property(retain) NSString *secret;
-@property(retain) NSString *callbackURL;
+@property(copy, readwrite) NSString *key;
+@property(copy, readwrite) NSString *secret;
 
-- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret callbackURL:(NSString *)aCallbackURL;
+- (id)initWithKey:(const NSString *)aKey secret:(const NSString *)aSecret;
+
+- (BOOL)isEqualToConsumer:(OAConsumer *)aConsumer;
 
 @end

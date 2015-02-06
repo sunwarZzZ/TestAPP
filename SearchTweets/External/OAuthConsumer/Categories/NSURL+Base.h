@@ -1,5 +1,6 @@
 //
-//  NSString+URLEncoding.h
+//  NSURL+Base.h
+//  OAuthConsumer
 //
 //  Created by Jon Crosby on 10/19/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
@@ -26,9 +27,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (OAURLEncodingAdditions)
+@interface NSURL (OABaseAdditions)
 
-- (NSString *)URLEncodedString;
-- (NSString *)URLDecodedString;
+- (NSString *)oa_URLStringWithoutQuery;
 
 @end

@@ -28,24 +28,32 @@
 
 
 @implementation OAServiceTicket
-@synthesize request, response, didSucceed;
+@synthesize request, response, data, didSucceed;
 
-- (id)initWithRequest:(OAMutableURLRequest *)aRequest response:(NSURLResponse *)aResponse didSucceed:(BOOL)success 
-{
-    if (self = [super init])
-	{
-		self.request = aRequest;
-		self.response = aResponse;
-		self.didSucceed = success;
+- (id)initWithRequest:(OAMutableURLRequest *)aRequest response:(NSURLResponse *)aResponse data:(NSData *)aData didSucceed:(BOOL)success {
+    if ((self = [super init])) {
+		request = [aRequest retain];
+		response = [aResponse retain];
+		data = [aData retain];
+		didSucceed = success;
 	}
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
 	[request release];
 	[response release];
+	[data release];
 	[super dealloc];
+}
+
+- (NSString *)body
+{
+	if (!data) {
+		return nil;
+	}
+	
+	return [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 }
 
 @end
