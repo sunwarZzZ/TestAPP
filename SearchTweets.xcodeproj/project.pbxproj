@@ -14,6 +14,8 @@
 		9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B731A89FF1B0005E8C9 /* UIAlertView+Blocks.m */; };
 		9D51DD9B1A765BB2003E2D49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D51DD991A765BB2003E2D49 /* Localizable.strings */; };
 		9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7D4161A6D018F003BA035 /* STWebCore.m */; };
+		9DCE35761A8A1FB6009FF978 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE35751A8A1FB6009FF978 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9DCE357A1A8A22E4009FF978 /* STUtilsServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE35791A8A22E4009FF978 /* STUtilsServerAPI.m */; };
 		F1D5649B1A6C6030002692BD /* SearchTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5649A1A6C6030002692BD /* SearchTweetsTests.m */; };
 		F1D564BD1A6C614D002692BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564AC1A6C614D002692BD /* main.m */; };
 		F1D564C01A6C614D002692BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D564B21A6C614D002692BD /* Images.xcassets */; };
@@ -83,6 +85,10 @@
 		9D51DD9F1A765D12003E2D49 /* SearchTweets-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchTweets-Prefix.pch"; sourceTree = "<group>"; };
 		9DC7D4151A6D018F003BA035 /* STWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STWebCore.h; sourceTree = "<group>"; };
 		9DC7D4161A6D018F003BA035 /* STWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWebCore.m; sourceTree = "<group>"; };
+		9DCE35741A8A1FB6009FF978 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		9DCE35751A8A1FB6009FF978 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		9DCE35781A8A22E4009FF978 /* STUtilsServerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STUtilsServerAPI.h; sourceTree = "<group>"; };
+		9DCE35791A8A22E4009FF978 /* STUtilsServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STUtilsServerAPI.m; sourceTree = "<group>"; };
 		F1D564781A6C6030002692BD /* SearchTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D564941A6C6030002692BD /* SearchTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D564991A6C6030002692BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 		9D51DD2E1A765328003E2D49 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				9DCE35731A8A1FB6009FF978 /* KeyChainItemWrapper */,
 				9D4F0B6C1A89FF1B0005E8C9 /* UIAlertView-Blocks */,
 				F1E1BCE51A8496A0004D7FAD /* OAuthConsumer */,
 			);
@@ -230,6 +237,24 @@
 				9DC7D4161A6D018F003BA035 /* STWebCore.m */,
 			);
 			path = WebCore;
+			sourceTree = "<group>";
+		};
+		9DCE35731A8A1FB6009FF978 /* KeyChainItemWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				9DCE35741A8A1FB6009FF978 /* KeychainItemWrapper.h */,
+				9DCE35751A8A1FB6009FF978 /* KeychainItemWrapper.m */,
+			);
+			path = KeyChainItemWrapper;
+			sourceTree = "<group>";
+		};
+		9DCE35771A8A22BD009FF978 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9DCE35781A8A22E4009FF978 /* STUtilsServerAPI.h */,
+				9DCE35791A8A22E4009FF978 /* STUtilsServerAPI.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F1D5646F1A6C6030002692BD = {
@@ -367,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				9D4F0B6B1A89F8910005E8C9 /* STServerAPIConstans.h */,
+				9DCE35771A8A22BD009FF978 /* Utils */,
 				9D4F0B671A89F42E0005E8C9 /* RequestManager */,
 				9DC7D4141A6D013B003BA035 /* WebCore */,
 			);
@@ -711,6 +737,7 @@
 				F1E1BD1D1A8496A0004D7FAD /* OARequestParameter.m in Sources */,
 				F1E1BD1C1A8496A0004D7FAD /* OAProblem.m in Sources */,
 				F1E1BD1E1A8496A0004D7FAD /* OAServiceTicket.m in Sources */,
+				9DCE357A1A8A22E4009FF978 /* STUtilsServerAPI.m in Sources */,
 				F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */,
 				F1D564F01A6C6900002692BD /* STStartingViewController.m in Sources */,
 				F1E1BD0F1A8496A0004D7FAD /* NSMutableURLRequest+Parameters.m in Sources */,
@@ -718,6 +745,7 @@
 				9D4F0B6A1A89F4400005E8C9 /* STRequestManager.m in Sources */,
 				F1E1BD211A8496A0004D7FAD /* OATokenManager.m in Sources */,
 				9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */,
+				9DCE35761A8A1FB6009FF978 /* KeychainItemWrapper.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
 				F1E1BD101A8496A0004D7FAD /* NSString+URLEncoding.m in Sources */,
 				F1E1BD191A8496A0004D7FAD /* OAHMAC_SHA1SignatureProvider.m in Sources */,

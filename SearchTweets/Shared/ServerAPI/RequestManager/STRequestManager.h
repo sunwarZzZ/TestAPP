@@ -16,7 +16,6 @@
                                                      NSString *const accessTokenSecret,
                                                      NSError *const error))completion;
 
-- (BOOL)isAvtorizationRequest:(NSURLRequest *)request;
-- (NSString *)oauthVerifierFromRequest:(NSURLRequest *)request;
+
 
 @end

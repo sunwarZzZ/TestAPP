@@ -7,12 +7,13 @@
 //
 
 #import "STSettingsManager.h"
+#import "STUtilsServerAPI.h"
 
 @implementation STSettingsManager
 
 + (BOOL)isAvtorization
 {
-    return NO;
+    return [STUtilsServerAPI accessToken] &&  [STUtilsServerAPI accessTokenSecret] ? YES : NO;
 }
 
 @end

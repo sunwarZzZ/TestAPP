@@ -66,30 +66,7 @@
 
 }
 
-- (BOOL)isAvtorizationRequest:(NSURLRequest *)request
-{
-    NSString *requestText = [NSString stringWithFormat:@"%@",request];
-    NSRange textRange = [[requestText lowercaseString] rangeOfString:[CALLBACK_URL lowercaseString]];
-    return textRange.location != NSNotFound ? YES : NO;
-}
 
-- (NSString *)oauthVerifierFromRequest:(NSURLRequest *)request
-{
-    NSString *oauthVerifer = nil;
-    NSArray* urlParams = [[[request URL] query] componentsSeparatedByString:@"&"];
-    for (NSString *param in urlParams)
-    {
-        NSArray *keyValue = [param componentsSeparatedByString:@"="];
-        NSString *key = [keyValue firstObject];
-
-        if ([key isEqualToString:OAUTH_VERIFER_KEY] && keyValue.count > 1)
-        {
-            oauthVerifer = [keyValue objectAtIndex:1];
-            break;
-        }
-    }
-    return oauthVerifer;
-}
 
 #pragma mark - OADataFetcher handler
 - (void)didReceiveRequestToken:(OAServiceTicket*)ticket data:(NSData*)data

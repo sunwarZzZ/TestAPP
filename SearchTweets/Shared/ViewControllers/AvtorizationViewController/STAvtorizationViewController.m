@@ -9,6 +9,7 @@
 #import "STAvtorizationViewController.h"
 #import "STRequestManager.h"
 #import "UIAlertView+Blocks.h"
+#import "STUtilsServerAPI.h"
 
 @interface STAvtorizationViewController()<UIWebViewDelegate>
 
@@ -56,18 +57,20 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     typeof(self) __weak weakSelf = self;
-    if([self.requestManager isAvtorizationRequest:request])
+    if([STUtilsServerAPI isAvtorizationRequest:request])
     {
         [self p_showProgress];
-        [self.requestManager requestAccessTokenWithOAuthVerifier:[self.requestManager oauthVerifierFromRequest:request]
+        [self.requestManager requestAccessTokenWithOAuthVerifier:[STUtilsServerAPI oauthVerifierFromRequest:request]
                                                       completion:^(NSString *const accessToken, NSString *const accessTokenSecret, NSError *const error) {
             
             [weakSelf p_hideProgress];
             [weakSelf.webView removeFromSuperview];
                                                           
-            if(error == nil)
+            if(error == nil && accessToken && accessTokenSecret)
             {
-                
+                [STUtilsServerAPI saveAccessToken:accessToken];
+                [STUtilsServerAPI saveAccessTokenSecret:accessTokenSecret];
+                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
             }
             else
             {
