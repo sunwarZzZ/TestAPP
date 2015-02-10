@@ -7,19 +7,15 @@
 //
 
 #import "STAvtorizationViewController.h"
-#import "OAuthConsumer.h"
-#import "NSMutableURLRequest+Parameters.h"
+#import "STRequestManager.h"
+#import "UIAlertView+Blocks.h"
 
-static NSString *const CONSUMER_KEY = @"C53gFbMswkpfUgZ07EdU2N5wg";
-static NSString *const CONSUMER_SECRET_KEY = @"mwusu3Fb9P68Uccy46MexcQnVeZkMIpJ0PSNcwCrnldrjGB1oL";
-
-@interface STAvtorizationViewController()
+@interface STAvtorizationViewController()<UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) IBOutlet UIView *progressView;
 
-@property (nonatomic, strong) OAConsumer *consumer;
-@property (nonatomic, strong) OAToken *requestToken;
-@property (nonatomic, strong) OAToken *accessToken;
+@property (nonatomic, strong) STRequestManager *requestManager;
 
 @end
 
@@ -27,28 +23,27 @@ static NSString *const CONSUMER_SECRET_KEY = @"mwusu3Fb9P68Uccy46MexcQnVeZkMIpJ0
 
 
 #pragma mark - ViewController methods
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if(self = [super initWithCoder:aDecoder])
+    {
+        _requestManager = [STRequestManager new];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _webView.delegate = self;
     [self p_setupUI];
-    
-    self.consumer =  [[OAConsumer alloc] initWithKey:CONSUMER_KEY secret:CONSUMER_SECRET_KEY];
-    NSURL *requestTokenURL = [NSURL URLWithString:@"https://api.twitter.com/oauth/request_token"];
-    OAMutableURLRequest* requestTokenRequest = [[OAMutableURLRequest alloc] initWithURL:requestTokenURL
-                                                                               consumer:self.consumer
-                                                                                  token:nil
-                                                                                  realm:nil
-                                                                      signatureProvider:nil];
-    
-    [requestTokenRequest setHTTPMethod:@"POST"];
-    OADataFetcher* dataFetcher = [[OADataFetcher alloc] init];
-    [dataFetcher fetchDataWithRequest:requestTokenRequest
-                             delegate:self
-                    didFinishSelector:@selector(didReceiveRequestToken:data:)
-                      didFailSelector:@selector(didFailOAuth:error:)];
-    
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self p_requestAvtorization];
 }
 
 #pragma mark - IBActions
@@ -57,34 +52,88 @@ static NSString *const CONSUMER_SECRET_KEY = @"mwusu3Fb9P68Uccy46MexcQnVeZkMIpJ0
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - OADataFetcher handler
-
-- (void)didReceiveRequestToken:(OAServiceTicket*)ticket data:(NSData*)data {
-    NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    self.requestToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
-    
-    NSURL* authorizeUrl = [NSURL URLWithString:@"https://api.twitter.com/oauth/authorize"];
-    OAMutableURLRequest* authorizeRequest = [[OAMutableURLRequest alloc] initWithURL:authorizeUrl
-                                                                            consumer:nil
-                                                                               token:nil
-                                                                               realm:nil
-                                                                   signatureProvider:nil];
-    NSString* oauthToken = self.requestToken.key;
-    OARequestParameter* oauthTokenParam = [[OARequestParameter alloc] initWithName:@"oauth_token" value:oauthToken];
-    authorizeRequest.oa_parameters = [NSArray arrayWithObject:oauthTokenParam];
-
-    [self.webView loadRequest:authorizeRequest];
-}
-
-- (void)didFailOAuth:(OAServiceTicket*)ticket error:(NSError *)error
+#pragma mark - UIWebView delegate
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"%@", error);
+    typeof(self) __weak weakSelf = self;
+    if([self.requestManager isAvtorizationRequest:request])
+    {
+        [self p_showProgress];
+        [self.requestManager requestAccessTokenWithOAuthVerifier:[self.requestManager oauthVerifierFromRequest:request]
+                                                      completion:^(NSString *const accessToken, NSString *const accessTokenSecret, NSError *const error) {
+            
+            [weakSelf p_hideProgress];
+            [weakSelf.webView removeFromSuperview];
+                                                          
+            if(error == nil)
+            {
+                
+            }
+            else
+            {
+                [weakSelf p_showAlertFailRequestAvtorization];
+            }
+        }];
+    }
+    return YES;
 }
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self p_hideProgress];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+
+}
+
 
 #pragma mark - private methods
 - (void)p_setupUI
 {
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(leftBarButtonPressed:)];
 }
+
+- (void)p_requestAvtorization
+{
+    typeof(self) __weak weakSelf = self;
+    [self.requestManager requestAvtorizationToken:^(NSURLRequest *const requestToken, NSError *const error)
+    {
+        if(error == nil)
+        {
+            [weakSelf.webView loadRequest:requestToken];
+        }
+        else
+        {
+            [self p_showAlertFailRequestAvtorization];
+        }
+    }];
+}
+
+- (void)p_showAlertFailRequestAvtorization
+{
+    RIButtonItem *okButton = [RIButtonItem itemWithLabel:@"Ok" action:^
+    {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [[[UIAlertView alloc] initWithTitle:STLocalizedString(@"Warning") message:STLocalizedString(@"FailRequestAvtorization") cancelButtonItem:okButton otherButtonItems:nil]show];
+}
+
+- (void)p_hideProgress
+{
+    self.progressView.hidden = YES;
+}
+
+- (void)p_showProgress
+{
+    self.progressView.hidden = NO;
+}
+
 
 @end

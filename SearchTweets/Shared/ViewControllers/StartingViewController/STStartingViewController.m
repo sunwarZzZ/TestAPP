@@ -22,7 +22,7 @@
 {
     if(self = [super initWithCoder:aDecoder])
     {
-        self.title = STLocalizedString(@"Avtorization");
+    
     }
     return self;
 }

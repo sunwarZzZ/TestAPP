@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D4F0B6A1A89F4400005E8C9 /* STRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B691A89F4400005E8C9 /* STRequestManager.m */; };
+		9D4F0B741A89FF1B0005E8C9 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B6D1A89FF1B0005E8C9 /* README.md */; };
+		9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B6F1A89FF1B0005E8C9 /* RIButtonItem.m */; };
+		9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B711A89FF1B0005E8C9 /* UIActionSheet+Blocks.m */; };
+		9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B731A89FF1B0005E8C9 /* UIAlertView+Blocks.m */; };
 		9D51DD9B1A765BB2003E2D49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D51DD991A765BB2003E2D49 /* Localizable.strings */; };
 		9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7D4161A6D018F003BA035 /* STWebCore.m */; };
 		F1D5649B1A6C6030002692BD /* SearchTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5649A1A6C6030002692BD /* SearchTweetsTests.m */; };
@@ -62,6 +67,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D4F0B681A89F4400005E8C9 /* STRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRequestManager.h; sourceTree = "<group>"; };
+		9D4F0B691A89F4400005E8C9 /* STRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRequestManager.m; sourceTree = "<group>"; };
+		9D4F0B6B1A89F8910005E8C9 /* STServerAPIConstans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STServerAPIConstans.h; sourceTree = "<group>"; };
+		9D4F0B6D1A89FF1B0005E8C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9D4F0B6E1A89FF1B0005E8C9 /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
+		9D4F0B6F1A89FF1B0005E8C9 /* RIButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
+		9D4F0B701A89FF1B0005E8C9 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		9D4F0B711A89FF1B0005E8C9 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
+		9D4F0B721A89FF1B0005E8C9 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		9D4F0B731A89FF1B0005E8C9 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		9D51DD9A1A765BB2003E2D49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D51DD9C1A765BBE003E2D49 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D51DD9E1A765C6B003E2D49 /* STMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMacros.h; sourceTree = "<group>"; };
@@ -168,9 +183,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D4F0B671A89F42E0005E8C9 /* RequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				9D4F0B681A89F4400005E8C9 /* STRequestManager.h */,
+				9D4F0B691A89F4400005E8C9 /* STRequestManager.m */,
+			);
+			path = RequestManager;
+			sourceTree = "<group>";
+		};
+		9D4F0B6C1A89FF1B0005E8C9 /* UIAlertView-Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				9D4F0B6D1A89FF1B0005E8C9 /* README.md */,
+				9D4F0B6E1A89FF1B0005E8C9 /* RIButtonItem.h */,
+				9D4F0B6F1A89FF1B0005E8C9 /* RIButtonItem.m */,
+				9D4F0B701A89FF1B0005E8C9 /* UIActionSheet+Blocks.h */,
+				9D4F0B711A89FF1B0005E8C9 /* UIActionSheet+Blocks.m */,
+				9D4F0B721A89FF1B0005E8C9 /* UIAlertView+Blocks.h */,
+				9D4F0B731A89FF1B0005E8C9 /* UIAlertView+Blocks.m */,
+			);
+			path = "UIAlertView-Blocks";
+			sourceTree = "<group>";
+		};
 		9D51DD2E1A765328003E2D49 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				9D4F0B6C1A89FF1B0005E8C9 /* UIAlertView-Blocks */,
 				F1E1BCE51A8496A0004D7FAD /* OAuthConsumer */,
 			);
 			path = External;
@@ -327,6 +366,8 @@
 		F1D564B91A6C614D002692BD /* ServerAPI */ = {
 			isa = PBXGroup;
 			children = (
+				9D4F0B6B1A89F8910005E8C9 /* STServerAPIConstans.h */,
+				9D4F0B671A89F42E0005E8C9 /* RequestManager */,
 				9DC7D4141A6D013B003BA035 /* WebCore */,
 			);
 			path = ServerAPI;
@@ -657,6 +698,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */,
 				F1E1BD131A8496A0004D7FAD /* hmac.c in Sources */,
 				F1D5651B1A6D92E0002692BD /* STNavigationController_iPad.m in Sources */,
 				F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */,
@@ -665,6 +707,7 @@
 				F1E1BD151A8496A0004D7FAD /* OAAttachment.m in Sources */,
 				F1E1BD201A8496A0004D7FAD /* OAToken.m in Sources */,
 				F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */,
+				9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */,
 				F1E1BD1D1A8496A0004D7FAD /* OARequestParameter.m in Sources */,
 				F1E1BD1C1A8496A0004D7FAD /* OAProblem.m in Sources */,
 				F1E1BD1E1A8496A0004D7FAD /* OAServiceTicket.m in Sources */,
@@ -672,12 +715,14 @@
 				F1D564F01A6C6900002692BD /* STStartingViewController.m in Sources */,
 				F1E1BD0F1A8496A0004D7FAD /* NSMutableURLRequest+Parameters.m in Sources */,
 				F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */,
+				9D4F0B6A1A89F4400005E8C9 /* STRequestManager.m in Sources */,
 				F1E1BD211A8496A0004D7FAD /* OATokenManager.m in Sources */,
 				9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
 				F1E1BD101A8496A0004D7FAD /* NSString+URLEncoding.m in Sources */,
 				F1E1BD191A8496A0004D7FAD /* OAHMAC_SHA1SignatureProvider.m in Sources */,
 				F1E1BD141A8496A0004D7FAD /* sha1.c in Sources */,
+				9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */,
 				F1E1BD171A8496A0004D7FAD /* OAConsumer.m in Sources */,
 				F1D564FC1A6C6A57002692BD /* STStartingViewController_iPad.m in Sources */,
 				F1E1BD181A8496A0004D7FAD /* OADataFetcher.m in Sources */,
@@ -688,6 +733,7 @@
 				F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */,
 				F1E1BD1A1A8496A0004D7FAD /* OAMutableURLRequest.m in Sources */,
 				F1E1BD121A8496A0004D7FAD /* Base64Transcoder.c in Sources */,
+				9D4F0B741A89FF1B0005E8C9 /* README.md in Sources */,
 				F1D564F61A6C69D2002692BD /* STStartingViewController_iPhone.m in Sources */,
 				F1D564C21A6C614D002692BD /* SearchTweets.xcdatamodeld in Sources */,
 				F1D564BD1A6C614D002692BD /* main.m in Sources */,

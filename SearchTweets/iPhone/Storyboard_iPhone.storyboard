@@ -119,17 +119,35 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOe-UW-toD" userLabel="View - progress">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Nwl-si-rbs">
+                                        <rect key="frame" x="290" y="258" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="Nwl-si-rbs" secondAttribute="centerY" id="eZg-3P-LZx"/>
+                                    <constraint firstAttribute="centerX" secondItem="Nwl-si-rbs" secondAttribute="centerX" id="kav-dk-xmQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dUy-u0-cpJ" firstAttribute="leading" secondItem="Eqo-HO-I3a" secondAttribute="leadingMargin" constant="-16" id="AOB-Vh-LCW"/>
+                            <constraint firstItem="GOe-UW-toD" firstAttribute="leading" secondItem="Eqo-HO-I3a" secondAttribute="leading" id="Ena-He-PKq"/>
                             <constraint firstItem="dUy-u0-cpJ" firstAttribute="top" secondItem="Eqo-HO-I3a" secondAttribute="topMargin" id="N2r-sq-hgS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dUy-u0-cpJ" secondAttribute="trailing" constant="-16" id="SHC-Bd-aY9"/>
+                            <constraint firstAttribute="trailing" secondItem="GOe-UW-toD" secondAttribute="trailing" id="agZ-8P-fOe"/>
+                            <constraint firstItem="Whn-YQ-dcb" firstAttribute="top" secondItem="GOe-UW-toD" secondAttribute="bottom" id="iRC-sH-kaQ"/>
                             <constraint firstItem="Whn-YQ-dcb" firstAttribute="top" secondItem="dUy-u0-cpJ" secondAttribute="bottom" id="mCO-ml-ACx"/>
+                            <constraint firstItem="GOe-UW-toD" firstAttribute="top" secondItem="c9e-7q-Szz" secondAttribute="bottom" id="vUE-eg-ZX7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TEx-Im-4CL"/>
                     <connections>
+                        <outlet property="progressView" destination="GOe-UW-toD" id="p0I-JO-MjD"/>
                         <outlet property="webView" destination="dUy-u0-cpJ" id="b5n-OG-zim"/>
                     </connections>
                 </viewController>

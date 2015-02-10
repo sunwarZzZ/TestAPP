@@ -9,3 +9,5 @@
 "LogIn" = "Войти";
 "Avtorization" = "Авторизация";
 "Cancel" = "Отмена";
+"Warning" = "Внимание";
+"FailRequestAvtorization" = "Ошибка запроса авторизации";

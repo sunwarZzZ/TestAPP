@@ -9,3 +9,5 @@
 "LogIn" = "Log in";
 "Avtorization" = "Avtorization";
 "Cancel" = "Cancel";
+"Warning" = "Warning";
+"FailRequestAvtorization" = "Fail avtorization request";
