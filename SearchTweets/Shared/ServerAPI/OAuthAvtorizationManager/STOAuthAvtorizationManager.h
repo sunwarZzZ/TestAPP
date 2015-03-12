@@ -12,15 +12,9 @@
 
 + (BOOL)isAvtorization;
 
-
-+ (BOOL)isAvtorizationRequest:(NSURLRequest *)request;
-+ (NSString *)oauthVerifierFromRequest:(NSURLRequest *)request;
-
 - (void)requestAvtorizationToken:(void(^)(NSURLRequest *const requestToken, NSError *const error))comletion;
 - (void)requestAccessTokenWithOAuthVerifier:(NSString *)verifier
-                                 completion:(void(^)(NSString *const accessToken,
-                                                     NSString *const accessTokenSecret,
-                                                     NSError *const error))completion;
+                                 completion:(void(^)(BOOL success))completion;
 
 
 

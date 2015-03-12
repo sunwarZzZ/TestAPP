@@ -27,7 +27,7 @@
 #pragma mark - private methods
 - (void)p_selectStartController
 {
-    if(![STOAuthAvtorizationManager isAvtorization])
+    if([STOAuthAvtorizationManager isAvtorization])
     {
         [self performSegueWithIdentifier:kPresentRootControllerSegue sender:self];
     }

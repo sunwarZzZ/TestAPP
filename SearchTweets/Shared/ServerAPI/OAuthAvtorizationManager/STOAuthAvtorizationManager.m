@@ -9,11 +9,12 @@
 #import "STOAuthAvtorizationManager.h"
 #import "OAuthConsumer.h"
 #import "STAPIConstans.h"
+#import "SSKeychain.h"
 
 @interface STOAuthAvtorizationManager()
 
 @property (nonatomic, copy) void(^requestAvtorizationTokenComletion)(NSURLRequest *const, NSError *const);
-@property (nonatomic, copy) void(^requestAccessTokenComletion)(NSString *const accessToken, NSString *const accessTokenSecret,  NSError *const error);
+@property (nonatomic, copy) void(^requestAccessTokenComletion)(BOOL success);
 
 @property (nonatomic, strong) OAConsumer *consumer;
 @property (nonatomic, strong) OAToken *requestToken;
@@ -24,32 +25,7 @@
 
 + (BOOL)isAvtorization
 {
-    return NO;
-}
-
-+ (BOOL)isAvtorizationRequest:(NSURLRequest *)request
-{
-    NSString *requestText = [NSString stringWithFormat:@"%@",request];
-    NSRange textRange = [[requestText lowercaseString] rangeOfString:[CALLBACK_URL lowercaseString]];
-    return textRange.location != NSNotFound ? YES : NO;
-}
-
-+ (NSString *)oauthVerifierFromRequest:(NSURLRequest *)request
-{
-    NSString *oauthVerifer = nil;
-    NSArray* urlParams = [[[request URL] query] componentsSeparatedByString:@"&"];
-    for (NSString *param in urlParams)
-    {
-        NSArray *keyValue = [param componentsSeparatedByString:@"="];
-        NSString *key = [keyValue firstObject];
-        
-        if ([key isEqualToString:OAUTH_VERIFER_KEY] && keyValue.count > 1)
-        {
-            oauthVerifer = [keyValue objectAtIndex:1];
-            break;
-        }
-    }
-    return oauthVerifer;
+    return [SSKeychain passwordForService:CONSUMER_KEY account:@""] && [SSKeychain passwordForService:CONSUMER_SECRET_KEY account:@""] ? YES : NO;
 }
 
 - (void)requestAvtorizationToken:(void (^)(NSURLRequest *const, NSError *const))comletion
@@ -77,9 +53,7 @@
 }
 
 - (void)requestAccessTokenWithOAuthVerifier:(NSString *)verifier
-                                 completion:(void(^)(NSString *const accessToken,
-                                                     NSString *const accessTokenSecret,
-                                                     NSError *const error))completion;
+                                 completion:(void(^)(BOOL success))completion;
 {
     self.requestAccessTokenComletion = completion;
     
@@ -126,9 +100,18 @@
     NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     OAToken *accessToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
     
-    if(accessToken && self.requestAccessTokenComletion)
+    if(self.requestAccessTokenComletion)
     {
-        self.requestAccessTokenComletion(accessToken.key, accessToken.secret, nil);
+        if(accessToken)
+        {
+            [SSKeychain setPassword:accessToken.key forService:CONSUMER_KEY account:@""];
+            [SSKeychain setPassword:accessToken.secret forService:CONSUMER_SECRET_KEY account:@""];
+            self.requestAccessTokenComletion(YES);
+        }
+        else
+        {
+            self.requestAccessTokenComletion(NO);
+        }
         self.requestAccessTokenComletion = nil;
     }
 }
@@ -143,7 +126,7 @@
     
     if(self.requestAccessTokenComletion  != nil)
     {
-        self.requestAccessTokenComletion (nil, nil, error);
+        self.requestAccessTokenComletion (NO);
         self.requestAccessTokenComletion = nil;
     }
 }

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zFM-e9-q9g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zFM-e9-q9g">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller i Phone-->
         <scene sceneID="pMU-I4-8g4">
             <objects>
-                <navigationController id="zFM-e9-q9g" customClass="STNavigationController_iPhone" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="zFM-e9-q9g" customClass="STNavigationController_iPhone" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QnU-hd-3lY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,7 +84,7 @@
         <!--Avtorization View Controller i Phone-->
         <scene sceneID="T1c-kR-JIi">
             <objects>
-                <viewController id="KIV-bU-DAT" customClass="STAvtorizationViewController_iPhone" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="KIV-bU-DAT" customClass="STAvtorizationViewController_iPhone" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9GU-Qc-lWE"/>
                         <viewControllerLayoutGuide type="bottom" id="jTf-I9-0gM"/>
@@ -89,12 +92,119 @@
                     <view key="view" contentMode="scaleToFill" id="YDk-NU-KTV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Q7n-Li-1az" userLabel="Image View ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text_info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wu-uT-aFX">
+                                <rect key="frame" x="267" y="80" width="66" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="q5k-6p-b52"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="q5k-6p-b52"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="q5k-6p-b52"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJO-Rh-BNL" userLabel="Button - avtorization">
+                                <rect key="frame" x="200" y="540" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="R33-IE-2d7"/>
+                                    <constraint firstAttribute="width" constant="200" id="mWd-Nr-PCm"/>
+                                </constraints>
+                                <state key="normal" title="avtorization">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="R33-IE-2d7"/>
+                                        <include reference="mWd-Nr-PCm"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="avtorizationButtonPressed:" destination="KIV-bU-DAT" eventType="touchUpInside" id="TFE-0L-7zH"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Z-Ul-P5i">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <view alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxF-Sk-vCg" userLabel="View - progress">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="iAt-Dc-qA6">
+                                        <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="iAt-Dc-qA6" secondAttribute="centerX" id="33D-pU-gzx"/>
+                                    <constraint firstAttribute="centerY" secondItem="iAt-Dc-qA6" secondAttribute="centerY" id="D5V-sx-F7e"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jTf-I9-0gM" firstAttribute="top" secondItem="Y8Z-Ul-P5i" secondAttribute="bottom" id="62H-KV-Fft"/>
+                            <constraint firstItem="Y8Z-Ul-P5i" firstAttribute="leading" secondItem="YDk-NU-KTV" secondAttribute="leadingMargin" constant="-16" id="AAb-sN-bll"/>
+                            <constraint firstAttribute="centerX" secondItem="6wu-uT-aFX" secondAttribute="centerX" id="CDu-jc-uDH"/>
+                            <constraint firstItem="Q7n-Li-1az" firstAttribute="leading" secondItem="YDk-NU-KTV" secondAttribute="leadingMargin" constant="-16" id="HNc-Sh-Qao"/>
+                            <constraint firstItem="6wu-uT-aFX" firstAttribute="top" secondItem="9GU-Qc-lWE" secondAttribute="bottom" constant="80" id="Iyz-YB-goj"/>
+                            <constraint firstItem="jTf-I9-0gM" firstAttribute="top" secondItem="lxF-Sk-vCg" secondAttribute="bottom" id="N6b-Md-HR3"/>
+                            <constraint firstItem="lxF-Sk-vCg" firstAttribute="leading" secondItem="YDk-NU-KTV" secondAttribute="leadingMargin" constant="-16" id="OxQ-ZW-4Os"/>
+                            <constraint firstItem="Q7n-Li-1az" firstAttribute="top" secondItem="YDk-NU-KTV" secondAttribute="topMargin" id="XBC-Te-g9j"/>
+                            <constraint firstItem="jTf-I9-0gM" firstAttribute="top" secondItem="Q7n-Li-1az" secondAttribute="bottom" id="YeD-x0-pyc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y8Z-Ul-P5i" secondAttribute="trailing" constant="-16" id="bZ5-8i-0EP"/>
+                            <constraint firstItem="Y8Z-Ul-P5i" firstAttribute="top" secondItem="9GU-Qc-lWE" secondAttribute="bottom" id="gVM-i7-IfC"/>
+                            <constraint firstItem="jTf-I9-0gM" firstAttribute="top" secondItem="Q7n-Li-1az" secondAttribute="bottom" id="glT-NE-cO3"/>
+                            <constraint firstItem="jTf-I9-0gM" firstAttribute="top" secondItem="JJO-Rh-BNL" secondAttribute="bottom" constant="20" id="hal-dO-0De"/>
+                            <constraint firstItem="lxF-Sk-vCg" firstAttribute="top" secondItem="9GU-Qc-lWE" secondAttribute="bottom" id="mNe-I2-4cc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lxF-Sk-vCg" secondAttribute="trailing" constant="-16" id="pAF-K3-YRl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q7n-Li-1az" secondAttribute="trailing" constant="-16" id="s8c-6G-g1i"/>
+                            <constraint firstAttribute="centerX" secondItem="JJO-Rh-BNL" secondAttribute="centerX" id="vq2-Um-daV"/>
+                        </constraints>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="6wu-uT-aFX"/>
+                                <include reference="JJO-Rh-BNL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="CDu-jc-uDH"/>
+                                <include reference="Iyz-YB-goj"/>
+                                <include reference="vq2-Um-daV"/>
+                                <exclude reference="YeD-x0-pyc"/>
+                                <include reference="glT-NE-cO3"/>
+                                <include reference="hal-dO-0De"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="avtorizationButton" destination="JJO-Rh-BNL" id="1hr-hb-vln"/>
+                        <outlet property="progressView" destination="lxF-Sk-vCg" id="WVK-dk-3Eo"/>
+                        <outlet property="textInfoLabel" destination="6wu-uT-aFX" id="cd2-lj-euZ"/>
+                        <outlet property="webView" destination="Y8Z-Ul-P5i" id="PV3-8e-GIA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FS2-LC-Ctl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050" y="332"/>
+            <point key="canvasLocation" x="1050" y="331"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="356" height="547"/>
+    </resources>
 </document>

@@ -9,11 +9,16 @@
 #import "STAvtorizationViewController.h"
 #import "STOAuthAvtorizationManager.h"
 #import "UIAlertView+Blocks.h"
+#import "STAPIConstans.h"
+#import "STSegueID.h"
 
 @interface STAvtorizationViewController()<UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
 @property (nonatomic, weak) IBOutlet UIView *progressView;
+
+@property (nonatomic, weak) IBOutlet UIButton *avtorizationButton;
+@property (nonatomic, weak) IBOutlet UILabel *textInfoLabel;
 
 @property (nonatomic, strong) STOAuthAvtorizationManager *oauthAvtorizationManager;
 
@@ -47,33 +52,31 @@
 }
 
 #pragma mark - IBActions
-- (IBAction)startAvtorizationButtonPressed
+- (IBAction)avtorizationButtonPressed:(UIButton *)button
 {
-
+    [self p_showProgress];
+    [self p_requestAvtorization];
 }
 
 #pragma mark - UIWebView delegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    typeof(self) __weak weakSelf = self;
-    if([STOAuthAvtorizationManager isAvtorizationRequest:request])
+    [self p_showProgress];
+    if([self p_isAvtorizationRequest:request])
     {
-        [self p_showProgress];
-        [self.oauthAvtorizationManager requestAccessTokenWithOAuthVerifier:[STOAuthAvtorizationManager oauthVerifierFromRequest:request]
-                                                      completion:^(NSString *const accessToken, NSString *const accessTokenSecret, NSError *const error) {
+        [self.oauthAvtorizationManager requestAccessTokenWithOAuthVerifier:[self p_oauthVerifierFromRequest:request]
+                                                      completion:^(BOOL sucess) {
             
-            [weakSelf p_hideProgress];
-            [weakSelf.webView removeFromSuperview];
+            [self p_hideProgress];
+            [self p_hideWebView];
                                                           
-            if(error == nil && accessToken && accessTokenSecret)
+            if(sucess)
             {
-               // [STUtilsServerAPI saveAccessToken:accessToken];
-                //[STUtilsServerAPI saveAccessTokenSecret:accessTokenSecret];
-                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                [self.navigationController performSegueWithIdentifier:kPresentRootControllerSegue sender:self];
             }
             else
             {
-                [weakSelf p_showAlertFailRequestAvtorization];
+                [self p_showAlertFailRequestAvtorization];
             }
         }];
     }
@@ -88,6 +91,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [self p_hideProgress];
+    [self p_showWebView];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -99,7 +103,19 @@
 #pragma mark - private methods
 - (void)p_setupUI
 {
-    self.webView.hidden = YES;
+    [self p_hideProgress];
+    [self p_hideWebView];
+    
+    self.textInfoLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:25];
+    self.textInfoLabel.textColor = [UIColor whiteColor];
+    self.textInfoLabel.text = STLocalizedString(@"Avtorization");
+    
+    [self.avtorizationButton setTitle:STLocalizedString(@"Login") forState:UIControlStateNormal];
+    self.avtorizationButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
+    self.avtorizationButton.layer.borderWidth = 1;
+    self.avtorizationButton.layer.cornerRadius = 5;
+    [self.avtorizationButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.avtorizationButton.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
 - (void)p_requestAvtorization
@@ -119,8 +135,39 @@
 
 - (void)p_showAlertFailRequestAvtorization
 {
-    RIButtonItem *okButton = [RIButtonItem itemWithLabel:@"Ok" action:^ {}];
+    RIButtonItem *okButton = [RIButtonItem itemWithLabel:@"Ok" action:^
+    {
+        [self p_showProgress];
+        [self p_requestAvtorization];
+    }];
+    
     [[[UIAlertView alloc] initWithTitle:STLocalizedString(@"Warning") message:STLocalizedString(@"FailRequestAvtorization") cancelButtonItem:okButton otherButtonItems:nil]show];
+}
+
+
+- (BOOL)p_isAvtorizationRequest:(NSURLRequest *)request
+{
+    NSString *requestText = [NSString stringWithFormat:@"%@",request];
+    NSRange textRange = [[requestText lowercaseString] rangeOfString:[CALLBACK_URL lowercaseString]];
+    return textRange.location != NSNotFound ? YES : NO;
+}
+
+- (NSString *)p_oauthVerifierFromRequest:(NSURLRequest *)request
+{
+    NSString *oauthVerifer = nil;
+    NSArray* urlParams = [[[request URL] query] componentsSeparatedByString:@"&"];
+    for (NSString *param in urlParams)
+    {
+        NSArray *keyValue = [param componentsSeparatedByString:@"="];
+        NSString *key = [keyValue firstObject];
+        
+        if ([key isEqualToString:OAUTH_VERIFER_KEY] && keyValue.count > 1)
+        {
+            oauthVerifer = [keyValue objectAtIndex:1];
+            break;
+        }
+    }
+    return oauthVerifer;
 }
 
 - (void)p_hideProgress
@@ -133,5 +180,14 @@
     self.progressView.hidden = NO;
 }
 
+- (void)p_showWebView
+{
+    self.webView.hidden = NO;
+}
+
+- (void)p_hideWebView
+{
+    self.webView.hidden = YES;
+}
 
 @end
