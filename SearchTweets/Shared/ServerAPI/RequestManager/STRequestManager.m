@@ -8,7 +8,6 @@
 
 #import "STRequestManager.h"
 #import "OAuthConsumer.h"
-#import "NSMutableURLRequest+Parameters.h"
 #import "STServerAPIConstans.h"
 
 @interface STRequestManager()
@@ -36,6 +35,7 @@
                                                                            token:nil
                                                                            realm:nil
                                                                signatureProvider:nil];
+ 
     requestToken.oa_parameters = [NSArray arrayWithObject:requestParametrs];
     
     [requestToken setHTTPMethod:@"POST"];
