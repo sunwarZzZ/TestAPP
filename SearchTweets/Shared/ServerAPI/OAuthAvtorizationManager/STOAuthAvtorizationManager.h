@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface STRequestManager : NSObject
+@interface STOAuthAvtorizationManager : NSObject
+
++ (BOOL)isAvtorization;
+
+
++ (BOOL)isAvtorizationRequest:(NSURLRequest *)request;
++ (NSString *)oauthVerifierFromRequest:(NSURLRequest *)request;
 
 - (void)requestAvtorizationToken:(void(^)(NSURLRequest *const requestToken, NSError *const error))comletion;
 - (void)requestAccessTokenWithOAuthVerifier:(NSString *)verifier

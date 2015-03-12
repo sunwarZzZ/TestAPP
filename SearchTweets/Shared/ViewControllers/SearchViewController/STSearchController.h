@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "STBaseViewController.h"
+#import "STViewController.h"
 
-@interface STSearchController : STBaseViewController
+@interface STSearchController : STViewController
 
 @end

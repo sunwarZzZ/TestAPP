@@ -7,8 +7,8 @@
 //
 
 #import "STNavigationController.h"
-#import "STSettingsManager.h"
-#import "STSegueIdentifierConstant.h"
+#import "STSegueID.h"
+#import "STOAuthAvtorizationManager.h"
 
 
 @implementation STNavigationController
@@ -27,13 +27,13 @@
 #pragma mark - private methods
 - (void)p_selectStartController
 {
-    if([STSettingsManager isAvtorization])
+    if(![STOAuthAvtorizationManager isAvtorization])
     {
-        [self performSegueWithIdentifier:kShowSearchSegue sender:self];
+        [self performSegueWithIdentifier:kPresentRootControllerSegue sender:self];
     }
     else
     {
-        [self performSegueWithIdentifier:kShowStartSegue sender:self];
+        [self performSegueWithIdentifier:kPresentAvtorizationControllerSegue sender:self];
     }
 }
 

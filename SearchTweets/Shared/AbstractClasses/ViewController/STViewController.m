@@ -1,15 +1,13 @@
 //
-//  STSettingsManager.h
+//  STBaseViewController.m
 //  SearchTweets
 //
 //  Created by Aleksei Ivankov on 19.01.15.
 //  Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "STViewController.h"
 
-@interface STSettingsManager : NSObject
-
-+ (BOOL)isAvtorization;
+@implementation STViewController
 
 @end

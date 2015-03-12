@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9D389E631AB18C88009B9AAB /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D389E601AB18C88009B9AAB /* SSKeychain.m */; };
 		9D389E641AB18C88009B9AAB /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D389E621AB18C88009B9AAB /* SSKeychainQuery.m */; };
-		9D4F0B6A1A89F4400005E8C9 /* STRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B691A89F4400005E8C9 /* STRequestManager.m */; };
 		9D4F0B741A89FF1B0005E8C9 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B6D1A89FF1B0005E8C9 /* README.md */; };
 		9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B6F1A89FF1B0005E8C9 /* RIButtonItem.m */; };
 		9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B711A89FF1B0005E8C9 /* UIActionSheet+Blocks.m */; };
@@ -18,29 +17,31 @@
 		9D8373F01AB193DF004BE1D2 /* libFMDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D389E9F1AB18F31009B9AAB /* libFMDB.a */; };
 		9D8373F11AB193DF004BE1D2 /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D389EDB1AB191F5009B9AAB /* libOAuthConsumer.a */; };
 		9D83744A1AB1AE5D004BE1D2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8374491AB1AE5D004BE1D2 /* libsqlite3.dylib */; };
+		9D83744F1AB1B44C004BE1D2 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83744E1AB1B44C004BE1D2 /* STViewController.m */; };
+		9D8374611AB1BAF6004BE1D2 /* STSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374601AB1BAF6004BE1D2 /* STSettingsViewController.m */; };
+		9D8374641AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374631AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.m */; };
+		9D8374671AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374661AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m */; };
+		9D83746D1AB1BBDE004BE1D2 /* STRootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83746C1AB1BBDE004BE1D2 /* STRootTabBarController.m */; };
+		9D8374701AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83746F1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m */; };
+		9D8374731AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */; };
+		9D8374771AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374761AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m */; };
+		9D83747B1AB1C829004BE1D2 /* STDataBaseStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83747A1AB1C829004BE1D2 /* STDataBaseStorage.m */; };
 		9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7D4161A6D018F003BA035 /* STWebCore.m */; };
-		9DCE357A1A8A22E4009FF978 /* STUtilsServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE35791A8A22E4009FF978 /* STUtilsServerAPI.m */; };
 		F1D5649B1A6C6030002692BD /* SearchTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5649A1A6C6030002692BD /* SearchTweetsTests.m */; };
 		F1D564BD1A6C614D002692BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564AC1A6C614D002692BD /* main.m */; };
 		F1D564C01A6C614D002692BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D564B21A6C614D002692BD /* Images.xcassets */; };
 		F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564B51A6C614D002692BD /* AppDelegate.m */; };
-		F1D564C21A6C614D002692BD /* SearchTweets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1D564B71A6C614D002692BD /* SearchTweets.xcdatamodeld */; };
 		F1D564C41A6C62DA002692BD /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D564C31A6C62DA002692BD /* Storyboard_iPhone.storyboard */; };
 		F1D564C61A6C62E1002692BD /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D564C51A6C62E1002692BD /* Storyboard_iPad.storyboard */; };
 		F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564DE1A6C6880002692BD /* STSearchController.m */; };
 		F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564E21A6C6888002692BD /* STSearchController_iPhone.m */; };
 		F1D564E71A6C6891002692BD /* STSearchController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564E61A6C6891002692BD /* STSearchController_iPad.m */; };
-		F1D564EA1A6C68AC002692BD /* STBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564E91A6C68AC002692BD /* STBaseViewController.m */; };
 		F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564EC1A6C68EE002692BD /* STAvtorizationViewController.m */; };
-		F1D564F01A6C6900002692BD /* STStartingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564EF1A6C6900002692BD /* STStartingViewController.m */; };
 		F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F21A6C69B8002692BD /* STAvtorizationViewController_iPhone.m */; };
-		F1D564F61A6C69D2002692BD /* STStartingViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F51A6C69D2002692BD /* STStartingViewController_iPhone.m */; };
 		F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */; };
-		F1D564FC1A6C6A57002692BD /* STStartingViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564FB1A6C6A57002692BD /* STStartingViewController_iPad.m */; };
 		F1D565161A6D923C002692BD /* STNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D565151A6D923C002692BD /* STNavigationController.m */; };
 		F1D5651B1A6D92E0002692BD /* STNavigationController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5651A1A6D92E0002692BD /* STNavigationController_iPad.m */; };
 		F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5651D1A6D92F2002692BD /* STNavigationController_iPhone.m */; };
-		F1D565251A6D9823002692BD /* STSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D565241A6D9823002692BD /* STSettingsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,9 +103,7 @@
 		9D389E621AB18C88009B9AAB /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		9D389E991AB18F30009B9AAB /* FMDB.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FMDB.xcodeproj; path = FMDB/FMDB.xcodeproj; sourceTree = "<group>"; };
 		9D389ED51AB191F4009B9AAB /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
-		9D4F0B681A89F4400005E8C9 /* STRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRequestManager.h; sourceTree = "<group>"; };
-		9D4F0B691A89F4400005E8C9 /* STRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRequestManager.m; sourceTree = "<group>"; };
-		9D4F0B6B1A89F8910005E8C9 /* STServerAPIConstans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STServerAPIConstans.h; sourceTree = "<group>"; };
+		9D4F0B6B1A89F8910005E8C9 /* STAPIConstans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAPIConstans.h; sourceTree = "<group>"; };
 		9D4F0B6D1A89FF1B0005E8C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D4F0B6E1A89FF1B0005E8C9 /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
 		9D4F0B6F1A89FF1B0005E8C9 /* RIButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
@@ -117,10 +116,26 @@
 		9D51DD9E1A765C6B003E2D49 /* STMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STMacros.h; sourceTree = "<group>"; };
 		9D51DD9F1A765D12003E2D49 /* SearchTweets-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchTweets-Prefix.pch"; sourceTree = "<group>"; };
 		9D8374491AB1AE5D004BE1D2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		9D83744D1AB1B44C004BE1D2 /* STViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
+		9D83744E1AB1B44C004BE1D2 /* STViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
+		9D83745F1AB1BAF6004BE1D2 /* STSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsViewController.h; sourceTree = "<group>"; };
+		9D8374601AB1BAF6004BE1D2 /* STSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSettingsViewController.m; sourceTree = "<group>"; };
+		9D8374621AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsViewController_iPhone.h; sourceTree = "<group>"; };
+		9D8374631AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSettingsViewController_iPhone.m; sourceTree = "<group>"; };
+		9D8374651AB1BB1E004BE1D2 /* STSettingsViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsViewController_iPad.h; sourceTree = "<group>"; };
+		9D8374661AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSettingsViewController_iPad.m; sourceTree = "<group>"; };
+		9D83746B1AB1BBDE004BE1D2 /* STRootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRootTabBarController.h; sourceTree = "<group>"; };
+		9D83746C1AB1BBDE004BE1D2 /* STRootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootTabBarController.m; sourceTree = "<group>"; };
+		9D83746E1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRootTabBarController_iPhone.h; sourceTree = "<group>"; };
+		9D83746F1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootTabBarController_iPhone.m; sourceTree = "<group>"; };
+		9D8374711AB1BC0B004BE1D2 /* STRootTabBarController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRootTabBarController_iPad.h; sourceTree = "<group>"; };
+		9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootTabBarController_iPad.m; sourceTree = "<group>"; };
+		9D8374751AB1C64C004BE1D2 /* STOAuthAvtorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STOAuthAvtorizationManager.h; sourceTree = "<group>"; };
+		9D8374761AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STOAuthAvtorizationManager.m; sourceTree = "<group>"; };
+		9D8374791AB1C829004BE1D2 /* STDataBaseStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDataBaseStorage.h; sourceTree = "<group>"; };
+		9D83747A1AB1C829004BE1D2 /* STDataBaseStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDataBaseStorage.m; sourceTree = "<group>"; };
 		9DC7D4151A6D018F003BA035 /* STWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STWebCore.h; sourceTree = "<group>"; };
 		9DC7D4161A6D018F003BA035 /* STWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWebCore.m; sourceTree = "<group>"; };
-		9DCE35781A8A22E4009FF978 /* STUtilsServerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STUtilsServerAPI.h; sourceTree = "<group>"; };
-		9DCE35791A8A22E4009FF978 /* STUtilsServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STUtilsServerAPI.m; sourceTree = "<group>"; };
 		F1D564781A6C6030002692BD /* SearchTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D564941A6C6030002692BD /* SearchTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D564991A6C6030002692BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,7 +145,6 @@
 		F1D564B21A6C614D002692BD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1D564B41A6C614D002692BD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1D564B51A6C614D002692BD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F1D564B81A6C614D002692BD /* SearchTweets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchTweets.xcdatamodel; sourceTree = "<group>"; };
 		F1D564C31A6C62DA002692BD /* Storyboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F1D564C51A6C62E1002692BD /* Storyboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPad.storyboard; sourceTree = "<group>"; };
 		F1D564DD1A6C6880002692BD /* STSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController.h; sourceTree = "<group>"; };
@@ -139,29 +153,19 @@
 		F1D564E21A6C6888002692BD /* STSearchController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController_iPhone.m; sourceTree = "<group>"; };
 		F1D564E51A6C6891002692BD /* STSearchController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController_iPad.h; sourceTree = "<group>"; };
 		F1D564E61A6C6891002692BD /* STSearchController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController_iPad.m; sourceTree = "<group>"; };
-		F1D564E81A6C68AC002692BD /* STBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBaseViewController.h; sourceTree = "<group>"; };
-		F1D564E91A6C68AC002692BD /* STBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBaseViewController.m; sourceTree = "<group>"; };
 		F1D564EB1A6C68EE002692BD /* STAvtorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationViewController.h; sourceTree = "<group>"; };
 		F1D564EC1A6C68EE002692BD /* STAvtorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvtorizationViewController.m; sourceTree = "<group>"; };
-		F1D564EE1A6C6900002692BD /* STStartingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStartingViewController.h; sourceTree = "<group>"; };
-		F1D564EF1A6C6900002692BD /* STStartingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStartingViewController.m; sourceTree = "<group>"; };
 		F1D564F11A6C69B8002692BD /* STAvtorizationViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationViewController_iPhone.h; sourceTree = "<group>"; };
 		F1D564F21A6C69B8002692BD /* STAvtorizationViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvtorizationViewController_iPhone.m; sourceTree = "<group>"; };
-		F1D564F41A6C69D2002692BD /* STStartingViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStartingViewController_iPhone.h; sourceTree = "<group>"; };
-		F1D564F51A6C69D2002692BD /* STStartingViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStartingViewController_iPhone.m; sourceTree = "<group>"; };
 		F1D564F71A6C6A2E002692BD /* STAvtorizationViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationViewController_iPad.h; sourceTree = "<group>"; };
 		F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvtorizationViewController_iPad.m; sourceTree = "<group>"; };
-		F1D564FA1A6C6A57002692BD /* STStartingViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStartingViewController_iPad.h; sourceTree = "<group>"; };
-		F1D564FB1A6C6A57002692BD /* STStartingViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStartingViewController_iPad.m; sourceTree = "<group>"; };
 		F1D565141A6D923C002692BD /* STNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNavigationController.h; sourceTree = "<group>"; };
 		F1D565151A6D923C002692BD /* STNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNavigationController.m; sourceTree = "<group>"; };
 		F1D565191A6D92E0002692BD /* STNavigationController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNavigationController_iPad.h; sourceTree = "<group>"; };
 		F1D5651A1A6D92E0002692BD /* STNavigationController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNavigationController_iPad.m; sourceTree = "<group>"; };
 		F1D5651C1A6D92F2002692BD /* STNavigationController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STNavigationController_iPhone.h; sourceTree = "<group>"; };
 		F1D5651D1A6D92F2002692BD /* STNavigationController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STNavigationController_iPhone.m; sourceTree = "<group>"; };
-		F1D565201A6D96BF002692BD /* STSegueIdentifierConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSegueIdentifierConstant.h; sourceTree = "<group>"; };
-		F1D565231A6D9823002692BD /* STSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsManager.h; sourceTree = "<group>"; };
-		F1D565241A6D9823002692BD /* STSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSettingsManager.m; sourceTree = "<group>"; };
+		F1D565201A6D96BF002692BD /* STSegueID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STSegueID.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,15 +218,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9D4F0B671A89F42E0005E8C9 /* RequestManager */ = {
-			isa = PBXGroup;
-			children = (
-				9D4F0B681A89F4400005E8C9 /* STRequestManager.h */,
-				9D4F0B691A89F4400005E8C9 /* STRequestManager.m */,
-			);
-			path = RequestManager;
-			sourceTree = "<group>";
-		};
 		9D4F0B6C1A89FF1B0005E8C9 /* UIAlertView-Blocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +259,87 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9D83744C1AB1B44C004BE1D2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D83744D1AB1B44C004BE1D2 /* STViewController.h */,
+				9D83744E1AB1B44C004BE1D2 /* STViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9D83745C1AB1BAC1004BE1D2 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D83745F1AB1BAF6004BE1D2 /* STSettingsViewController.h */,
+				9D8374601AB1BAF6004BE1D2 /* STSettingsViewController.m */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		9D83745D1AB1BAC7004BE1D2 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374621AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.h */,
+				9D8374631AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.m */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		9D83745E1AB1BACE004BE1D2 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374651AB1BB1E004BE1D2 /* STSettingsViewController_iPad.h */,
+				9D8374661AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		9D8374681AB1BBAF004BE1D2 /* RootTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				9D83746B1AB1BBDE004BE1D2 /* STRootTabBarController.h */,
+				9D83746C1AB1BBDE004BE1D2 /* STRootTabBarController.m */,
+			);
+			path = RootTabBarController;
+			sourceTree = "<group>";
+		};
+		9D8374691AB1BBB5004BE1D2 /* RootTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				9D83746E1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.h */,
+				9D83746F1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m */,
+			);
+			path = RootTabBarController;
+			sourceTree = "<group>";
+		};
+		9D83746A1AB1BBBD004BE1D2 /* RootTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374711AB1BC0B004BE1D2 /* STRootTabBarController_iPad.h */,
+				9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */,
+			);
+			path = RootTabBarController;
+			sourceTree = "<group>";
+		};
+		9D8374741AB1C64C004BE1D2 /* OAuthAvtorizationManager */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374751AB1C64C004BE1D2 /* STOAuthAvtorizationManager.h */,
+				9D8374761AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m */,
+			);
+			path = OAuthAvtorizationManager;
+			sourceTree = "<group>";
+		};
+		9D8374781AB1C814004BE1D2 /* DataBaseStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374791AB1C829004BE1D2 /* STDataBaseStorage.h */,
+				9D83747A1AB1C829004BE1D2 /* STDataBaseStorage.m */,
+			);
+			path = DataBaseStorage;
+			sourceTree = "<group>";
+		};
 		9DC7D4141A6D013B003BA035 /* WebCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,15 +347,6 @@
 				9DC7D4161A6D018F003BA035 /* STWebCore.m */,
 			);
 			path = WebCore;
-			sourceTree = "<group>";
-		};
-		9DCE35771A8A22BD009FF978 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				9DCE35781A8A22E4009FF978 /* STUtilsServerAPI.h */,
-				9DCE35791A8A22E4009FF978 /* STUtilsServerAPI.m */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		F1D5646F1A6C6030002692BD = {
@@ -343,10 +410,11 @@
 		F1D564A51A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D83746A1AB1BBBD004BE1D2 /* RootTabBarController */,
+				9D83745E1AB1BACE004BE1D2 /* SettingsViewController */,
 				F1D565181A6D9276002692BD /* NavigationController */,
 				F1D564E41A6C6891002692BD /* SearchViewController */,
 				F1D564DA1A6C6831002692BD /* AvtorizationViewController */,
-				F1D564DB1A6C6831002692BD /* StartingViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -363,10 +431,11 @@
 		F1D564A81A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D8374691AB1BBB5004BE1D2 /* RootTabBarController */,
+				9D83745D1AB1BAC7004BE1D2 /* SettingsViewController */,
 				F1D565171A6D926E002692BD /* NavigationController */,
 				F1D564E01A6C6888002692BD /* SearchViewController */,
 				F1D564D91A6C6823002692BD /* AvtorizationViewController */,
-				F1D564D71A6C6817002692BD /* StartingViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -397,7 +466,6 @@
 				F1D564B51A6C614D002692BD /* AppDelegate.m */,
 				9D51DD9D1A765C5A003E2D49 /* Utils */,
 				F1D564D01A6C67F6002692BD /* AbstractClasses */,
-				F1D565211A6D9807002692BD /* Managers */,
 				F1D5651F1A6D9648002692BD /* Constans */,
 				F1D564B61A6C614D002692BD /* DataBase */,
 				F1D564B91A6C614D002692BD /* ServerAPI */,
@@ -409,7 +477,7 @@
 		F1D564B61A6C614D002692BD /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				F1D564B71A6C614D002692BD /* SearchTweets.xcdatamodeld */,
+				9D8374781AB1C814004BE1D2 /* DataBaseStorage */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -417,9 +485,8 @@
 		F1D564B91A6C614D002692BD /* ServerAPI */ = {
 			isa = PBXGroup;
 			children = (
-				9D4F0B6B1A89F8910005E8C9 /* STServerAPIConstans.h */,
-				9DCE35771A8A22BD009FF978 /* Utils */,
-				9D4F0B671A89F42E0005E8C9 /* RequestManager */,
+				9D4F0B6B1A89F8910005E8C9 /* STAPIConstans.h */,
+				9D8374741AB1C64C004BE1D2 /* OAuthAvtorizationManager */,
 				9DC7D4141A6D013B003BA035 /* WebCore */,
 			);
 			path = ServerAPI;
@@ -428,10 +495,11 @@
 		F1D564BA1A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D8374681AB1BBAF004BE1D2 /* RootTabBarController */,
+				9D83745C1AB1BAC1004BE1D2 /* SettingsViewController */,
 				F1D565131A6D921B002692BD /* NavigationController */,
 				F1D564DC1A6C6880002692BD /* SearchViewController */,
 				F1D564D21A6C680A002692BD /* AvtorizationViewController */,
-				F1D564D31A6C680A002692BD /* StartingViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -439,18 +507,9 @@
 		F1D564D01A6C67F6002692BD /* AbstractClasses */ = {
 			isa = PBXGroup;
 			children = (
-				F1D564D11A6C67F6002692BD /* BaseViewController */,
+				9D83744C1AB1B44C004BE1D2 /* ViewController */,
 			);
 			path = AbstractClasses;
-			sourceTree = "<group>";
-		};
-		F1D564D11A6C67F6002692BD /* BaseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564E81A6C68AC002692BD /* STBaseViewController.h */,
-				F1D564E91A6C68AC002692BD /* STBaseViewController.m */,
-			);
-			path = BaseViewController;
 			sourceTree = "<group>";
 		};
 		F1D564D21A6C680A002692BD /* AvtorizationViewController */ = {
@@ -460,24 +519,6 @@
 				F1D564EC1A6C68EE002692BD /* STAvtorizationViewController.m */,
 			);
 			path = AvtorizationViewController;
-			sourceTree = "<group>";
-		};
-		F1D564D31A6C680A002692BD /* StartingViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564EE1A6C6900002692BD /* STStartingViewController.h */,
-				F1D564EF1A6C6900002692BD /* STStartingViewController.m */,
-			);
-			path = StartingViewController;
-			sourceTree = "<group>";
-		};
-		F1D564D71A6C6817002692BD /* StartingViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564F41A6C69D2002692BD /* STStartingViewController_iPhone.h */,
-				F1D564F51A6C69D2002692BD /* STStartingViewController_iPhone.m */,
-			);
-			path = StartingViewController;
 			sourceTree = "<group>";
 		};
 		F1D564D91A6C6823002692BD /* AvtorizationViewController */ = {
@@ -496,15 +537,6 @@
 				F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */,
 			);
 			path = AvtorizationViewController;
-			sourceTree = "<group>";
-		};
-		F1D564DB1A6C6831002692BD /* StartingViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564FA1A6C6A57002692BD /* STStartingViewController_iPad.h */,
-				F1D564FB1A6C6A57002692BD /* STStartingViewController_iPad.m */,
-			);
-			path = StartingViewController;
 			sourceTree = "<group>";
 		};
 		F1D564DC1A6C6880002692BD /* SearchViewController */ = {
@@ -564,26 +596,9 @@
 		F1D5651F1A6D9648002692BD /* Constans */ = {
 			isa = PBXGroup;
 			children = (
-				F1D565201A6D96BF002692BD /* STSegueIdentifierConstant.h */,
+				F1D565201A6D96BF002692BD /* STSegueID.h */,
 			);
 			path = Constans;
-			sourceTree = "<group>";
-		};
-		F1D565211A6D9807002692BD /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				F1D565221A6D9807002692BD /* SettingsManager */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		F1D565221A6D9807002692BD /* SettingsManager */ = {
-			isa = PBXGroup;
-			children = (
-				F1D565231A6D9823002692BD /* STSettingsManager.h */,
-				F1D565241A6D9823002692BD /* STSettingsManager.m */,
-			);
-			path = SettingsManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -730,6 +745,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8374771AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m in Sources */,
+				9D8374641AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.m in Sources */,
+				9D83746D1AB1BBDE004BE1D2 /* STRootTabBarController.m in Sources */,
 				9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */,
 				F1D5651B1A6D92E0002692BD /* STNavigationController_iPad.m in Sources */,
 				F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */,
@@ -737,25 +755,23 @@
 				F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */,
 				9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */,
 				9D389E641AB18C88009B9AAB /* SSKeychainQuery.m in Sources */,
-				9DCE357A1A8A22E4009FF978 /* STUtilsServerAPI.m in Sources */,
+				9D8374731AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m in Sources */,
 				F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */,
-				F1D564F01A6C6900002692BD /* STStartingViewController.m in Sources */,
 				F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */,
-				9D4F0B6A1A89F4400005E8C9 /* STRequestManager.m in Sources */,
 				9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
 				9D389E631AB18C88009B9AAB /* SSKeychain.m in Sources */,
 				9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */,
-				F1D564FC1A6C6A57002692BD /* STStartingViewController_iPad.m in Sources */,
 				F1D565161A6D923C002692BD /* STNavigationController.m in Sources */,
-				F1D565251A6D9823002692BD /* STSettingsManager.m in Sources */,
 				F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */,
 				F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */,
 				9D4F0B741A89FF1B0005E8C9 /* README.md in Sources */,
-				F1D564F61A6C69D2002692BD /* STStartingViewController_iPhone.m in Sources */,
-				F1D564C21A6C614D002692BD /* SearchTweets.xcdatamodeld in Sources */,
+				9D83744F1AB1B44C004BE1D2 /* STViewController.m in Sources */,
+				9D8374701AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m in Sources */,
+				9D83747B1AB1C829004BE1D2 /* STDataBaseStorage.m in Sources */,
+				9D8374611AB1BAF6004BE1D2 /* STSettingsViewController.m in Sources */,
+				9D8374671AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m in Sources */,
 				F1D564BD1A6C614D002692BD /* main.m in Sources */,
-				F1D564EA1A6C68AC002692BD /* STBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,19 +995,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F1D564B71A6C614D002692BD /* SearchTweets.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F1D564B81A6C614D002692BD /* SearchTweets.xcdatamodel */,
-			);
-			currentVersion = F1D564B81A6C614D002692BD /* SearchTweets.xcdatamodel */;
-			path = SearchTweets.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F1D564701A6C6030002692BD /* Project object */;
 }

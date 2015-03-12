@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
 //
 
-#import "STRequestManager.h"
+#import "STOAuthAvtorizationManager.h"
 #import "OAuthConsumer.h"
-#import "STServerAPIConstans.h"
+#import "STAPIConstans.h"
 
-@interface STRequestManager()
+@interface STOAuthAvtorizationManager()
 
 @property (nonatomic, copy) void(^requestAvtorizationTokenComletion)(NSURLRequest *const, NSError *const);
 @property (nonatomic, copy) void(^requestAccessTokenComletion)(NSString *const accessToken, NSString *const accessTokenSecret,  NSError *const error);
@@ -20,7 +20,37 @@
 
 @end
 
-@implementation STRequestManager
+@implementation STOAuthAvtorizationManager
+
++ (BOOL)isAvtorization
+{
+    return NO;
+}
+
++ (BOOL)isAvtorizationRequest:(NSURLRequest *)request
+{
+    NSString *requestText = [NSString stringWithFormat:@"%@",request];
+    NSRange textRange = [[requestText lowercaseString] rangeOfString:[CALLBACK_URL lowercaseString]];
+    return textRange.location != NSNotFound ? YES : NO;
+}
+
++ (NSString *)oauthVerifierFromRequest:(NSURLRequest *)request
+{
+    NSString *oauthVerifer = nil;
+    NSArray* urlParams = [[[request URL] query] componentsSeparatedByString:@"&"];
+    for (NSString *param in urlParams)
+    {
+        NSArray *keyValue = [param componentsSeparatedByString:@"="];
+        NSString *key = [keyValue firstObject];
+        
+        if ([key isEqualToString:OAUTH_VERIFER_KEY] && keyValue.count > 1)
+        {
+            oauthVerifer = [keyValue objectAtIndex:1];
+            break;
+        }
+    }
+    return oauthVerifer;
+}
 
 - (void)requestAvtorizationToken:(void (^)(NSURLRequest *const, NSError *const))comletion
 {

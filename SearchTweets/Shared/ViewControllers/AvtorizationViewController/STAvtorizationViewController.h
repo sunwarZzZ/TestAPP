@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
 //
 
-#import "STBaseViewController.h"
+#import "STViewController.h"
 
-@interface STAvtorizationViewController : STBaseViewController
+@interface STAvtorizationViewController : STViewController
 
 @end

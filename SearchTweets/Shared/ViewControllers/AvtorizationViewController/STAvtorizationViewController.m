@@ -7,16 +7,15 @@
 //
 
 #import "STAvtorizationViewController.h"
-#import "STRequestManager.h"
+#import "STOAuthAvtorizationManager.h"
 #import "UIAlertView+Blocks.h"
-#import "STUtilsServerAPI.h"
 
 @interface STAvtorizationViewController()<UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
 @property (nonatomic, weak) IBOutlet UIView *progressView;
 
-@property (nonatomic, strong) STRequestManager *requestManager;
+@property (nonatomic, strong) STOAuthAvtorizationManager *oauthAvtorizationManager;
 
 @end
 
@@ -28,7 +27,8 @@
 {
     if(self = [super initWithCoder:aDecoder])
     {
-        _requestManager = [STRequestManager new];
+        _oauthAvtorizationManager = [STOAuthAvtorizationManager new];
+        self.title = STLocalizedString(@"Avtorization");
     }
     return self;
 }
@@ -44,23 +44,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self p_requestAvtorization];
 }
 
 #pragma mark - IBActions
-- (IBAction)leftBarButtonPressed:(UIBarButtonItem *)leftBarButton
+- (IBAction)startAvtorizationButtonPressed
 {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 #pragma mark - UIWebView delegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     typeof(self) __weak weakSelf = self;
-    if([STUtilsServerAPI isAvtorizationRequest:request])
+    if([STOAuthAvtorizationManager isAvtorizationRequest:request])
     {
         [self p_showProgress];
-        [self.requestManager requestAccessTokenWithOAuthVerifier:[STUtilsServerAPI oauthVerifierFromRequest:request]
+        [self.oauthAvtorizationManager requestAccessTokenWithOAuthVerifier:[STOAuthAvtorizationManager oauthVerifierFromRequest:request]
                                                       completion:^(NSString *const accessToken, NSString *const accessTokenSecret, NSError *const error) {
             
             [weakSelf p_hideProgress];
@@ -68,8 +67,8 @@
                                                           
             if(error == nil && accessToken && accessTokenSecret)
             {
-                [STUtilsServerAPI saveAccessToken:accessToken];
-                [STUtilsServerAPI saveAccessTokenSecret:accessTokenSecret];
+               // [STUtilsServerAPI saveAccessToken:accessToken];
+                //[STUtilsServerAPI saveAccessTokenSecret:accessTokenSecret];
                 [self.navigationController dismissViewControllerAnimated:YES completion:nil];
             }
             else
@@ -100,17 +99,16 @@
 #pragma mark - private methods
 - (void)p_setupUI
 {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(leftBarButtonPressed:)];
+    self.webView.hidden = YES;
 }
 
 - (void)p_requestAvtorization
 {
-    typeof(self) __weak weakSelf = self;
-    [self.requestManager requestAvtorizationToken:^(NSURLRequest *const requestToken, NSError *const error)
+    [self.oauthAvtorizationManager requestAvtorizationToken:^(NSURLRequest *const requestToken, NSError *const error)
     {
         if(error == nil)
         {
-            [weakSelf.webView loadRequest:requestToken];
+            [self.webView loadRequest:requestToken];
         }
         else
         {
@@ -121,10 +119,7 @@
 
 - (void)p_showAlertFailRequestAvtorization
 {
-    RIButtonItem *okButton = [RIButtonItem itemWithLabel:@"Ok" action:^
-    {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    }];
+    RIButtonItem *okButton = [RIButtonItem itemWithLabel:@"Ok" action:^ {}];
     [[[UIAlertView alloc] initWithTitle:STLocalizedString(@"Warning") message:STLocalizedString(@"FailRequestAvtorization") cancelButtonItem:okButton otherButtonItems:nil]show];
 }
 

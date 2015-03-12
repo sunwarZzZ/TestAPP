@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
 //
 
-#ifndef SearchTweets_STServerAPIConstans_h
-#define SearchTweets_STServerAPIConstans_h
+#ifndef SearchTweets_STAPIConstans_h
+#define SearchTweets_STAPIConstans_h
 
 static NSString *const CONSUMER_KEY = @"C53gFbMswkpfUgZ07EdU2N5wg";
 static NSString *const CONSUMER_SECRET_KEY = @"mwusu3Fb9P68Uccy46MexcQnVeZkMIpJ0PSNcwCrnldrjGB1oL";
