@@ -8,7 +8,6 @@
 
 #import "STUtilsServerAPI.h"
 #import "STServerAPIConstans.h"
-#import "KeychainItemWrapper.h"
 
 static NSString *const ACCESS_TOKEN_KEY = @"access_token";
 static NSString *const ACCESS_TOKEN_SECRET_KEY = @"access_token_secret";
@@ -43,26 +42,28 @@ static NSString *const KEYCHAIN_ID = @"no_identifier";
 
 + (void)saveAccessToken:(NSString *)accessToken
 {
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_ID accessGroup:nil];
-    [keychainItem setObject:accessToken forKey:(__bridge id)kSecAttrAccount];
+//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_ID accessGroup:nil];
+//    [keychainItem setObject:accessToken forKey:(__bridge id)kSecAttrAccount];
 }
 
 + (void)saveAccessTokenSecret:(NSString *)accessTokenSecret
 {
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_ID accessGroup:nil];
-    [keychainItem setObject:accessTokenSecret forKey:(__bridge id)kSecValueData];
+//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_ID accessGroup:nil];
+//    [keychainItem setObject:accessTokenSecret forKey:(__bridge id)kSecValueData];
 }
 
 + (NSString *)accessToken
 {
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_ID accessGroup:nil];
-    return [keychainItem objectForKey:(__bridge id)kSecAttrAccount];
+//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_ID accessGroup:nil];
+//    return [keychainItem objectForKey:(__bridge id)kSecAttrAccount];
+    return nil;
 }
 
 + (NSString *)accessTokenSecret
 {
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_ID accessGroup:nil];
-    return [keychainItem objectForKey:(__bridge id)kSecValueData];
+//    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_ID accessGroup:nil];
+//    return [keychainItem objectForKey:(__bridge id)kSecValueData];
+    return nil;
 }
 
 
