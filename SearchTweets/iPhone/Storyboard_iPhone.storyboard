@@ -54,11 +54,52 @@
                     <view key="view" contentMode="scaleToFill" id="fZj-Gf-AK2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JeQ-o1-nfC" userLabel="Table View - search">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableFooterView" contentMode="redraw" id="lsF-31-OCh">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="ea8-MK-NTb" id="lGb-6Y-tGh"/>
+                                    </connections>
+                                </searchBar>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JeQ-o1-nfC" firstAttribute="leading" secondItem="fZj-Gf-AK2" secondAttribute="leadingMargin" constant="-16" id="Bc5-V1-dLq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JeQ-o1-nfC" secondAttribute="trailing" constant="-16" id="C9v-TN-1qu"/>
+                            <constraint firstItem="JeQ-o1-nfC" firstAttribute="top" secondItem="fZj-Gf-AK2" secondAttribute="topMargin" id="TCN-fa-SB3"/>
+                            <constraint firstItem="JeQ-o1-nfC" firstAttribute="bottom" secondItem="fZj-Gf-AK2" secondAttribute="bottomMargin" id="TKu-XS-NhN"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="tYc-LR-JGi"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="hnt-wZ-tav" id="6kl-pV-tpw"/>
+                        <outlet property="tableSearch" destination="JeQ-o1-nfC" id="JNQ-wY-gJB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C09-bc-y6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="mXf-UT-osE">
+                    <connections>
+                        <outlet property="delegate" destination="ea8-MK-NTb" id="6tA-W9-Uw2"/>
+                        <outlet property="searchContentsController" destination="ea8-MK-NTb" id="fmY-7G-yKH"/>
+                        <outlet property="searchResultsDataSource" destination="ea8-MK-NTb" id="fOw-oe-K66"/>
+                        <outlet property="searchResultsDelegate" destination="ea8-MK-NTb" id="dph-kf-Cn0"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="hnt-wZ-tav">
+                    <connections>
+                        <outlet property="delegate" destination="ea8-MK-NTb" id="5a5-C6-fx4"/>
+                        <outlet property="searchBar" destination="lsF-31-OCh" id="Q53-Uy-qTf"/>
+                        <outlet property="searchContentsController" destination="ea8-MK-NTb" id="rRR-dU-Cce"/>
+                        <outlet property="searchResultsDataSource" destination="ea8-MK-NTb" id="91m-q0-9WK"/>
+                        <outlet property="searchResultsDelegate" destination="ea8-MK-NTb" id="OnY-Jt-e6Y"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2223" y="-1086"/>
         </scene>

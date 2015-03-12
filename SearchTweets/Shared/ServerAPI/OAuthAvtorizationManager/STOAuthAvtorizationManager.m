@@ -67,10 +67,7 @@
                              delegate:self
                     didFinishSelector:@selector(didReceiveAccessToken:data:)
                       didFailSelector:@selector(didFailOAuth:error:)];
-
 }
-
-
 
 #pragma mark - OADataFetcher handler
 - (void)didReceiveRequestToken:(OAServiceTicket*)ticket data:(NSData*)data
