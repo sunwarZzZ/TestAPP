@@ -10,6 +10,7 @@
 #import "OAuthConsumer.h"
 #import "STAPIConstans.h"
 #import "SSKeychain.h"
+#import "STAccountManager.h"
 
 @interface STOAuthAvtorizationManager()
 
@@ -25,17 +26,17 @@
 
 + (BOOL)isAvtorization
 {
-    return [SSKeychain passwordForService:CONSUMER_KEY account:@""] && [SSKeychain passwordForService:CONSUMER_SECRET_KEY account:@""] ? YES : NO;
+    return [STAccountManager tokenPublicKey] && [STAccountManager tokenPrivateKey] ? YES : NO;
 }
 
 - (void)requestAvtorizationToken:(void (^)(NSURLRequest *const, NSError *const))comletion
 {
     self.requestAvtorizationTokenComletion = comletion;
     
-    self.consumer =  [[OAConsumer alloc] initWithKey:CONSUMER_KEY secret:CONSUMER_SECRET_KEY];
-    NSURL *requestTokenURL = [NSURL URLWithString:REQUEST_TOKEN_URL];
+    self.consumer =  [[OAConsumer alloc] initWithKey:kConsumerKey secret:kConsumerSecretKey];
+    NSURL *requestTokenURL = [NSURL URLWithString:kRequestTokenURLString];
     
-    OARequestParameter* requestParametrs = [[OARequestParameter alloc] initWithName:OAUTH_CALLBACK_KEY value:CALLBACK_URL];
+    OARequestParameter* requestParametrs = [[OARequestParameter alloc] initWithName:kOauthCallbackKey value:kCallbackURL];
     OAMutableURLRequest *requestToken = [[OAMutableURLRequest alloc] initWithURL:requestTokenURL
                                                                         consumer:self.consumer
                                                                            token:nil
@@ -75,7 +76,7 @@
     NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     self.requestToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
     
-    NSURL* authorizeUrl = [NSURL URLWithString:AUTHORIZATION_URL];
+    NSURL* authorizeUrl = [NSURL URLWithString:kAuthorizationURLString];
     OAMutableURLRequest* authorizeRequest = [[OAMutableURLRequest alloc] initWithURL:authorizeUrl
                                                                             consumer:nil
                                                                                token:nil
@@ -101,8 +102,8 @@
     {
         if(accessToken)
         {
-            [SSKeychain setPassword:accessToken.key forService:CONSUMER_KEY account:@""];
-            [SSKeychain setPassword:accessToken.secret forService:CONSUMER_SECRET_KEY account:@""];
+            [STAccountManager saveTokenPrivateKey:accessToken.secret];
+            [STAccountManager saveTokenPublicKey:accessToken.key];
             self.requestAccessTokenComletion(YES);
         }
         else

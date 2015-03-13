@@ -20,7 +20,7 @@
 {
     if(self = [super initWithCoder:aDecoder])
     {
-        self.title = STLocalizedString(@"Search");
+        
     }
     return self;
 }

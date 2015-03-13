@@ -148,7 +148,7 @@
 - (BOOL)p_isAvtorizationRequest:(NSURLRequest *)request
 {
     NSString *requestText = [NSString stringWithFormat:@"%@",request];
-    NSRange textRange = [[requestText lowercaseString] rangeOfString:[CALLBACK_URL lowercaseString]];
+    NSRange textRange = [[requestText lowercaseString] rangeOfString:[kCallbackURL lowercaseString]];
     return textRange.location != NSNotFound ? YES : NO;
 }
 
@@ -161,7 +161,7 @@
         NSArray *keyValue = [param componentsSeparatedByString:@"="];
         NSString *key = [keyValue firstObject];
         
-        if ([key isEqualToString:OAUTH_VERIFER_KEY] && keyValue.count > 1)
+        if ([key isEqualToString:kOauthVeriferKey] && keyValue.count > 1)
         {
             oauthVerifer = [keyValue objectAtIndex:1];
             break;

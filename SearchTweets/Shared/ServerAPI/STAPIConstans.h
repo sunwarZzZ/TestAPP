@@ -9,15 +9,21 @@
 #ifndef SearchTweets_STAPIConstans_h
 #define SearchTweets_STAPIConstans_h
 
-static NSString *const CONSUMER_KEY = @"C53gFbMswkpfUgZ07EdU2N5wg";
-static NSString *const CONSUMER_SECRET_KEY = @"mwusu3Fb9P68Uccy46MexcQnVeZkMIpJ0PSNcwCrnldrjGB1oL";
+static NSString *const kConsumerKey = @"C53gFbMswkpfUgZ07EdU2N5wg";
+static NSString *const kConsumerSecretKey = @"mwusu3Fb9P68Uccy46MexcQnVeZkMIpJ0PSNcwCrnldrjGB1oL";
 
-static NSString *const REQUEST_TOKEN_URL = @"https://api.twitter.com/oauth/request_token";
-static NSString *const AUTHORIZATION_URL = @"https://api.twitter.com/oauth/authorize";
-static NSString *const CALLBACK_URL = @"http://codegerms.com/callback";
+static NSString *const kRequestTokenURLString = @"https://api.twitter.com/oauth/request_token";
+static NSString *const kAuthorizationURLString = @"https://api.twitter.com/oauth/authorize";
+static NSString *const kCallbackURL = @"http://codegerms.com/callback";
 
-static NSString *const OAUTH_TOKEN_KEY = @"oauth_token";
-static NSString *const OAUTH_CALLBACK_KEY = @"oauth_callback";
-static NSString *const OAUTH_VERIFER_KEY = @"oauth_verifier";
+static NSString *const kOauthTokenKey = @"oauth_token";
+static NSString *const kOauthCallbackKey = @"oauth_callback";
+static NSString *const kOauthVeriferKey = @"oauth_verifier";
+
+static NSString *const kBaseURLStringAPI_1_1 = @"https://api.twitter.com/1.1";
+static NSString *const kBaseURLStringUpload_1_1 = @"https://upload.twitter.com/1.1";
+static NSString *const kBaseURLStringStream_1_1 = @"https://stream.twitter.com/1.1";
+static NSString *const kBaseURLStringUserStream_1_1 = @"https://userstream.twitter.com/1.1";
+static NSString *const kBaseURLStringSiteStream_1_1 = @"https://sitestream.twitter.com/1.1";
 
 #endif

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, TypeRequest_WebCore)
+typedef NS_ENUM(NSUInteger, TypeRequestWebCore)
 {
-    POST_WebCore,
-    GET_WebCore,
-    PUT_WebCore
+    TypeRequestWebCorePOST,
+    TypeRequestWebCoreGET,
+    TypeRequestWebCorePUT
 };
 
 typedef void(^SuccessCompletion)(id JSON);
@@ -22,7 +22,7 @@ typedef void(^FailureCompletion)(NSError *error);
 
 - (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration;
 
-- (NSURLSessionDataTask *)createTaskType:(TypeRequest_WebCore)type
+- (NSURLSessionDataTask *)createTaskType:(TypeRequestWebCore)type
                               requestURL:(NSURL *)url
                                parametrs:(NSDictionary *)parametrs
                                   sucess:(SuccessCompletion)completion

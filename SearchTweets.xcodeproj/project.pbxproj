@@ -25,7 +25,15 @@
 		9D8374701AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83746F1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m */; };
 		9D8374731AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */; };
 		9D8374771AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374761AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m */; };
-		9D83747B1AB1C829004BE1D2 /* STDataBaseStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83747A1AB1C829004BE1D2 /* STDataBaseStorage.m */; };
+		9D83748D1AB2D28A004BE1D2 /* STProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83748C1AB2D28A004BE1D2 /* STProfileViewController.m */; };
+		9D8374901AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83748F1AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m */; };
+		9D8374931AB2D2F4004BE1D2 /* STProfileViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374921AB2D2F4004BE1D2 /* STProfileViewController_iPad.m */; };
+		9D8374971AB2D880004BE1D2 /* STTapeTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374961AB2D880004BE1D2 /* STTapeTweetsViewController.m */; };
+		9D83749B1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83749A1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m */; };
+		9D83749F1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83749E1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m */; };
+		9D8374A31AB2E314004BE1D2 /* STDataBaseStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374A21AB2E314004BE1D2 /* STDataBaseStorage.m */; };
+		9D8374A81AB2E3EE004BE1D2 /* STRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374A71AB2E3EE004BE1D2 /* STRequestManager.m */; };
+		9D8374B01AB2F722004BE1D2 /* STAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374AF1AB2F722004BE1D2 /* STAccountManager.m */; };
 		9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7D4161A6D018F003BA035 /* STWebCore.m */; };
 		F1D5649B1A6C6030002692BD /* SearchTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5649A1A6C6030002692BD /* SearchTweetsTests.m */; };
 		F1D564BD1A6C614D002692BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564AC1A6C614D002692BD /* main.m */; };
@@ -132,8 +140,28 @@
 		9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootTabBarController_iPad.m; sourceTree = "<group>"; };
 		9D8374751AB1C64C004BE1D2 /* STOAuthAvtorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STOAuthAvtorizationManager.h; sourceTree = "<group>"; };
 		9D8374761AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STOAuthAvtorizationManager.m; sourceTree = "<group>"; };
-		9D8374791AB1C829004BE1D2 /* STDataBaseStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDataBaseStorage.h; sourceTree = "<group>"; };
-		9D83747A1AB1C829004BE1D2 /* STDataBaseStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDataBaseStorage.m; sourceTree = "<group>"; };
+		9D8374821AB2D144004BE1D2 /* STTweetListViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetListViewController_iPhone.h; sourceTree = "<group>"; };
+		9D8374831AB2D144004BE1D2 /* STTweetListViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetListViewController_iPhone.m; sourceTree = "<group>"; };
+		9D8374851AB2D153004BE1D2 /* STTweetListViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetListViewController_iPad.h; sourceTree = "<group>"; };
+		9D8374861AB2D153004BE1D2 /* STTweetListViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetListViewController_iPad.m; sourceTree = "<group>"; };
+		9D83748B1AB2D28A004BE1D2 /* STProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STProfileViewController.h; sourceTree = "<group>"; };
+		9D83748C1AB2D28A004BE1D2 /* STProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STProfileViewController.m; sourceTree = "<group>"; };
+		9D83748E1AB2D2E9004BE1D2 /* STProfileViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STProfileViewController_iPhone.h; sourceTree = "<group>"; };
+		9D83748F1AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STProfileViewController_iPhone.m; sourceTree = "<group>"; };
+		9D8374911AB2D2F4004BE1D2 /* STProfileViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STProfileViewController_iPad.h; sourceTree = "<group>"; };
+		9D8374921AB2D2F4004BE1D2 /* STProfileViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STProfileViewController_iPad.m; sourceTree = "<group>"; };
+		9D8374951AB2D880004BE1D2 /* STTapeTweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTapeTweetsViewController.h; sourceTree = "<group>"; };
+		9D8374961AB2D880004BE1D2 /* STTapeTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTapeTweetsViewController.m; sourceTree = "<group>"; };
+		9D8374991AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTapeTweetsViewController_iPhone.h; sourceTree = "<group>"; };
+		9D83749A1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTapeTweetsViewController_iPhone.m; sourceTree = "<group>"; };
+		9D83749D1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTapeTweetsViewController_iPad.h; sourceTree = "<group>"; };
+		9D83749E1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTapeTweetsViewController_iPad.m; sourceTree = "<group>"; };
+		9D8374A11AB2E314004BE1D2 /* STDataBaseStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDataBaseStorage.h; sourceTree = "<group>"; };
+		9D8374A21AB2E314004BE1D2 /* STDataBaseStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDataBaseStorage.m; sourceTree = "<group>"; };
+		9D8374A61AB2E3EE004BE1D2 /* STRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRequestManager.h; sourceTree = "<group>"; };
+		9D8374A71AB2E3EE004BE1D2 /* STRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRequestManager.m; sourceTree = "<group>"; };
+		9D8374AE1AB2F722004BE1D2 /* STAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAccountManager.h; sourceTree = "<group>"; };
+		9D8374AF1AB2F722004BE1D2 /* STAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAccountManager.m; sourceTree = "<group>"; };
 		9DC7D4151A6D018F003BA035 /* STWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STWebCore.h; sourceTree = "<group>"; };
 		9DC7D4161A6D018F003BA035 /* STWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWebCore.m; sourceTree = "<group>"; };
 		F1D564781A6C6030002692BD /* SearchTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,13 +359,101 @@
 			path = OAuthAvtorizationManager;
 			sourceTree = "<group>";
 		};
-		9D8374781AB1C814004BE1D2 /* DataBaseStorage */ = {
+		9D83747D1AB2D0DB004BE1D2 /* TweetListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9D8374791AB1C829004BE1D2 /* STDataBaseStorage.h */,
-				9D83747A1AB1C829004BE1D2 /* STDataBaseStorage.m */,
+				9D8374821AB2D144004BE1D2 /* STTweetListViewController_iPhone.h */,
+				9D8374831AB2D144004BE1D2 /* STTweetListViewController_iPhone.m */,
 			);
-			path = DataBaseStorage;
+			path = TweetListViewController;
+			sourceTree = "<group>";
+		};
+		9D83747E1AB2D10A004BE1D2 /* TweetListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374851AB2D153004BE1D2 /* STTweetListViewController_iPad.h */,
+				9D8374861AB2D153004BE1D2 /* STTweetListViewController_iPad.m */,
+			);
+			path = TweetListViewController;
+			sourceTree = "<group>";
+		};
+		9D8374881AB2D205004BE1D2 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D83748B1AB2D28A004BE1D2 /* STProfileViewController.h */,
+				9D83748C1AB2D28A004BE1D2 /* STProfileViewController.m */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		9D8374891AB2D20B004BE1D2 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D83748E1AB2D2E9004BE1D2 /* STProfileViewController_iPhone.h */,
+				9D83748F1AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		9D83748A1AB2D212004BE1D2 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374911AB2D2F4004BE1D2 /* STProfileViewController_iPad.h */,
+				9D8374921AB2D2F4004BE1D2 /* STProfileViewController_iPad.m */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		9D8374941AB2D880004BE1D2 /* TapeTweetsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374951AB2D880004BE1D2 /* STTapeTweetsViewController.h */,
+				9D8374961AB2D880004BE1D2 /* STTapeTweetsViewController.m */,
+			);
+			path = TapeTweetsViewController;
+			sourceTree = "<group>";
+		};
+		9D8374981AB2D8D2004BE1D2 /* TapeTweetsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374991AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.h */,
+				9D83749A1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m */,
+			);
+			path = TapeTweetsViewController;
+			sourceTree = "<group>";
+		};
+		9D83749C1AB2D8E4004BE1D2 /* TapeTweetsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D83749D1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.h */,
+				9D83749E1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m */,
+			);
+			path = TapeTweetsViewController;
+			sourceTree = "<group>";
+		};
+		9D8374A41AB2E32B004BE1D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9D8374A51AB2E3D6004BE1D2 /* RequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374A61AB2E3EE004BE1D2 /* STRequestManager.h */,
+				9D8374A71AB2E3EE004BE1D2 /* STRequestManager.m */,
+			);
+			path = RequestManager;
+			sourceTree = "<group>";
+		};
+		9D8374AD1AB2F722004BE1D2 /* AcсountManager */ = {
+			isa = PBXGroup;
+			children = (
+				9D8374AE1AB2F722004BE1D2 /* STAccountManager.h */,
+				9D8374AF1AB2F722004BE1D2 /* STAccountManager.m */,
+			);
+			path = "AcсountManager";
 			sourceTree = "<group>";
 		};
 		9DC7D4141A6D013B003BA035 /* WebCore */ = {
@@ -410,6 +526,9 @@
 		F1D564A51A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D83749C1AB2D8E4004BE1D2 /* TapeTweetsViewController */,
+				9D83748A1AB2D212004BE1D2 /* ProfileViewController */,
+				9D83747E1AB2D10A004BE1D2 /* TweetListViewController */,
 				9D83746A1AB1BBBD004BE1D2 /* RootTabBarController */,
 				9D83745E1AB1BACE004BE1D2 /* SettingsViewController */,
 				F1D565181A6D9276002692BD /* NavigationController */,
@@ -431,6 +550,9 @@
 		F1D564A81A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D8374981AB2D8D2004BE1D2 /* TapeTweetsViewController */,
+				9D8374891AB2D20B004BE1D2 /* ProfileViewController */,
+				9D83747D1AB2D0DB004BE1D2 /* TweetListViewController */,
 				9D8374691AB1BBB5004BE1D2 /* RootTabBarController */,
 				9D83745D1AB1BAC7004BE1D2 /* SettingsViewController */,
 				F1D565171A6D926E002692BD /* NavigationController */,
@@ -477,7 +599,9 @@
 		F1D564B61A6C614D002692BD /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				9D8374781AB1C814004BE1D2 /* DataBaseStorage */,
+				9D8374A41AB2E32B004BE1D2 /* Models */,
+				9D8374A11AB2E314004BE1D2 /* STDataBaseStorage.h */,
+				9D8374A21AB2E314004BE1D2 /* STDataBaseStorage.m */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -486,6 +610,8 @@
 			isa = PBXGroup;
 			children = (
 				9D4F0B6B1A89F8910005E8C9 /* STAPIConstans.h */,
+				9D8374AD1AB2F722004BE1D2 /* AcсountManager */,
+				9D8374A51AB2E3D6004BE1D2 /* RequestManager */,
 				9D8374741AB1C64C004BE1D2 /* OAuthAvtorizationManager */,
 				9DC7D4141A6D013B003BA035 /* WebCore */,
 			);
@@ -495,6 +621,8 @@
 		F1D564BA1A6C614D002692BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D8374941AB2D880004BE1D2 /* TapeTweetsViewController */,
+				9D8374881AB2D205004BE1D2 /* ProfileViewController */,
 				9D8374681AB1BBAF004BE1D2 /* RootTabBarController */,
 				9D83745C1AB1BAC1004BE1D2 /* SettingsViewController */,
 				F1D565131A6D921B002692BD /* NavigationController */,
@@ -746,32 +874,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8374771AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m in Sources */,
+				9D8374931AB2D2F4004BE1D2 /* STProfileViewController_iPad.m in Sources */,
 				9D8374641AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.m in Sources */,
 				9D83746D1AB1BBDE004BE1D2 /* STRootTabBarController.m in Sources */,
 				9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */,
+				9D8374A31AB2E314004BE1D2 /* STDataBaseStorage.m in Sources */,
 				F1D5651B1A6D92E0002692BD /* STNavigationController_iPad.m in Sources */,
 				F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */,
+				9D8374B01AB2F722004BE1D2 /* STAccountManager.m in Sources */,
+				9D8374901AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m in Sources */,
 				F1D564E71A6C6891002692BD /* STSearchController_iPad.m in Sources */,
 				F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */,
 				9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */,
 				9D389E641AB18C88009B9AAB /* SSKeychainQuery.m in Sources */,
 				9D8374731AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m in Sources */,
+				9D8374A81AB2E3EE004BE1D2 /* STRequestManager.m in Sources */,
 				F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */,
 				F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */,
 				9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
+				9D83749F1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m in Sources */,
 				9D389E631AB18C88009B9AAB /* SSKeychain.m in Sources */,
 				9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */,
 				F1D565161A6D923C002692BD /* STNavigationController.m in Sources */,
 				F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */,
 				F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */,
+				9D83749B1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m in Sources */,
 				9D4F0B741A89FF1B0005E8C9 /* README.md in Sources */,
 				9D83744F1AB1B44C004BE1D2 /* STViewController.m in Sources */,
 				9D8374701AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m in Sources */,
-				9D83747B1AB1C829004BE1D2 /* STDataBaseStorage.m in Sources */,
+				9D83748D1AB2D28A004BE1D2 /* STProfileViewController.m in Sources */,
 				9D8374611AB1BAF6004BE1D2 /* STSettingsViewController.m in Sources */,
 				9D8374671AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m in Sources */,
 				F1D564BD1A6C614D002692BD /* main.m in Sources */,
+				9D8374971AB2D880004BE1D2 /* STTapeTweetsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zFM-e9-q9g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zFM-e9-q9g">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-17" y="-153"/>
         </scene>
-        <!--STSettingsViewController_iPhone-->
+        <!--ProfileViewController_iPhone-->
         <scene sceneID="C87-Un-S4a">
             <objects>
-                <viewController title="STSettingsViewController_iPhone" id="i22-Xm-yB0" customClass="STSettingsViewController_iPhone" sceneMemberID="viewController">
+                <viewController title="ProfileViewController_iPhone" id="i22-Xm-yB0" customClass="STProfileViewController_iPhone" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uLJ-ds-xDm"/>
                         <viewControllerLayoutGuide type="bottom" id="CJX-oj-SYg"/>
@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="2223" y="-221"/>
         </scene>
-        <!--STSearchController_iPhone-->
+        <!--TapeTweetsViewController_iPhone-->
         <scene sceneID="RVk-Yb-SUK">
             <objects>
-                <viewController title="STSearchController_iPhone" id="ea8-MK-NTb" customClass="STSearchController_iPhone" sceneMemberID="viewController">
+                <viewController title="TapeTweetsViewController_iPhone" id="ea8-MK-NTb" customClass="STTapeTweetsViewController_iPhone" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a4W-ID-fce"/>
                         <viewControllerLayoutGuide type="bottom" id="9qa-ia-E60"/>

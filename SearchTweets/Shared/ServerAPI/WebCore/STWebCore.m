@@ -28,7 +28,7 @@ static const int TIME_OUT_INTERVAL = 60;
 }
 
 #pragma mark - public methods
-- (NSURLSessionDataTask *)createTaskType:(TypeRequest_WebCore)type
+- (NSURLSessionDataTask *)createTaskType:(TypeRequestWebCore)type
                               requestURL:(NSURL *)url
                                parametrs:(NSDictionary *)parametrs
                                   sucess:(SuccessCompletion)completion
@@ -51,7 +51,7 @@ static const int TIME_OUT_INTERVAL = 60;
 }
 
 #pragma mark - private methods
-- (NSMutableURLRequest *)p_requestWithType:(TypeRequest_WebCore)typeRequest
+- (NSMutableURLRequest *)p_requestWithType:(TypeRequestWebCore)typeRequest
                                        url:(NSURL *)url
                                  parametrs:(NSDictionary *)parametrs
 {
