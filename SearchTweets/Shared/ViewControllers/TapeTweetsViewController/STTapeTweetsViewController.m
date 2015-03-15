@@ -23,7 +23,9 @@
     
     
     self.requestManager = [[STRequestManager alloc]init];
-    [self.requestManager requestTapeTweets];
+    [self.requestManager requestTweetsCount:100 offset:0 completion:^(NSArray *array, NSError *error) {
+        NSLog(@"123");
+    }];
     
 }
 

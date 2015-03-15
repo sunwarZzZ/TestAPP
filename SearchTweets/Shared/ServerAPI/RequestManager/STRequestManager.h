@@ -12,11 +12,12 @@
 
 + (BOOL)isAvtorization;
 
-- (void)requestTapeTweets;
 - (void)requestAvtorizationToken:(void(^)(NSURLRequest *const requestToken, NSError *const error))comletion;
 - (void)requestAccessTokenWithOAuthVerifier:(NSString *)verifier
                                  completion:(void(^)(BOOL success, NSError *error))completion;
-
+- (void)requestTweetsCount:(int)count
+                    offset:(int)offset
+                completion:(void(^)(NSArray *array, NSError *error))completion;
 
 
 @end
