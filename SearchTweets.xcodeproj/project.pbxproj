@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9D389E631AB18C88009B9AAB /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D389E601AB18C88009B9AAB /* SSKeychain.m */; };
 		9D389E641AB18C88009B9AAB /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D389E621AB18C88009B9AAB /* SSKeychainQuery.m */; };
-		9D4F0B741A89FF1B0005E8C9 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B6D1A89FF1B0005E8C9 /* README.md */; };
 		9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B6F1A89FF1B0005E8C9 /* RIButtonItem.m */; };
 		9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B711A89FF1B0005E8C9 /* UIActionSheet+Blocks.m */; };
 		9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B731A89FF1B0005E8C9 /* UIAlertView+Blocks.m */; };
@@ -24,7 +23,6 @@
 		9D83746D1AB1BBDE004BE1D2 /* STRootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83746C1AB1BBDE004BE1D2 /* STRootTabBarController.m */; };
 		9D8374701AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83746F1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m */; };
 		9D8374731AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */; };
-		9D8374771AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374761AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m */; };
 		9D83748D1AB2D28A004BE1D2 /* STProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83748C1AB2D28A004BE1D2 /* STProfileViewController.m */; };
 		9D8374901AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83748F1AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m */; };
 		9D8374931AB2D2F4004BE1D2 /* STProfileViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374921AB2D2F4004BE1D2 /* STProfileViewController_iPad.m */; };
@@ -32,9 +30,9 @@
 		9D83749B1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83749A1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m */; };
 		9D83749F1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83749E1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m */; };
 		9D8374A31AB2E314004BE1D2 /* STDataBaseStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374A21AB2E314004BE1D2 /* STDataBaseStorage.m */; };
-		9D8374A81AB2E3EE004BE1D2 /* STRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374A71AB2E3EE004BE1D2 /* STRequestManager.m */; };
-		9D8374B01AB2F722004BE1D2 /* STAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374AF1AB2F722004BE1D2 /* STAccountManager.m */; };
-		9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC7D4161A6D018F003BA035 /* STWebCore.m */; };
+		F1C17A6E1AB551D400C00C4D /* STTokenStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C17A6D1AB551D400C00C4D /* STTokenStorage.m */; };
+		F1C17A721AB551F900C00C4D /* STRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C17A711AB551F900C00C4D /* STRequestManager.m */; };
+		F1C17A761AB5575400C00C4D /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C17A751AB5575400C00C4D /* STWebCore.m */; };
 		F1D5649B1A6C6030002692BD /* SearchTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D5649A1A6C6030002692BD /* SearchTweetsTests.m */; };
 		F1D564BD1A6C614D002692BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564AC1A6C614D002692BD /* main.m */; };
 		F1D564C01A6C614D002692BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D564B21A6C614D002692BD /* Images.xcassets */; };
@@ -138,8 +136,6 @@
 		9D83746F1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootTabBarController_iPhone.m; sourceTree = "<group>"; };
 		9D8374711AB1BC0B004BE1D2 /* STRootTabBarController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRootTabBarController_iPad.h; sourceTree = "<group>"; };
 		9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootTabBarController_iPad.m; sourceTree = "<group>"; };
-		9D8374751AB1C64C004BE1D2 /* STOAuthAvtorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STOAuthAvtorizationManager.h; sourceTree = "<group>"; };
-		9D8374761AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STOAuthAvtorizationManager.m; sourceTree = "<group>"; };
 		9D8374821AB2D144004BE1D2 /* STTweetListViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetListViewController_iPhone.h; sourceTree = "<group>"; };
 		9D8374831AB2D144004BE1D2 /* STTweetListViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetListViewController_iPhone.m; sourceTree = "<group>"; };
 		9D8374851AB2D153004BE1D2 /* STTweetListViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetListViewController_iPad.h; sourceTree = "<group>"; };
@@ -158,12 +154,13 @@
 		9D83749E1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTapeTweetsViewController_iPad.m; sourceTree = "<group>"; };
 		9D8374A11AB2E314004BE1D2 /* STDataBaseStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDataBaseStorage.h; sourceTree = "<group>"; };
 		9D8374A21AB2E314004BE1D2 /* STDataBaseStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDataBaseStorage.m; sourceTree = "<group>"; };
-		9D8374A61AB2E3EE004BE1D2 /* STRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRequestManager.h; sourceTree = "<group>"; };
-		9D8374A71AB2E3EE004BE1D2 /* STRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRequestManager.m; sourceTree = "<group>"; };
-		9D8374AE1AB2F722004BE1D2 /* STAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAccountManager.h; sourceTree = "<group>"; };
-		9D8374AF1AB2F722004BE1D2 /* STAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAccountManager.m; sourceTree = "<group>"; };
-		9DC7D4151A6D018F003BA035 /* STWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STWebCore.h; sourceTree = "<group>"; };
-		9DC7D4161A6D018F003BA035 /* STWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWebCore.m; sourceTree = "<group>"; };
+		F1C17A691AB4540B00C00C4D /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		F1C17A6C1AB551D400C00C4D /* STTokenStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTokenStorage.h; sourceTree = "<group>"; };
+		F1C17A6D1AB551D400C00C4D /* STTokenStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTokenStorage.m; sourceTree = "<group>"; };
+		F1C17A701AB551F900C00C4D /* STRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRequestManager.h; sourceTree = "<group>"; };
+		F1C17A711AB551F900C00C4D /* STRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRequestManager.m; sourceTree = "<group>"; };
+		F1C17A741AB5575400C00C4D /* STWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STWebCore.h; sourceTree = "<group>"; };
+		F1C17A751AB5575400C00C4D /* STWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STWebCore.m; sourceTree = "<group>"; };
 		F1D564781A6C6030002692BD /* SearchTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D564941A6C6030002692BD /* SearchTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D564991A6C6030002692BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -282,6 +279,7 @@
 		9D83744B1AB1AF50004BE1D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1C17A691AB4540B00C00C4D /* libcommonCrypto.dylib */,
 				9D8374491AB1AE5D004BE1D2 /* libsqlite3.dylib */,
 			);
 			name = Frameworks;
@@ -348,15 +346,6 @@
 				9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */,
 			);
 			path = RootTabBarController;
-			sourceTree = "<group>";
-		};
-		9D8374741AB1C64C004BE1D2 /* OAuthAvtorizationManager */ = {
-			isa = PBXGroup;
-			children = (
-				9D8374751AB1C64C004BE1D2 /* STOAuthAvtorizationManager.h */,
-				9D8374761AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m */,
-			);
-			path = OAuthAvtorizationManager;
 			sourceTree = "<group>";
 		};
 		9D83747D1AB2D0DB004BE1D2 /* TweetListViewController */ = {
@@ -438,29 +427,36 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		9D8374A51AB2E3D6004BE1D2 /* RequestManager */ = {
+		F1C17A621AB4536200C00C4D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				9D8374A61AB2E3EE004BE1D2 /* STRequestManager.h */,
-				9D8374A71AB2E3EE004BE1D2 /* STRequestManager.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		F1C17A6B1AB551D400C00C4D /* TokenStorage */ = {
+			isa = PBXGroup;
+			children = (
+				F1C17A6C1AB551D400C00C4D /* STTokenStorage.h */,
+				F1C17A6D1AB551D400C00C4D /* STTokenStorage.m */,
+			);
+			path = TokenStorage;
+			sourceTree = "<group>";
+		};
+		F1C17A6F1AB551F900C00C4D /* RequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				F1C17A701AB551F900C00C4D /* STRequestManager.h */,
+				F1C17A711AB551F900C00C4D /* STRequestManager.m */,
 			);
 			path = RequestManager;
 			sourceTree = "<group>";
 		};
-		9D8374AD1AB2F722004BE1D2 /* AcсountManager */ = {
+		F1C17A731AB5575400C00C4D /* WebCore */ = {
 			isa = PBXGroup;
 			children = (
-				9D8374AE1AB2F722004BE1D2 /* STAccountManager.h */,
-				9D8374AF1AB2F722004BE1D2 /* STAccountManager.m */,
-			);
-			path = "AcсountManager";
-			sourceTree = "<group>";
-		};
-		9DC7D4141A6D013B003BA035 /* WebCore */ = {
-			isa = PBXGroup;
-			children = (
-				9DC7D4151A6D018F003BA035 /* STWebCore.h */,
-				9DC7D4161A6D018F003BA035 /* STWebCore.m */,
+				F1C17A741AB5575400C00C4D /* STWebCore.h */,
+				F1C17A751AB5575400C00C4D /* STWebCore.m */,
 			);
 			path = WebCore;
 			sourceTree = "<group>";
@@ -586,6 +582,7 @@
 			children = (
 				F1D564B41A6C614D002692BD /* AppDelegate.h */,
 				F1D564B51A6C614D002692BD /* AppDelegate.m */,
+				F1C17A621AB4536200C00C4D /* Categories */,
 				9D51DD9D1A765C5A003E2D49 /* Utils */,
 				F1D564D01A6C67F6002692BD /* AbstractClasses */,
 				F1D5651F1A6D9648002692BD /* Constans */,
@@ -609,11 +606,10 @@
 		F1D564B91A6C614D002692BD /* ServerAPI */ = {
 			isa = PBXGroup;
 			children = (
+				F1C17A731AB5575400C00C4D /* WebCore */,
+				F1C17A6F1AB551F900C00C4D /* RequestManager */,
+				F1C17A6B1AB551D400C00C4D /* TokenStorage */,
 				9D4F0B6B1A89F8910005E8C9 /* STAPIConstans.h */,
-				9D8374AD1AB2F722004BE1D2 /* AcсountManager */,
-				9D8374A51AB2E3D6004BE1D2 /* RequestManager */,
-				9D8374741AB1C64C004BE1D2 /* OAuthAvtorizationManager */,
-				9DC7D4141A6D013B003BA035 /* WebCore */,
 			);
 			path = ServerAPI;
 			sourceTree = "<group>";
@@ -873,39 +869,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D8374771AB1C64C004BE1D2 /* STOAuthAvtorizationManager.m in Sources */,
 				9D8374931AB2D2F4004BE1D2 /* STProfileViewController_iPad.m in Sources */,
 				9D8374641AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.m in Sources */,
 				9D83746D1AB1BBDE004BE1D2 /* STRootTabBarController.m in Sources */,
 				9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */,
+				F1C17A761AB5575400C00C4D /* STWebCore.m in Sources */,
 				9D8374A31AB2E314004BE1D2 /* STDataBaseStorage.m in Sources */,
 				F1D5651B1A6D92E0002692BD /* STNavigationController_iPad.m in Sources */,
 				F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */,
-				9D8374B01AB2F722004BE1D2 /* STAccountManager.m in Sources */,
 				9D8374901AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m in Sources */,
 				F1D564E71A6C6891002692BD /* STSearchController_iPad.m in Sources */,
 				F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */,
 				9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */,
 				9D389E641AB18C88009B9AAB /* SSKeychainQuery.m in Sources */,
 				9D8374731AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m in Sources */,
-				9D8374A81AB2E3EE004BE1D2 /* STRequestManager.m in Sources */,
 				F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */,
 				F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */,
-				9DC7D4171A6D018F003BA035 /* STWebCore.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
 				9D83749F1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m in Sources */,
 				9D389E631AB18C88009B9AAB /* SSKeychain.m in Sources */,
 				9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */,
+				F1C17A6E1AB551D400C00C4D /* STTokenStorage.m in Sources */,
 				F1D565161A6D923C002692BD /* STNavigationController.m in Sources */,
 				F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */,
 				F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */,
 				9D83749B1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m in Sources */,
-				9D4F0B741A89FF1B0005E8C9 /* README.md in Sources */,
 				9D83744F1AB1B44C004BE1D2 /* STViewController.m in Sources */,
 				9D8374701AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m in Sources */,
 				9D83748D1AB2D28A004BE1D2 /* STProfileViewController.m in Sources */,
 				9D8374611AB1BAF6004BE1D2 /* STSettingsViewController.m in Sources */,
 				9D8374671AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m in Sources */,
+				F1C17A721AB551F900C00C4D /* STRequestManager.m in Sources */,
 				F1D564BD1A6C614D002692BD /* main.m in Sources */,
 				9D8374971AB2D880004BE1D2 /* STTapeTweetsViewController.m in Sources */,
 			);
@@ -1043,6 +1037,10 @@
 				);
 				INFOPLIST_FILE = SearchTweets/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1061,6 +1059,10 @@
 				);
 				INFOPLIST_FILE = SearchTweets/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -7,8 +7,7 @@
 //
 
 #import "STWebCore.h"
-
-static const int TIME_OUT_INTERVAL = 60;
+#import "OAMutableURLRequest.h"
 
 @interface STWebCore()
 
@@ -28,41 +27,40 @@ static const int TIME_OUT_INTERVAL = 60;
 }
 
 #pragma mark - public methods
-- (NSURLSessionDataTask *)createTaskType:(TypeRequestWebCore)type
-                              requestURL:(NSURL *)url
-                               parametrs:(NSDictionary *)parametrs
-                                  sucess:(SuccessCompletion)completion
-                                 failure:(FailureCompletion)failure
+- (NSURLSessionDataTask *)createTaskJSONWithRequest:(OAMutableURLRequest *)request
+                                         completion:(SuccessCompletionJSON)completion
+
 {
-    NSMutableURLRequest *request = [self p_requestWithType:type url:url parametrs:parametrs];
+    [request prepare];
     NSURLSessionDataTask *sessionDataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
     {
-        if(error == nil)
+        NSDictionary *json = nil;
+        if(data != nil)
         {
-            NSDictionary *json = [self p_deserializarionJsonData:data error:&error];
-            if(error == nil)
-            {
-                return completion(json);
-            }
+            json = [self p_deserializarionJsonData:data error:nil];
         }
-        failure(error);
+        completion(json, error);
+    }];
+    return sessionDataTask;
+}
+
+- (NSURLSessionDataTask *)createTaskStringBodyWithRequest:(OAMutableURLRequest *)request
+                                               completion:(SuccessCompletionStringBody)completion
+{
+    [request prepare];
+    NSURLSessionDataTask *sessionDataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+        NSString *httpBody = nil;
+        if(data)
+        {
+            httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+        completion(httpBody, error);
     }];
     return sessionDataTask;
 }
 
 #pragma mark - private methods
-- (NSMutableURLRequest *)p_requestWithType:(TypeRequestWebCore)typeRequest
-                                       url:(NSURL *)url
-                                 parametrs:(NSDictionary *)parametrs
-{
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:TIME_OUT_INTERVAL];
-    
-    return request;
-}
-
 - (NSDictionary *)p_deserializarionJsonData:(NSData *)jsonData error:(NSError **)error
 {
     NSDictionary *jsonDictionary = nil;

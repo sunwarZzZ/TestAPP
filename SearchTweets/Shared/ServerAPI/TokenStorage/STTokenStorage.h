@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface STAccountManager : NSObject
+@interface STTokenStorage : NSObject
 
-+ (void)saveTokenPublicKey:(NSString *)key;
-+ (void)saveTokenPrivateKey:(NSString *)key;
++ (void)saveKey:(NSString *)key;
++ (void)savePrivateKey:(NSString *)key;
 
-+ (NSString *)tokenPublicKey;
-+ (NSString *)tokenPrivateKey;
++ (NSString *)key;
++ (NSString *)privateKey;
 
 @end

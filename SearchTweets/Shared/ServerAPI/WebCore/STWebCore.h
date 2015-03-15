@@ -8,25 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, TypeRequestWebCore)
-{
-    TypeRequestWebCorePOST,
-    TypeRequestWebCoreGET,
-    TypeRequestWebCorePUT
-};
+@class OAMutableURLRequest;
 
-typedef void(^SuccessCompletion)(id JSON);
-typedef void(^FailureCompletion)(NSError *error);
+typedef void(^SuccessCompletionJSON)(id JSON, NSError *error);
+typedef void(^SuccessCompletionStringBody)(NSString *body, NSError *error);
 
 @interface STWebCore : NSObject
 
 - (instancetype)initWithSessionConfiguration:(NSURLSessionConfiguration *)sessionConfiguration;
 
-- (NSURLSessionDataTask *)createTaskType:(TypeRequestWebCore)type
-                              requestURL:(NSURL *)url
-                               parametrs:(NSDictionary *)parametrs
-                                  sucess:(SuccessCompletion)completion
-                                 failure:(FailureCompletion)failure;
+- (NSURLSessionDataTask *)createTaskJSONWithRequest:(OAMutableURLRequest *)request
+                                     completion:(SuccessCompletionJSON)completion;
+
+- (NSURLSessionDataTask *)createTaskStringBodyWithRequest:(OAMutableURLRequest *)request
+                                     completion:(SuccessCompletionStringBody)completion;
 
 
 @end

@@ -6,30 +6,30 @@
 //  Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
 //
 
-#import "STAccountManager.h"
+#import "STTokenStorage.h"
 #import "SSKeyChain.h"
 
 static NSString *const PUBLIC_KEY = @"public_key";
 static NSString *const PRIVATE_KEY = @"private_key";
 
-@implementation STAccountManager
+@implementation STTokenStorage
 
-+ (void)saveTokenPublicKey:(NSString *)key
++ (void)saveKey:(NSString *)key
 {
     [SSKeychain setPassword:key forService:PUBLIC_KEY account:@""];
 }
 
-+ (void)saveTokenPrivateKey:(NSString *)key
++ (void)savePrivateKey:(NSString *)key
 {
     [SSKeychain setPassword:key forService:PRIVATE_KEY account:@""];
 }
 
-+ (NSString *)tokenPublicKey
++ (NSString *)key
 {
     return [SSKeychain passwordForService:PUBLIC_KEY account:@""];
 }
 
-+ (NSString *)tokenPrivateKey
++ (NSString *)privateKey
 {
     return [SSKeychain passwordForService:PRIVATE_KEY account:@""];
 }

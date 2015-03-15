@@ -7,7 +7,7 @@
 //
 
 #import "STAvtorizationViewController.h"
-#import "STOAuthAvtorizationManager.h"
+#import "STRequestManager.h"
 #import "UIAlertView+Blocks.h"
 #import "STAPIConstans.h"
 #import "STSegueID.h"
@@ -20,7 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *avtorizationButton;
 @property (nonatomic, weak) IBOutlet UILabel *textInfoLabel;
 
-@property (nonatomic, strong) STOAuthAvtorizationManager *oauthAvtorizationManager;
+@property (nonatomic, strong) STRequestManager *requestManager;
 
 @end
 
@@ -32,7 +32,7 @@
 {
     if(self = [super initWithCoder:aDecoder])
     {
-        _oauthAvtorizationManager = [STOAuthAvtorizationManager new];
+        _requestManager = [STRequestManager new];
         self.title = STLocalizedString(@"Avtorization");
     }
     return self;
@@ -64,20 +64,23 @@
     [self p_showProgress];
     if([self p_isAvtorizationRequest:request])
     {
-        [self.oauthAvtorizationManager requestAccessTokenWithOAuthVerifier:[self p_oauthVerifierFromRequest:request]
-                                                      completion:^(BOOL sucess) {
+        [self.requestManager requestAccessTokenWithOAuthVerifier:[self p_oauthVerifierFromRequest:request]
+                                                      completion:^(BOOL sucess, NSError *error) {
             
-            [self p_hideProgress];
-            [self p_hideWebView];
-                                                          
-            if(sucess)
-            {
-                [self.navigationController performSegueWithIdentifier:kPresentRootControllerSegue sender:self];
-            }
-            else
-            {
-                [self p_showAlertFailRequestAvtorization];
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self p_hideProgress];
+                [self p_hideWebView];
+                
+                if(sucess)
+                {
+                    [self.navigationController performSegueWithIdentifier:kPresentRootControllerSegue sender:self];
+                }
+                else
+                {
+                    [self p_showAlertFailRequestAvtorization];
+                }
+            });
         }];
     }
     return YES;
@@ -120,16 +123,18 @@
 
 - (void)p_requestAvtorization
 {
-    [self.oauthAvtorizationManager requestAvtorizationToken:^(NSURLRequest *const requestToken, NSError *const error)
+    [self.requestManager requestAvtorizationToken:^(NSURLRequest *const requestToken, NSError *const error)
     {
-        if(error == nil)
-        {
-            [self.webView loadRequest:requestToken];
-        }
-        else
-        {
-            [self p_showAlertFailRequestAvtorization];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(error == nil)
+            {
+                [self.webView loadRequest:requestToken];
+            }
+            else
+            {
+                [self p_showAlertFailRequestAvtorization];
+            }
+        });
     }];
 }
 

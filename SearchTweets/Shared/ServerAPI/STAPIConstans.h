@@ -26,4 +26,6 @@ static NSString *const kBaseURLStringStream_1_1 = @"https://stream.twitter.com/1
 static NSString *const kBaseURLStringUserStream_1_1 = @"https://userstream.twitter.com/1.1";
 static NSString *const kBaseURLStringSiteStream_1_1 = @"https://sitestream.twitter.com/1.1";
 
+static NSString *const kHomeTimeline = @"/statuses/home_timeline.json";
+
 #endif

@@ -7,8 +7,11 @@
 //
 
 #import "STTapeTweetsViewController.h"
+#import "STRequestManager.h"
 
 @interface STTapeTweetsViewController ()
+
+@property (nonatomic, strong) STRequestManager *requestManager;
 
 @end
 
@@ -17,6 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    self.requestManager = [[STRequestManager alloc]init];
+    [self.requestManager requestTapeTweets];
+    
 }
 
 
