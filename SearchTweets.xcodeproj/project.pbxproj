@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9D389E631AB18C88009B9AAB /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D389E601AB18C88009B9AAB /* SSKeychain.m */; };
 		9D389E641AB18C88009B9AAB /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D389E621AB18C88009B9AAB /* SSKeychainQuery.m */; };
+		9D39DA7F1AB6C61E0025F665 /* STTapeTweetsTableCell_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39DA7E1AB6C61E0025F665 /* STTapeTweetsTableCell_iPhone.m */; };
+		9D39DA811AB6C6380025F665 /* STTapeTweetsTableCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D39DA801AB6C6380025F665 /* STTapeTweetsTableCell_iPhone.xib */; };
+		9D39DA8B1AB6C8760025F665 /* STTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39DA8A1AB6C8760025F665 /* STTableViewCell.m */; };
 		9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B6F1A89FF1B0005E8C9 /* RIButtonItem.m */; };
 		9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B711A89FF1B0005E8C9 /* UIActionSheet+Blocks.m */; };
 		9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B731A89FF1B0005E8C9 /* UIAlertView+Blocks.m */; };
@@ -42,9 +45,6 @@
 		F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564B51A6C614D002692BD /* AppDelegate.m */; };
 		F1D564C41A6C62DA002692BD /* Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D564C31A6C62DA002692BD /* Storyboard_iPhone.storyboard */; };
 		F1D564C61A6C62E1002692BD /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1D564C51A6C62E1002692BD /* Storyboard_iPad.storyboard */; };
-		F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564DE1A6C6880002692BD /* STSearchController.m */; };
-		F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564E21A6C6888002692BD /* STSearchController_iPhone.m */; };
-		F1D564E71A6C6891002692BD /* STSearchController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564E61A6C6891002692BD /* STSearchController_iPad.m */; };
 		F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564EC1A6C68EE002692BD /* STAvtorizationViewController.m */; };
 		F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F21A6C69B8002692BD /* STAvtorizationViewController_iPhone.m */; };
 		F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */; };
@@ -112,6 +112,11 @@
 		9D389E621AB18C88009B9AAB /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		9D389E991AB18F30009B9AAB /* FMDB.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FMDB.xcodeproj; path = FMDB/FMDB.xcodeproj; sourceTree = "<group>"; };
 		9D389ED51AB191F4009B9AAB /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
+		9D39DA7D1AB6C61E0025F665 /* STTapeTweetsTableCell_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTapeTweetsTableCell_iPhone.h; sourceTree = "<group>"; };
+		9D39DA7E1AB6C61E0025F665 /* STTapeTweetsTableCell_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTapeTweetsTableCell_iPhone.m; sourceTree = "<group>"; };
+		9D39DA801AB6C6380025F665 /* STTapeTweetsTableCell_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STTapeTweetsTableCell_iPhone.xib; sourceTree = "<group>"; };
+		9D39DA891AB6C8760025F665 /* STTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTableViewCell.h; sourceTree = "<group>"; };
+		9D39DA8A1AB6C8760025F665 /* STTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTableViewCell.m; sourceTree = "<group>"; };
 		9D4F0B6B1A89F8910005E8C9 /* STAPIConstans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAPIConstans.h; sourceTree = "<group>"; };
 		9D4F0B6D1A89FF1B0005E8C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D4F0B6E1A89FF1B0005E8C9 /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
@@ -181,12 +186,6 @@
 		F1D564B51A6C614D002692BD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F1D564C31A6C62DA002692BD /* Storyboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F1D564C51A6C62E1002692BD /* Storyboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPad.storyboard; sourceTree = "<group>"; };
-		F1D564DD1A6C6880002692BD /* STSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController.h; sourceTree = "<group>"; };
-		F1D564DE1A6C6880002692BD /* STSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController.m; sourceTree = "<group>"; };
-		F1D564E11A6C6888002692BD /* STSearchController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController_iPhone.h; sourceTree = "<group>"; };
-		F1D564E21A6C6888002692BD /* STSearchController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController_iPhone.m; sourceTree = "<group>"; };
-		F1D564E51A6C6891002692BD /* STSearchController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchController_iPad.h; sourceTree = "<group>"; };
-		F1D564E61A6C6891002692BD /* STSearchController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchController_iPad.m; sourceTree = "<group>"; };
 		F1D564EB1A6C68EE002692BD /* STAvtorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationViewController.h; sourceTree = "<group>"; };
 		F1D564EC1A6C68EE002692BD /* STAvtorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvtorizationViewController.m; sourceTree = "<group>"; };
 		F1D564F11A6C69B8002692BD /* STAvtorizationViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationViewController_iPhone.h; sourceTree = "<group>"; };
@@ -250,6 +249,25 @@
 				9D389EDD1AB191F5009B9AAB /* OAuthConsumerTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9D39DA7A1AB6C54E0025F665 /* dataSource */ = {
+			isa = PBXGroup;
+			children = (
+				9D39DA7D1AB6C61E0025F665 /* STTapeTweetsTableCell_iPhone.h */,
+				9D39DA7E1AB6C61E0025F665 /* STTapeTweetsTableCell_iPhone.m */,
+				9D39DA801AB6C6380025F665 /* STTapeTweetsTableCell_iPhone.xib */,
+			);
+			path = dataSource;
+			sourceTree = "<group>";
+		};
+		9D39DA881AB6C85A0025F665 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D39DA891AB6C8760025F665 /* STTableViewCell.h */,
+				9D39DA8A1AB6C8760025F665 /* STTableViewCell.m */,
+			);
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 		9D4F0B6C1A89FF1B0005E8C9 /* UIAlertView-Blocks */ = {
@@ -415,6 +433,7 @@
 		9D8374981AB2D8D2004BE1D2 /* TapeTweetsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9D39DA7A1AB6C54E0025F665 /* dataSource */,
 				9D8374991AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.h */,
 				9D83749A1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m */,
 			);
@@ -567,7 +586,6 @@
 				9D83746A1AB1BBBD004BE1D2 /* RootTabBarController */,
 				9D83745E1AB1BACE004BE1D2 /* SettingsViewController */,
 				F1D565181A6D9276002692BD /* NavigationController */,
-				F1D564E41A6C6891002692BD /* SearchViewController */,
 				F1D564DA1A6C6831002692BD /* AvtorizationViewController */,
 			);
 			path = ViewControllers;
@@ -591,7 +609,6 @@
 				9D8374691AB1BBB5004BE1D2 /* RootTabBarController */,
 				9D83745D1AB1BAC7004BE1D2 /* SettingsViewController */,
 				F1D565171A6D926E002692BD /* NavigationController */,
-				F1D564E01A6C6888002692BD /* SearchViewController */,
 				F1D564D91A6C6823002692BD /* AvtorizationViewController */,
 			);
 			path = ViewControllers;
@@ -661,7 +678,6 @@
 				9D8374681AB1BBAF004BE1D2 /* RootTabBarController */,
 				9D83745C1AB1BAC1004BE1D2 /* SettingsViewController */,
 				F1D565131A6D921B002692BD /* NavigationController */,
-				F1D564DC1A6C6880002692BD /* SearchViewController */,
 				F1D564D21A6C680A002692BD /* AvtorizationViewController */,
 			);
 			path = ViewControllers;
@@ -670,6 +686,7 @@
 		F1D564D01A6C67F6002692BD /* AbstractClasses */ = {
 			isa = PBXGroup;
 			children = (
+				9D39DA881AB6C85A0025F665 /* TableCell */,
 				9D83744C1AB1B44C004BE1D2 /* ViewController */,
 			);
 			path = AbstractClasses;
@@ -700,33 +717,6 @@
 				F1D564F81A6C6A2E002692BD /* STAvtorizationViewController_iPad.m */,
 			);
 			path = AvtorizationViewController;
-			sourceTree = "<group>";
-		};
-		F1D564DC1A6C6880002692BD /* SearchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564DD1A6C6880002692BD /* STSearchController.h */,
-				F1D564DE1A6C6880002692BD /* STSearchController.m */,
-			);
-			path = SearchViewController;
-			sourceTree = "<group>";
-		};
-		F1D564E01A6C6888002692BD /* SearchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564E11A6C6888002692BD /* STSearchController_iPhone.h */,
-				F1D564E21A6C6888002692BD /* STSearchController_iPhone.m */,
-			);
-			path = SearchViewController;
-			sourceTree = "<group>";
-		};
-		F1D564E41A6C6891002692BD /* SearchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F1D564E51A6C6891002692BD /* STSearchController_iPad.h */,
-				F1D564E61A6C6891002692BD /* STSearchController_iPad.m */,
-			);
-			path = SearchViewController;
 			sourceTree = "<group>";
 		};
 		F1D565131A6D921B002692BD /* NavigationController */ = {
@@ -888,6 +878,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D564C01A6C614D002692BD /* Images.xcassets in Resources */,
+				9D39DA811AB6C6380025F665 /* STTapeTweetsTableCell_iPhone.xib in Resources */,
 				9D51DD9B1A765BB2003E2D49 /* Localizable.strings in Resources */,
 				F1D564C41A6C62DA002692BD /* Storyboard_iPhone.storyboard in Resources */,
 				F1D564C61A6C62E1002692BD /* Storyboard_iPad.storyboard in Resources */,
@@ -918,13 +909,11 @@
 				F1C17A861AB632F900C00C4D /* STUser.m in Sources */,
 				F1D564ED1A6C68EE002692BD /* STAvtorizationViewController.m in Sources */,
 				9D8374901AB2D2E9004BE1D2 /* STProfileViewController_iPhone.m in Sources */,
-				F1D564E71A6C6891002692BD /* STSearchController_iPad.m in Sources */,
-				F1D564DF1A6C6880002692BD /* STSearchController.m in Sources */,
 				9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */,
 				9D389E641AB18C88009B9AAB /* SSKeychainQuery.m in Sources */,
+				9D39DA8B1AB6C8760025F665 /* STTableViewCell.m in Sources */,
 				9D8374731AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m in Sources */,
 				F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */,
-				F1D564E31A6C6888002692BD /* STSearchController_iPhone.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
 				9D83749F1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m in Sources */,
 				9D389E631AB18C88009B9AAB /* SSKeychain.m in Sources */,
@@ -936,6 +925,7 @@
 				F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */,
 				9D83749B1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m in Sources */,
 				9D83744F1AB1B44C004BE1D2 /* STViewController.m in Sources */,
+				9D39DA7F1AB6C61E0025F665 /* STTapeTweetsTableCell_iPhone.m in Sources */,
 				9D8374701AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m in Sources */,
 				9D83748D1AB2D28A004BE1D2 /* STProfileViewController.m in Sources */,
 				9D8374611AB1BAF6004BE1D2 /* STSettingsViewController.m in Sources */,

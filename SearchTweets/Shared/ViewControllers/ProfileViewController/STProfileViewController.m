@@ -14,12 +14,29 @@
 
 @implementation STProfileViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+
+#pragma mark - ViewController methods
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if(self = [super initWithCoder:aDecoder])
+    {
+        self.title = STLocalizedString(@"Profile");
+    }
+    return self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self p_setupUI];
 }
+
+#pragma mark - private methods
+- (void)p_setupUI
+{
+   
+}
+
 
 @end

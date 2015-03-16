@@ -10,5 +10,6 @@
 #define SearchTweets_STMacros_h
 
 #define STLocalizedString(key)   NSLocalizedString(key, nil)
+#define Bundle                   [NSBundle mainBundle]
 
 #endif

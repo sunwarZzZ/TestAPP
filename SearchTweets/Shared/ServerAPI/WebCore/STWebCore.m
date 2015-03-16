@@ -60,6 +60,22 @@
     return sessionDataTask;
 }
 
+- (NSURLSessionDataTask *)createTaskImageWithRequest:(OAMutableURLRequest *)request
+                                           comletion:(SuccessCompletionImage)completion
+{
+    [request prepare];
+    NSURLSessionDataTask *sessionDataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+        UIImage *image = nil;
+        if(data)
+        {
+            image = [UIImage imageWithData:data];
+        }
+        completion(image, error);
+    }];
+    return sessionDataTask;
+}
+
 #pragma mark - private methods
 - (NSDictionary *)p_deserializarionJsonData:(NSData *)jsonData error:(NSError **)error
 {

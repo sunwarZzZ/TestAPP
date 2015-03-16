@@ -12,6 +12,7 @@
 
 typedef void(^SuccessCompletionJSON)(id JSON, NSError *error);
 typedef void(^SuccessCompletionStringBody)(NSString *body, NSError *error);
+typedef void(^SuccessCompletionImage)(UIImage *image, NSError *error);
 
 @interface STWebCore : NSObject
 
@@ -22,6 +23,9 @@ typedef void(^SuccessCompletionStringBody)(NSString *body, NSError *error);
 
 - (NSURLSessionDataTask *)createTaskStringBodyWithRequest:(OAMutableURLRequest *)request
                                      completion:(SuccessCompletionStringBody)completion;
+
+- (NSURLSessionDataTask *)createTaskImageWithRequest:(OAMutableURLRequest *)request
+                                           comletion:(SuccessCompletionImage)completion;
 
 
 @end

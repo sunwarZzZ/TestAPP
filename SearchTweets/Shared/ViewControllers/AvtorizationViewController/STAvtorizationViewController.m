@@ -28,21 +28,12 @@
 
 
 #pragma mark - ViewController methods
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if(self = [super initWithCoder:aDecoder])
-    {
-        _requestManager = [STRequestManager new];
-        self.title = STLocalizedString(@"Avtorization");
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     _webView.delegate = self;
+    _requestManager = [STRequestManager new];
     [self p_setupUI];
 }
 

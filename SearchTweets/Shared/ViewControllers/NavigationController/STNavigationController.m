@@ -36,6 +36,11 @@
     }
 }
 
+#pragma mark - private methods
+- (void)p_setupUI
+{
+    self.navigationBar.translucent = YES;
+}
 
 
 @end

@@ -14,6 +14,7 @@
 
 @implementation STRootTabBarController
 
+#pragma mark - UIViewController methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self p_setupUI];
@@ -22,9 +23,24 @@
 #pragma mark - private methods
 - (void)p_setupUI
 {
-    [self.tabBar setBackgroundImage:[UIImage new]];
-    [self.tabBar setBarTintColor:[UIColor clearColor]];
-    [self.tabBar setShadowImage:[UIImage new]];
+    [self p_setupTabBar];
+}
+
+
+- (void)p_setupTabBar
+{
+    NSArray *items = self.tabBar.items;
+    NSArray *viewControllers = self.viewControllers;
+    
+    if(items.count == viewControllers.count)
+    {
+        for(int i = 0; i < viewControllers.count; i++)
+        {
+            UINavigationController *navigationController = [viewControllers objectAtIndex:i];
+            UITabBarItem *tabBarItem = [items objectAtIndex:i];
+            tabBarItem.title = [[[navigationController viewControllers] firstObject] title];
+        }
+    }
 }
 
 

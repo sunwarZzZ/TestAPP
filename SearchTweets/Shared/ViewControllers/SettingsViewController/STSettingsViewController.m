@@ -14,14 +14,18 @@
 
 @implementation STSettingsViewController
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+
+#pragma mark - ViewController methods
+- (void)viewDidLoad
 {
-    if(self = [super initWithCoder:aDecoder])
-    {
-        self.title = STLocalizedString(@"Settings");
-    }
-    return self;
+    [super viewDidLoad];
+    [self p_setupUI];
 }
 
+#pragma mark - private methods
+- (void)p_setupUI
+{
+    self.title = STLocalizedString(@"Settings");
+}
 
 @end

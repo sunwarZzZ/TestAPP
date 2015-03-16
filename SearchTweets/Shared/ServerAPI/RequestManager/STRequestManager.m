@@ -60,6 +60,24 @@
 }
 
 
+- (void)requestAvatarUserId:(long)userId
+                  stringURL:(NSString *)stringURL
+                 completion:(void(^)(UIImage *avatar, NSError *error))completion
+{
+    OAMutableURLRequest *request = [self p_createURLRequestAvatarUserId:userId stringURL:stringURL];
+    [[self.webCore createTaskImageWithRequest:request comletion:^(UIImage *image, NSError *error) {
+        
+        UIImage *avatar = nil;
+        if(image && error == nil)
+        {
+            avatar = image;
+        }
+        completion(avatar, error);
+        
+    }] resume];
+}
+
+
 - (void)requestAvtorizationToken:(void (^)(NSURLRequest *const, NSError *const))comletion
 {
     OAMutableURLRequest *requestToken = [self p_createURLrequestAvtorizationToken];
@@ -158,12 +176,32 @@
                                                                       realm:nil
                                                           signatureProvider:nil];
     
-    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:@"count" value:@"100"];
+    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:@"count" value:[NSString stringWithFormat:@"%d",count]];
     request.oa_parameters = [NSArray arrayWithObject:countParamater];
     
     [request setHTTPMethod:@"GET"];
     
     return request;
+}
+
+- (OAMutableURLRequest *)p_createURLRequestAvatarUserId:(long)userId stringURL:(NSString *)stringURL
+{
+    NSURL *url = [NSURL URLWithString: stringURL];
+    OAToken *token = [[OAToken alloc] initWithKey:[STTokenStorage key] secret:[STTokenStorage privateKey]];
+    
+    OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:url
+                                                                   consumer:self.consumer
+                                                                      token:token
+                                                                      realm:nil
+                                                          signatureProvider:nil];
+    
+    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:@"userId" value:[NSString stringWithFormat:@"%ld",userId]];
+    request.oa_parameters = [NSArray arrayWithObject:countParamater];
+    
+    [request setHTTPMethod:@"GET"];
+    
+    return request;
+
 }
 
 #pragma mark JSON parser methods
