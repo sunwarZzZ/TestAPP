@@ -7,27 +7,22 @@
 //
 
 #import "STTapeTweetsViewController_iPhone.h"
-#import "STTapeTweetsTableCell_iPhone.h"
-
-@interface STTapeTweetsViewController(Protected)
-
-- (STTapeTweetsTableCell *)loadCell;
-
-@end
+#import "STTapeTweetsDataSource_iPhone.h"
 
 @interface STTapeTweetsViewController_iPhone ()
 
-@property (nonatomic, weak) IBOutlet STTapeTweetsTableCell_iPhone *nibCell;
 
 @end
 
 @implementation STTapeTweetsViewController_iPhone
 
-#pragma mark - protected methods
-- (STTapeTweetsTableCell *)loadCell
+- (STTapeTweetsDataSource *)tapeTweetsDataSource
 {
-    [Bundle loadNibNamed:@"STTapeTweetsTableCell_iPhone" owner:self options:nil];
-    return self.nibCell;
+    if(_tapeTweetsDataSource == nil)
+    {
+        _tapeTweetsDataSource = [[STTapeTweetsDataSource_iPhone alloc] initWithDelegate:self requestManager:_requestManager];
+    }
+    return _tapeTweetsDataSource;
 }
 
 @end

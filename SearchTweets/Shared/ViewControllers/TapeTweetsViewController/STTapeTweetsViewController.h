@@ -7,7 +7,14 @@
 //
 
 #import "STViewController.h"
+#import "STTapeTweetsDataSource.h"
 
-@interface STTapeTweetsViewController : STViewController
+@class STRequestManager;
+
+@interface STTapeTweetsViewController : STViewController <STTapeTweetsDataSourceDelegate>
+{
+    STTapeTweetsDataSource *_tapeTweetsDataSource;
+    STRequestManager *const _requestManager;
+}
 
 @end

@@ -11,7 +11,7 @@
 #import "STUser.h"
 #import "STRequestManager.h"
 
-static const int MAX_WIDTH_CONTAINER = 200;
+static const int MAX_WIDTH_CONTAINER = 246;
 
 @interface STTapeTweetsTableCell()
 
@@ -35,6 +35,9 @@ static const int MAX_WIDTH_CONTAINER = 200;
     self.nameUserLabel.font = [STTapeTweetsTableCell fontUserName];
     self.tweetTextLabel.font = [STTapeTweetsTableCell fontTweetText];
     self.selectionStyle =  UITableViewCellSelectionStyleNone;
+    
+    self.avatarImageView.layer.masksToBounds = YES;
+    self.avatarImageView.layer.cornerRadius = 5.0f;
 }
 
 #pragma mark - public methods
@@ -50,7 +53,7 @@ static const int MAX_WIDTH_CONTAINER = 200;
 
 + (CGFloat)minHeigt
 {
-    return 50.0f;
+    return 50.0f + [STTapeTweetsTableCell correctHeight];
 }
 
 + (UIFont *const)fontTweetText
@@ -64,8 +67,12 @@ static const int MAX_WIDTH_CONTAINER = 200;
 }
 
 - (void)setupWithTweet:(STTweet *)tweet
+        requestManager:(STRequestManager *)requestManager
+         avatarVisible:(BOOL)visible
 {
     self.tweet = tweet;
+    self.requestManager = requestManager;
+    self.avatarVisible = visible;
     
     self.tweetTextLabel.text = self.tweet.text;
     self.nameUserLabel.text = self.tweet.user.name;
@@ -74,16 +81,6 @@ static const int MAX_WIDTH_CONTAINER = 200;
     {
         [self p_loadAvatar];
     }
-}
-
-- (void)setupRequestManager:(STRequestManager *)requestManager
-{
-    self.requestManager = requestManager;
-}
-
-- (void)setupAvatarVisible:(BOOL)visible
-{
-    self.avatarVisible = visible;
 }
 
 #pragma mark - private methods

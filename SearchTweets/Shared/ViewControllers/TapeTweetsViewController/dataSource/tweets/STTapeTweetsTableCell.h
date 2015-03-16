@@ -22,9 +22,10 @@
 + (UIFont *const)fontTweetText;
 + (UIFont *const)fontUserName;
 
-- (void)setupWithTweet:(STTweet *)tweet;
-- (void)setupAvatarVisible:(BOOL)visible;
-- (void)setupRequestManager:(STRequestManager *)requestManager;
+- (void)setupWithTweet:(STTweet *)tweet
+        requestManager:(STRequestManager *)requestManager
+         avatarVisible:(BOOL)visible;
+
 
 @property (nonatomic, weak) id<STTapeTweetsTableCellDelegate> delegate;
 
