@@ -8,7 +8,7 @@
 
 #import "STFileManager.h"
 
-static NSString * const kNameWorkingDirectory = @"MTT";
+static NSString * const kNameWorkingDirectory = @"SearchTweets";
 static NSString * const kNameDataBaseDirectory = @"DataBase";
 static NSString * const kNameAvatarDirectory = @"Avatars";
 

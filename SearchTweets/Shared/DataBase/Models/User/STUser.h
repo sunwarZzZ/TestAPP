@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *descriptionText;
 @property (nonatomic, strong) NSString *avatarURLString;
+@property (nonatomic, strong) UIImage *avatarImage;
 
 @end

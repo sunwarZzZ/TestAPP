@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "STTweetsAPIProtocol.h"
 #import "STImageDownloaderProtocol.h"
+#import "STDataBaseStrorageProtocol.h"
 
 @class STRequestManager;
 @class STTweetsNibLoader;
@@ -23,7 +24,8 @@ extern const int kSizePageTweets;
 
 - (instancetype)initWithDelegate:(id<STTapeTweetsDataSourceDelegate>)delegate
                        tweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
-                 imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader;
+                 imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader
+                 dataBaseStorage:(id<STDataBaseStrorageProtocol>)dataBaseStorage;
 
 - (void)requestTweetsCount:(int)count offset:(int)offset;
 
@@ -32,6 +34,7 @@ extern const int kSizePageTweets;
 @protocol STTapeTweetsDataSourceDelegate  <NSObject>
 
 - (void)updateTableTapeTweets;
-
+- (void)loadPageTweetsWithOffset:(int)offset count:(int)count;
+- (void)loadTweetsError:(NSError *)error;
 
 @end

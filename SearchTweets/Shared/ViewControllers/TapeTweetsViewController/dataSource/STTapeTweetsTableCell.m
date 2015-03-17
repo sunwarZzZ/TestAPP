@@ -76,7 +76,17 @@ static const int MAX_WIDTH_CONTAINER = 246;
     
     if(visible)
     {
-        [self.avatarImageView requestImageWithURLString:self.tweet.user.avatarURLString];
+        if(self.tweet.user.avatarImage)
+        {
+            self.avatarImageView.image = self.tweet.user.avatarImage;
+        }
+        else
+        {
+            [self.avatarImageView requestImageWithURLString:self.tweet.user.avatarURLString completion:^(UIImage *image)
+             {
+                 self.tweet.user.avatarImage = image;
+             }];
+        }
     }
 }
 

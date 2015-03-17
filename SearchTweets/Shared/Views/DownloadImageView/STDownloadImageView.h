@@ -12,6 +12,7 @@
 @interface STDownloadImageView : UIImageView
 
 - (void)setupImageDownloader:(id<STImageDownloaderProtocol>)imageDownloader;
-- (void)requestImageWithURLString:(NSString *)URLString;
+- (void)requestImageWithURLString:(NSString *)URLString
+                       completion:(void(^)(UIImage *image))completion;
 
 @end

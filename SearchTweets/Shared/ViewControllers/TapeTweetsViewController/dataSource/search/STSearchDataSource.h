@@ -29,6 +29,7 @@
 
 @protocol STSearchDataSourceDelegate  <NSObject>
 
-- (void)updateTableUsers;
+- (void)updateTableSearch;
+- (void)searchTweetsError:(NSError *)error;
 
 @end

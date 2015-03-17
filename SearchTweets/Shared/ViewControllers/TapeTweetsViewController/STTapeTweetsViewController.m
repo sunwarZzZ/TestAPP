@@ -20,6 +20,7 @@
 @property (nonatomic, strong) STSearchDataSource *searchDataSource;
 
 
+
 @end
 
 @implementation STTapeTweetsViewController
@@ -57,17 +58,39 @@
     _tweetsAPI = tweetsAPI;
 }
 
+- (void)setupWithDataBaseStorage:(id<STDataBaseStrorageProtocol>)dataBaseStorage
+{
+    _dataBaseStorage = dataBaseStorage;
+}
+
 #pragma mark - STTapeTweetsDataSourceDelegate
 - (void)updateTableTapeTweets
 {
+    [self p_progressVisible:NO];
     [self.tableTweets reloadData];
 }
 
+- (void)loadPageTweetsWithOffset:(int)offset count:(int)count
+{
+    [self p_progressVisible:YES];
+    [self.tapeTweetsDataSource requestTweetsCount:count offset:offset];
+}
 
-#pragma mark - STUsersDataSourceDelegate
-- (void)updateTableUsers
+- (void)loadTweetsError:(NSError *)error
+{
+    [self p_progressVisible:YES];
+}
+
+
+#pragma mark - STSearchDataSourceDelegate
+- (void)updateTableSearch
 {
     [self.searchDisplayController.searchResultsTableView reloadData];
+}
+
+- (void)searchTweetsError:(NSError *)error
+{
+
 }
 
 #pragma mark - UISearchControllerDelegate
@@ -85,10 +108,6 @@
 {
     self.tableTweets.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.tableTweets.tableFooterView = activityIndicator;
-    [activityIndicator startAnimating];
 }
 
 - (void)p_setupDataSource
@@ -101,6 +120,19 @@
     self.searchDisplayController.delegate = self;
 }
 
+- (void)p_progressVisible:(BOOL)visible
+{
+    if(visible)
+    {
+        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        self.tableTweets.tableFooterView = activityIndicator;
+        [activityIndicator startAnimating];
+    }
+    else
+    {
+        self.tableTweets.tableFooterView = nil;
+    }
+}
 
 
 @end

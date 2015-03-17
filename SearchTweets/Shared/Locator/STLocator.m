@@ -26,7 +26,7 @@
 {
     if(_dataBaseStorage == nil)
     {
-        _dataBaseStorage = [[STDataBaseStorage alloc] init];
+        _dataBaseStorage = [[STDataBaseStorage alloc] initWithFileManager:[self fileManager]];
     }
     
     return _dataBaseStorage;

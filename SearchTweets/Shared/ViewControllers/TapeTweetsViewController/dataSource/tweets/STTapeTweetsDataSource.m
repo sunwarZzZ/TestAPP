@@ -26,6 +26,7 @@ const int kSizePageTweets = 10;
 
 @property (nonatomic, weak) id<STTweetsAPIProtocol> tweetsAPI;
 @property (nonatomic, weak) id<STImageDownloaderProtocol> imageDownloader;
+@property (nonatomic, weak) id<STDataBaseStrorageProtocol> dataBaseStorage;
 
 @end
 
@@ -34,13 +35,14 @@ const int kSizePageTweets = 10;
 - (instancetype)initWithDelegate:(id<STTapeTweetsDataSourceDelegate>)delegate
                        tweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
                  imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader
+                 dataBaseStorage:(id<STDataBaseStrorageProtocol>)dataBaseStorage
 {
     if(self = [super init])
     {
         _tweetsAPI = tweetsAPI;
         _imageDownloader = imageDownloader;
+        _dataBaseStorage = dataBaseStorage;
         _delegate = delegate;
-     
     }
     return self;
 }
@@ -66,14 +68,15 @@ const int kSizePageTweets = 10;
                 [self.delegate updateTableTapeTweets];
             });
         }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate loadTweetsError:error];
+            });
+        }
     }];
 }
 
-
-- (int)tweetsCount
-{
-    return self.tweets.count;
-}
 
 #pragma mark - UITableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,13 +92,10 @@ const int kSizePageTweets = 10;
     STTweet *tweet = [_tweets objectAtIndex:indexPath.row];
     [cell setupWithTweet:tweet imageDownloader:self.imageDownloader avatarVisible:YES];
     
-    if(indexPath.row == (self.tweets.count - 1))
+    if(self.tweets.count > 0 && indexPath.row == (self.tweets.count - 1))
     {
-        [self requestTweetsCount:kSizePageTweets offset:self.tweets.count];
+        [self.delegate loadPageTweetsWithOffset:self.tweets.count count:kSizePageTweets];
     }
-
-    
-    
     return cell;
 }
 

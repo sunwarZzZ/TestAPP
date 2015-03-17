@@ -11,6 +11,7 @@
 #import "STSearchDataSource.h"
 #import "STImageDownloaderProtocol.h"
 #import "STTweetsAPIProtocol.h"
+#import "STDataBaseStrorageProtocol.h"
 
 
 
@@ -23,9 +24,11 @@
     
     id<STImageDownloaderProtocol> _imageDownloader;
     id<STTweetsAPIProtocol> _tweetsAPI;
+    id<STDataBaseStrorageProtocol> _dataBaseStorage;
 }
 
 - (void)setupWithImageDownloader:(id<STImageDownloaderProtocol>)imageDownloader;
 - (void)setupWithTweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI;
+- (void)setupWithDataBaseStorage:(id<STDataBaseStrorageProtocol>)dataBaseStorage;
 
 @end

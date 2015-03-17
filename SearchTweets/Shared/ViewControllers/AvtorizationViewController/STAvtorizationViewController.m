@@ -44,7 +44,7 @@
 #pragma mark - IBActions
 - (IBAction)avtorizationButtonPressed:(UIButton *)button
 {
-    [self p_showProgress];
+    [self p_progressVisible:YES];
     [self p_requestAvtorization];
 }
 
@@ -57,7 +57,7 @@
 #pragma mark - UIWebView delegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    [self p_showProgress];
+    [self p_progressVisible:YES];
     if([self p_isAvtorizationRequest:request])
     {
         [self.avtorizationManager requestAccessTokenWithOAuthVerifier:[self p_oauthVerifierFromRequest:request]
@@ -65,8 +65,8 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                [self p_hideProgress];
-                [self p_hideWebView];
+                [self p_progressVisible:NO];
+                [self p_webViewVisible:NO];
                 
                 if(sucess)
                 {
@@ -89,8 +89,8 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self p_hideProgress];
-    [self p_showWebView];
+    [self p_progressVisible:NO];
+    [self p_webViewVisible:YES];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -102,8 +102,8 @@
 #pragma mark - private methods
 - (void)p_setupUI
 {
-    [self p_hideProgress];
-    [self p_hideWebView];
+    [self p_progressVisible:NO];
+    [self p_webViewVisible:NO];
     
     self.textInfoLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:25];
     self.textInfoLabel.textColor = [UIColor whiteColor];
@@ -138,7 +138,7 @@
 {
     RIButtonItem *okButton = [RIButtonItem itemWithLabel:@"Ok" action:^
     {
-        [self p_showProgress];
+        [self p_progressVisible:YES];
         [self p_requestAvtorization];
     }];
     
@@ -171,24 +171,14 @@
     return oauthVerifer;
 }
 
-- (void)p_hideProgress
+- (void)p_progressVisible:(BOOL)visible
 {
-    self.progressView.hidden = YES;
+    self.progressView.hidden = !visible;
 }
 
-- (void)p_showProgress
+- (void)p_webViewVisible:(BOOL)visible
 {
-    self.progressView.hidden = NO;
-}
-
-- (void)p_showWebView
-{
-    self.webView.hidden = NO;
-}
-
-- (void)p_hideWebView
-{
-    self.webView.hidden = YES;
+    self.webView.hidden = !visible;
 }
 
 @end

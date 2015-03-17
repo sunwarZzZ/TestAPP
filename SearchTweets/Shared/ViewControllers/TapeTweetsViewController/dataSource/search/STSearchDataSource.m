@@ -50,7 +50,13 @@ static const int kCountSectionTableSearch = 1;
         {
             self.tweets = tweets;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate updateTableUsers];
+                [self.delegate updateTableSearch];
+            });
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate searchTweetsError:error];
             });
         }
     }];

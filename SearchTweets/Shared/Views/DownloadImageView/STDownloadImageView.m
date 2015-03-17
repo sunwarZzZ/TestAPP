@@ -23,15 +23,21 @@
     self.imageDownloader = imageDownloader;
 }
 
-- (void)requestImageWithURLString:(NSString *)URLString
+- (void)requestImageWithURLString:(NSString *)URLString completion:(void(^)(UIImage *image))completion
 {
     if(self.imageDownloader && URLString)
     {
+        self.alpha = 0;
         [self.imageDownloader requestAvatarWithStringURL:URLString completion:^(UIImage *avatar, NSError *error) {
             if(avatar && error == nil)
             {
+                completion(avatar);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.image = avatar;
+                    
+                    [UIView animateWithDuration:0.2 animations:^{
+                        self.alpha = 1;
+                    }];
                 });
             }
         }];
