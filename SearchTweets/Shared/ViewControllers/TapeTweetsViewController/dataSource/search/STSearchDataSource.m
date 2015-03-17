@@ -1,73 +1,55 @@
 //
-//  STTapeTweetsDataSource.m
+//  STSearchUserDataSource.m
 //  SearchTweets
 //
 //  Created by aleksei on 16.03.15.
 //  Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
 //
 
-#import "STTapeTweetsDataSource.h"
+#import "STSearchDataSource.h"
+#import "STRequestManager.h"
 #import "STTapeTweetsTableCell.h"
 #import "STTweet.h"
-#import "STRequestManager.h"
 #import "STUser.h"
 #import "STTweetsNibLoader.h"
 
-static const int kCountSectionTableTweets = 1;
+static const int kCountSectionTableSearch = 1;
 
+@interface STSearchDataSource()<STTapeTweetsTableCellDelegate>
 
-@interface STTapeTweetsDataSource() <STTapeTweetsTableCellDelegate, UITableViewDelegate, UITableViewDataSource>
-
-@property (nonatomic, weak) id<STTapeTweetsDataSourceDelegate> delegate;
-@property (nonatomic, strong) NSMutableArray *tweets;
 @property (nonatomic, strong) STRequestManager *requestManager;
+@property (nonatomic, weak) id<STUsersDataSourceDelegate> delegate;
+@property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) STTweetsNibLoader *nibLoader;
 
 @end
 
-@implementation STTapeTweetsDataSource
+@implementation STSearchDataSource
 
-- (instancetype)initWithDelegate:(id<STTapeTweetsDataSourceDelegate>)delegate
+- (instancetype)initWithDelegate:(id<STUsersDataSourceDelegate>)delegate
                   requestManager:(STRequestManager *)requestManager
 {
     if(self = [super init])
     {
-        NSParameterAssert(requestManager);
         _requestManager = requestManager;
         _delegate = delegate;
-     
     }
     return self;
 }
 
-
 #pragma mark - public methods
-- (void)requestTweetsCount:(int)count offset:(int)offset
+- (void)searchTweetsWithText:(NSString *)text
 {
-    [self.requestManager requestTweetsCount:count offset:offset completion:^(NSArray *array, NSError *error) {
-        
-        if(array && error == nil)
+    [self.requestManager requestSearchTweetsWithText:text completion:^(NSArray *tweets, NSError *error)
+    {
+        if(tweets && error == nil)
         {
-            if(self.tweets == nil)
-            {
-                self.tweets = [NSMutableArray arrayWithArray:array];
-            }
-            else
-            {
-                [self.tweets addObjectsFromArray:array];
-            }
-            
+            self.tweets = tweets;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate updateTableTapeTweets];
+                [self.delegate updateTableUsers];
             });
         }
     }];
-}
-
-
-- (int)tweetsCount
-{
-    return self.tweets.count;
 }
 
 #pragma mark - UITableView methods
@@ -94,7 +76,7 @@ static const int kCountSectionTableTweets = 1;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return kCountSectionTableTweets;
+    return kCountSectionTableSearch;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,7 +98,6 @@ static const int kCountSectionTableTweets = 1;
     
     return height;
 }
-
 
 
 

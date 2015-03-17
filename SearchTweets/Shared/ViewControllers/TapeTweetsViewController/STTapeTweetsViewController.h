@@ -8,12 +8,15 @@
 
 #import "STViewController.h"
 #import "STTapeTweetsDataSource.h"
+#import "STSearchDataSource.h"
+
 
 @class STRequestManager;
 
-@interface STTapeTweetsViewController : STViewController <STTapeTweetsDataSourceDelegate>
+@interface STTapeTweetsViewController : STViewController <STTapeTweetsDataSourceDelegate, STUsersDataSourceDelegate>
 {
     STTapeTweetsDataSource *_tapeTweetsDataSource;
+    STSearchDataSource *_searchDataSource;
     STRequestManager *const _requestManager;
 }
 

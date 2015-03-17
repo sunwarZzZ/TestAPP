@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "STTableViewCell.h"
+#import "STImageDownloaderProtocol.h"
 
 @class STTweet;
 @class STRequestManager;
@@ -23,7 +24,7 @@
 + (UIFont *const)fontUserName;
 
 - (void)setupWithTweet:(STTweet *)tweet
-        requestManager:(STRequestManager *)requestManager
+        imageDownloader:(id<STImageDownloaderProtocol> )imageDownloader
          avatarVisible:(BOOL)visible;
 
 

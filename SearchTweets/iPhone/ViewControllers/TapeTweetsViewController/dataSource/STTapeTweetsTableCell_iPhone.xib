@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="STTapeTweetsViewController_iPhone">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="STTweetsNibLoader_iPhone">
             <connections>
-                <outlet property="nibCell" destination="gPU-NW-6dU" id="qSq-uQ-g3C"/>
+                <outlet property="nibCell" destination="gPU-NW-6dU" id="rdE-9d-Lqy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6my-Z4-jjb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uY9-IY-R9m" userLabel="Image View - avatar">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uY9-IY-R9m" userLabel="Image View - avatar" customClass="STDownloadImageView">
                                 <rect key="frame" x="8" y="12" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ewt-h5-9mN"/>

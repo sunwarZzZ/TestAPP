@@ -8,6 +8,7 @@
 
 #import "STTapeTweetsViewController_iPhone.h"
 #import "STTapeTweetsDataSource_iPhone.h"
+#import "STSearchDataSource_iPhone.h"
 
 @interface STTapeTweetsViewController_iPhone ()
 
@@ -23,6 +24,15 @@
         _tapeTweetsDataSource = [[STTapeTweetsDataSource_iPhone alloc] initWithDelegate:self requestManager:_requestManager];
     }
     return _tapeTweetsDataSource;
+}
+
+- (STSearchDataSource *)searchDataSource
+{
+    if(_searchDataSource == nil)
+    {
+        _searchDataSource = [[STSearchDataSource_iPhone alloc] initWithDelegate:self requestManager:_requestManager];
+    }
+    return _searchDataSource;
 }
 
 @end

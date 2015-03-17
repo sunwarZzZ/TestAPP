@@ -1,19 +1,20 @@
 //
-//  STTapeTweetsDataSource_iPhone.m
+//  STSearchUserDataSource_iPhone.m
 //  SearchTweets
 //
 //  Created by aleksei on 16.03.15.
 //  Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
 //
 
-#import "STTapeTweetsDataSource_iPhone.h"
+#import "STSearchDataSource_iPhone.h"
 #import "STTweetsNibLoader_iPhone.h"
 
-@interface STTapeTweetsDataSource_iPhone()
+@interface STSearchDataSource_iPhone()
+
 
 @end
 
-@implementation STTapeTweetsDataSource_iPhone
+@implementation STSearchDataSource_iPhone
 
 - (STTweetsNibLoader *)nibLoader
 {

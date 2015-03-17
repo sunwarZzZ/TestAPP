@@ -60,23 +60,23 @@
 }
 
 
-- (void)requestAvatarUserId:(long)userId
-                  stringURL:(NSString *)stringURL
-                 completion:(void(^)(UIImage *avatar, NSError *error))completion
-{
-    OAMutableURLRequest *request = [self p_createURLRequestAvatarUserId:userId stringURL:stringURL];
-    [[self.webCore createTaskImageWithRequest:request comletion:^(UIImage *image, NSError *error) {
-        
-        UIImage *avatar = nil;
-        if(image && error == nil)
-        {
-            avatar = image;
-        }
-        completion(avatar, error);
-        
-    }] resume];
-}
 
+- (void)requestSearchTweetsWithText:(NSString *)text
+                         completion:(void(^)(NSArray *tweets, NSError *error))completion;
+{
+
+    OAMutableURLRequest *request = [self p_createURLRequestSearchWithString:text];
+    [[self.webCore createTaskJSONWithRequest:request completion:^(id JSON, NSError *error)
+      {
+          NSArray *tweets = nil;
+          if(JSON)
+          {
+              tweets = [self p_parseSearchTweetsFromJSON:JSON];
+          }
+          completion(tweets, error);
+          
+      }] resume];
+}
 
 - (void)requestAvtorizationToken:(void (^)(NSURLRequest *const, NSError *const))comletion
 {
@@ -120,6 +120,24 @@
           }
       }] resume];
 }
+
+#pragma mark - STImageDownloaderProtocol
+- (void)requestAvatarWithStringURL:(NSString *)stringURL
+                        completion:(void(^)(UIImage *avatar, NSError *error))completion;
+{
+    OAMutableURLRequest *request = [self p_createURLRequestAvatarWithStringURL:stringURL];
+    [[self.webCore createTaskImageWithRequest:request comletion:^(UIImage *image, NSError *error) {
+        
+        UIImage *avatar = nil;
+        if(image && error == nil)
+        {
+            avatar = image;
+        }
+        completion(avatar, error);
+        
+    }] resume];
+}
+
 
 #pragma mark - private methods
 #pragma mark create request methods
@@ -184,7 +202,7 @@
     return request;
 }
 
-- (OAMutableURLRequest *)p_createURLRequestAvatarUserId:(long)userId stringURL:(NSString *)stringURL
+- (OAMutableURLRequest *)p_createURLRequestAvatarWithStringURL:(NSString *)stringURL
 {
     NSURL *url = [NSURL URLWithString: stringURL];
     OAToken *token = [[OAToken alloc] initWithKey:[STTokenStorage key] secret:[STTokenStorage privateKey]];
@@ -195,13 +213,29 @@
                                                                       realm:nil
                                                           signatureProvider:nil];
     
-    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:@"userId" value:[NSString stringWithFormat:@"%ld",userId]];
+    [request setHTTPMethod:@"GET"];
+    
+    return request;
+
+}
+
+- (OAMutableURLRequest *)p_createURLRequestSearchWithString:(NSString *)string
+{
+    NSURL *url = [NSURL URLWithString:[kBaseURLStringAPI_1_1 stringByAppendingString:kSearchTweets]];
+    OAToken *token = [[OAToken alloc] initWithKey:[STTokenStorage key] secret:[STTokenStorage privateKey]];
+    
+    OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:url
+                                                                   consumer:self.consumer
+                                                                      token:token
+                                                                      realm:nil
+                                                          signatureProvider:nil];
+    
+    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:@"q" value:string];
     request.oa_parameters = [NSArray arrayWithObject:countParamater];
     
     [request setHTTPMethod:@"GET"];
     
     return request;
-
 }
 
 #pragma mark JSON parser methods
@@ -214,6 +248,36 @@
         tweets = [NSMutableArray new];
         
         for(NSDictionary *dictionary in json)
+        {
+            STUser *user = [self p_userFromDictionary:[dictionary objectForKey:@"user"]];
+            if(user)
+            {
+                STTweet *tweet = [STTweet new];
+                tweet.user = user;
+                NSString *text = [dictionary objectForKey:@"text"];
+                
+                if([text isEqual:[NSNull null]] == NO)
+                {
+                    tweet.text = text;
+                }
+                [tweets addObject:tweet];
+            }
+        }
+    }
+    
+    return tweets;
+}
+
+- (NSArray *)p_parseSearchTweetsFromJSON:(id)json
+{
+    NSMutableArray *tweets;
+    
+    if([json isKindOfClass:[NSDictionary class]])
+    {
+        tweets = [NSMutableArray new];
+        NSArray *statuses = [json objectForKey:@"statuses"];
+        
+        for(NSDictionary *dictionary in statuses)
         {
             STUser *user = [self p_userFromDictionary:[dictionary objectForKey:@"user"]];
             if(user)

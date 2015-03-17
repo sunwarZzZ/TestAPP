@@ -92,42 +92,57 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pj-Cr-bL1" customClass="STSearchBar">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iPC-SK-FMa"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="ea8-MK-NTb" id="eyU-3D-0JA"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JeQ-o1-nfC" userLabel="Table View - tweets">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5pj-Cr-bL1" secondAttribute="trailing" id="6Yz-dS-124"/>
                             <constraint firstItem="JeQ-o1-nfC" firstAttribute="leading" secondItem="fZj-Gf-AK2" secondAttribute="leadingMargin" constant="-16" id="Bc5-V1-dLq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JeQ-o1-nfC" secondAttribute="trailing" constant="-16" id="C9v-TN-1qu"/>
                             <constraint firstItem="JeQ-o1-nfC" firstAttribute="top" secondItem="fZj-Gf-AK2" secondAttribute="topMargin" id="TCN-fa-SB3"/>
                             <constraint firstItem="JeQ-o1-nfC" firstAttribute="bottom" secondItem="fZj-Gf-AK2" secondAttribute="bottomMargin" id="TKu-XS-NhN"/>
+                            <constraint firstItem="5pj-Cr-bL1" firstAttribute="leading" secondItem="fZj-Gf-AK2" secondAttribute="leading" id="YJO-ct-sWi"/>
+                            <constraint firstItem="5pj-Cr-bL1" firstAttribute="top" secondItem="a4W-ID-fce" secondAttribute="bottom" id="tUd-d9-jLg"/>
+                            <constraint firstItem="JeQ-o1-nfC" firstAttribute="top" secondItem="5pj-Cr-bL1" secondAttribute="bottom" id="zhy-Nk-9aQ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="TCN-fa-SB3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Item 1" id="tYc-LR-JGi"/>
                     <navigationItem key="navigationItem" id="Ebx-Xn-wUy"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="hnt-wZ-tav" id="6kl-pV-tpw"/>
+                        <outlet property="searchDisplayController" destination="uwa-Jc-XFI" id="f6q-gI-UxY"/>
                         <outlet property="tableTweets" destination="JeQ-o1-nfC" id="f5I-EH-V5Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C09-bc-y6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="mXf-UT-osE">
+                <searchDisplayController id="uwa-Jc-XFI">
                     <connections>
-                        <outlet property="delegate" destination="ea8-MK-NTb" id="6tA-W9-Uw2"/>
-                        <outlet property="searchContentsController" destination="ea8-MK-NTb" id="fmY-7G-yKH"/>
-                        <outlet property="searchResultsDataSource" destination="ea8-MK-NTb" id="fOw-oe-K66"/>
-                        <outlet property="searchResultsDelegate" destination="ea8-MK-NTb" id="dph-kf-Cn0"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="hnt-wZ-tav">
-                    <connections>
-                        <outlet property="delegate" destination="ea8-MK-NTb" id="5a5-C6-fx4"/>
-                        <outlet property="searchContentsController" destination="ea8-MK-NTb" id="rRR-dU-Cce"/>
-                        <outlet property="searchResultsDataSource" destination="ea8-MK-NTb" id="91m-q0-9WK"/>
-                        <outlet property="searchResultsDelegate" destination="ea8-MK-NTb" id="OnY-Jt-e6Y"/>
+                        <outlet property="delegate" destination="ea8-MK-NTb" id="KEo-AO-r04"/>
+                        <outlet property="searchBar" destination="5pj-Cr-bL1" id="Skf-zI-fs9"/>
+                        <outlet property="searchContentsController" destination="ea8-MK-NTb" id="mRi-0M-6WH"/>
+                        <outlet property="searchResultsDataSource" destination="ea8-MK-NTb" id="i4n-pm-rga"/>
+                        <outlet property="searchResultsDelegate" destination="ea8-MK-NTb" id="1km-x3-rnT"/>
                     </connections>
                 </searchDisplayController>
             </objects>

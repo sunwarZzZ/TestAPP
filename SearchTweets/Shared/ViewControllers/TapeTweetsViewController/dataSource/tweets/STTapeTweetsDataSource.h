@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class STRequestManager;
+@class STTweetsNibLoader;
 @protocol STTapeTweetsDataSourceDelegate;
 
 @interface STTapeTweetsDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+{
+    STTweetsNibLoader *_nibLoader;
+}
 
 - (instancetype)initWithDelegate:(id<STTapeTweetsDataSourceDelegate>)delegate
                   requestManager:(STRequestManager *)requestManager;

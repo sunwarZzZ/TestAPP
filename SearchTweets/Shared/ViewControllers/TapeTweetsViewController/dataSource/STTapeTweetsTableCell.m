@@ -9,7 +9,7 @@
 #import "STTapeTweetsTableCell.h"
 #import "STTweet.h"
 #import "STUser.h"
-#import "STRequestManager.h"
+#import "STDownloadImageView.h"
 
 static const int MAX_WIDTH_CONTAINER = 246;
 
@@ -17,11 +17,9 @@ static const int MAX_WIDTH_CONTAINER = 246;
 
 @property (nonatomic, weak) IBOutlet UILabel *nameUserLabel;
 @property (nonatomic, weak) IBOutlet UILabel *tweetTextLabel;
-@property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
+@property (nonatomic, weak) IBOutlet STDownloadImageView *avatarImageView;
 
 @property (nonatomic, strong) STTweet *tweet;
-@property (nonatomic, strong) STRequestManager *requestManager;
-@property (nonatomic, assign) BOOL avatarVisible;
 
 @end
 
@@ -67,34 +65,21 @@ static const int MAX_WIDTH_CONTAINER = 246;
 }
 
 - (void)setupWithTweet:(STTweet *)tweet
-        requestManager:(STRequestManager *)requestManager
+       imageDownloader:(id<STImageDownloaderProtocol> )imageDownloader
          avatarVisible:(BOOL)visible
 {
     self.tweet = tweet;
-    self.requestManager = requestManager;
-    self.avatarVisible = visible;
+    [self.avatarImageView setupImageDownloader:imageDownloader];
     
     self.tweetTextLabel.text = self.tweet.text;
     self.nameUserLabel.text = self.tweet.user.name;
     
-    if(self.avatarVisible && self.requestManager && self.tweet.user.avatarURLString)
+    if(visible)
     {
-        [self p_loadAvatar];
+        [self.avatarImageView requestImageWithURLString:self.tweet.user.avatarURLString];
     }
 }
 
 #pragma mark - private methods
-- (void)p_loadAvatar
-{
-    [self.requestManager requestAvatarUserId:self.tweet.user.userId stringURL:self.tweet.user.avatarURLString completion:^(UIImage *avatar, NSError *error)
-    {
-        if(avatar && error == nil)
-        {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.avatarImageView.image = avatar;
-            });
-        }
-    }];
-}
 
 @end

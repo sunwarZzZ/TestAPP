@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STImageDownloaderProtocol.h"
 
-@interface STRequestManager : NSObject
+@interface STRequestManager : NSObject <STImageDownloaderProtocol>
 
 + (BOOL)isAvtorization;
 
@@ -20,8 +21,8 @@
                     offset:(int)offset
                 completion:(void(^)(NSArray *array, NSError *error))completion;
 
-- (void)requestAvatarUserId:(long)userId
-                  stringURL:(NSString *)stringURL
-                 completion:(void(^)(UIImage *avatar, NSError *error))completion;
+
+- (void)requestSearchTweetsWithText:(NSString *)text
+                         completion:(void(^)(NSArray *tweets, NSError *error))completion;
 
 @end
