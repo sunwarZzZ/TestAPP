@@ -36,10 +36,70 @@
     return self;
 }
 
-#pragma mark - public methods
+#pragma mark - STAvtorizationManagerProtocol
 + (BOOL)isAvtorization
 {
     return [STTokenStorage key] && [STTokenStorage privateKey] ? YES : NO;
+}
+
+- (void)requestAvtorizationToken:(void (^)(NSURLRequest *const, NSError *const))comletion
+{
+    OAMutableURLRequest *requestToken = [self p_createURLrequestAvtorizationToken];
+    [[self.webCore createTaskStringBodyWithRequest:requestToken completion:^(NSString *body, NSError *error)
+      {
+          if(body)
+          {
+              OAMutableURLRequest* authorizeRequest = [self p_createURLrequestAvtorizationWithBody:body];
+              comletion(authorizeRequest, nil);
+          }
+          else
+          {
+              comletion(nil, error);
+          }
+          
+      }] resume];
+}
+
+- (void)requestAccessTokenWithOAuthVerifier:(NSString *)verifier
+                                 completion:(void(^)(BOOL success, NSError *error))completion;
+{
+    
+    OAMutableURLRequest* accessTokenRequest = [self p_createURLrequestAccessTokenVerifier:verifier];
+    
+    [[self.webCore createTaskStringBodyWithRequest:accessTokenRequest completion:^(NSString *body, NSError *error)
+      {
+          if(body)
+          {
+              OAToken *accessToken = [[OAToken alloc] initWithHTTPResponseBody:body];
+              if(accessToken)
+              {
+                  [STTokenStorage savePrivateKey:accessToken.secret];
+                  [STTokenStorage saveKey:accessToken.key];
+                  completion(YES, nil);
+              }
+          }
+          else
+          {
+              completion(NO, error);
+          }
+      }] resume];
+}
+
+#pragma mark - STImageDownloaderProtocol
+- (void)requestAvatarWithStringURL:(NSString *)stringURL
+                        completion:(void(^)(UIImage *avatar, NSError *error))completion;
+{
+    OAMutableURLRequest *request = [self p_createURLRequestAvatarWithStringURL:stringURL];
+    [[self.webCore createTaskImageWithRequest:request comletion:^(UIImage *image, NSError *error) {
+        
+        UIImage *avatar = nil;
+        if(image && error == nil)
+        {
+            avatar = image;
+        }
+        completion(avatar, error);
+        
+    }] resume];
 }
 
 - (void)requestTweetsCount:(int)count
@@ -78,65 +138,8 @@
       }] resume];
 }
 
-- (void)requestAvtorizationToken:(void (^)(NSURLRequest *const, NSError *const))comletion
-{
-    OAMutableURLRequest *requestToken = [self p_createURLrequestAvtorizationToken];
-    [[self.webCore createTaskStringBodyWithRequest:requestToken completion:^(NSString *body, NSError *error)
-      {
-          if(body)
-          {
-              OAMutableURLRequest* authorizeRequest = [self p_createURLrequestAvtorizationWithBody:body];
-              comletion(authorizeRequest, nil);
-          }
-          else
-          {
-              comletion(nil, error);
-          }
-          
-      }] resume];
-}
 
-- (void)requestAccessTokenWithOAuthVerifier:(NSString *)verifier
-                                 completion:(void(^)(BOOL success, NSError *error))completion;
-{
 
-    OAMutableURLRequest* accessTokenRequest = [self p_createURLrequestAccessTokenVerifier:verifier];
-    
-    [[self.webCore createTaskStringBodyWithRequest:accessTokenRequest completion:^(NSString *body, NSError *error)
-      {
-          if(body)
-          {
-              OAToken *accessToken = [[OAToken alloc] initWithHTTPResponseBody:body];
-              if(accessToken)
-              {
-                  [STTokenStorage savePrivateKey:accessToken.secret];
-                  [STTokenStorage saveKey:accessToken.key];
-                  completion(YES, nil);
-              }
-          }
-          else
-          {
-              completion(NO, error);
-          }
-      }] resume];
-}
-
-#pragma mark - STImageDownloaderProtocol
-- (void)requestAvatarWithStringURL:(NSString *)stringURL
-                        completion:(void(^)(UIImage *avatar, NSError *error))completion;
-{
-    OAMutableURLRequest *request = [self p_createURLRequestAvatarWithStringURL:stringURL];
-    [[self.webCore createTaskImageWithRequest:request comletion:^(UIImage *image, NSError *error) {
-        
-        UIImage *avatar = nil;
-        if(image && error == nil)
-        {
-            avatar = image;
-        }
-        completion(avatar, error);
-        
-    }] resume];
-}
 
 
 #pragma mark - private methods
@@ -195,7 +198,7 @@
                                                           signatureProvider:nil];
     
     OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:@"count" value:[NSString stringWithFormat:@"%d",count]];
-    request.oa_parameters = [NSArray arrayWithObject:countParamater];
+    request.oa_parameters = [NSArray arrayWithObjects:countParamater, nil];
     
     [request setHTTPMethod:@"GET"];
     

@@ -20,7 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *avtorizationButton;
 @property (nonatomic, weak) IBOutlet UILabel *textInfoLabel;
 
-@property (nonatomic, strong) STRequestManager *requestManager;
+@property (nonatomic, weak) id<STAvtorizationManagerProtocol> avtorizationManager;
 
 @end
 
@@ -33,7 +33,6 @@
     [super viewDidLoad];
     
     _webView.delegate = self;
-    _requestManager = [STRequestManager new];
     [self p_setupUI];
 }
 
@@ -49,13 +48,19 @@
     [self p_requestAvtorization];
 }
 
+#pragma mark - public methods
+- (void)setupAvtorizationManager:(id<STAvtorizationManagerProtocol>)avtorizationManager
+{
+
+}
+
 #pragma mark - UIWebView delegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     [self p_showProgress];
     if([self p_isAvtorizationRequest:request])
     {
-        [self.requestManager requestAccessTokenWithOAuthVerifier:[self p_oauthVerifierFromRequest:request]
+        [self.avtorizationManager requestAccessTokenWithOAuthVerifier:[self p_oauthVerifierFromRequest:request]
                                                       completion:^(BOOL sucess, NSError *error) {
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -114,7 +119,7 @@
 
 - (void)p_requestAvtorization
 {
-    [self.requestManager requestAvtorizationToken:^(NSURLRequest *const requestToken, NSError *const error)
+    [self.avtorizationManager requestAvtorizationToken:^(NSURLRequest *const requestToken, NSError *const error)
     {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(error == nil)

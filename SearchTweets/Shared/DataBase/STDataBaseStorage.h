@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STDataBaseStrorageProtocol.h"
 
-@interface STDataBaseStorage : NSObject
+@interface STDataBaseStorage : NSObject <STDataBaseStrorageProtocol>
+
 
 @end

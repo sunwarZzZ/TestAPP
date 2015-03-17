@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STTweetsAPIProtocol.h"
+#import "STImageDownloaderProtocol.h"
 
 @class STRequestManager;
 @class STTweetsNibLoader;
 @protocol STTapeTweetsDataSourceDelegate;
+
+extern const int kSizePageTweets;
 
 @interface STTapeTweetsDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 {
@@ -18,15 +22,16 @@
 }
 
 - (instancetype)initWithDelegate:(id<STTapeTweetsDataSourceDelegate>)delegate
-                  requestManager:(STRequestManager *)requestManager;
+                       tweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
+                 imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader;
 
 - (void)requestTweetsCount:(int)count offset:(int)offset;
-- (int)tweetsCount;
 
 @end
 
 @protocol STTapeTweetsDataSourceDelegate  <NSObject>
 
 - (void)updateTableTapeTweets;
+
 
 @end

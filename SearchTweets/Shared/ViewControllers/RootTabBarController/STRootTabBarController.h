@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class STLocator;
+
 @interface STRootTabBarController : UITabBarController
+
+- (void)setupWithLocator:(STLocator *)locator;
 
 @end

@@ -9,31 +9,36 @@
 #import "STTapeTweetsDataSource.h"
 #import "STTapeTweetsTableCell.h"
 #import "STTweet.h"
-#import "STRequestManager.h"
 #import "STUser.h"
 #import "STTweetsNibLoader.h"
+#import "STTweetsAPIProtocol.h"
+#import "STImageDownloaderProtocol.h"
 
 static const int kCountSectionTableTweets = 1;
+const int kSizePageTweets = 10;
 
 
 @interface STTapeTweetsDataSource() <STTapeTweetsTableCellDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) id<STTapeTweetsDataSourceDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *tweets;
-@property (nonatomic, strong) STRequestManager *requestManager;
 @property (nonatomic, strong) STTweetsNibLoader *nibLoader;
+
+@property (nonatomic, weak) id<STTweetsAPIProtocol> tweetsAPI;
+@property (nonatomic, weak) id<STImageDownloaderProtocol> imageDownloader;
 
 @end
 
 @implementation STTapeTweetsDataSource
 
 - (instancetype)initWithDelegate:(id<STTapeTweetsDataSourceDelegate>)delegate
-                  requestManager:(STRequestManager *)requestManager
+                       tweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
+                 imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader
 {
     if(self = [super init])
     {
-        NSParameterAssert(requestManager);
-        _requestManager = requestManager;
+        _tweetsAPI = tweetsAPI;
+        _imageDownloader = imageDownloader;
         _delegate = delegate;
      
     }
@@ -44,7 +49,7 @@ static const int kCountSectionTableTweets = 1;
 #pragma mark - public methods
 - (void)requestTweetsCount:(int)count offset:(int)offset
 {
-    [self.requestManager requestTweetsCount:count offset:offset completion:^(NSArray *array, NSError *error) {
+    [self.tweetsAPI requestTweetsCount:count offset:offset completion:^(NSArray *array, NSError *error) {
         
         if(array && error == nil)
         {
@@ -82,7 +87,14 @@ static const int kCountSectionTableTweets = 1;
     }
     
     STTweet *tweet = [_tweets objectAtIndex:indexPath.row];
-    [cell setupWithTweet:tweet imageDownloader:self.requestManager avatarVisible:YES];
+    [cell setupWithTweet:tweet imageDownloader:self.imageDownloader avatarVisible:YES];
+    
+    if(indexPath.row == (self.tweets.count - 1))
+    {
+        [self requestTweetsCount:kSizePageTweets offset:self.tweets.count];
+    }
+
+    
     
     return cell;
 }
@@ -116,8 +128,6 @@ static const int kCountSectionTableTweets = 1;
     
     return height;
 }
-
-
 
 
 @end

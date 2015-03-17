@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STTweetsAPIProtocol.h"
+#import "STImageDownloaderProtocol.h"
 
-@protocol STUsersDataSourceDelegate;
+@protocol STSearchDataSourceDelegate;
 @class STRequestManager;
 @class STTweetsNibLoader;
 
@@ -17,14 +19,15 @@
     STTweetsNibLoader *_nibLoader;
 }
 
-- (instancetype)initWithDelegate:(id<STUsersDataSourceDelegate>)delegate
-                  requestManager:(STRequestManager *)requestManager;
+- (instancetype)initWithDelegate:(id<STSearchDataSourceDelegate>)delegate
+                       tweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
+                 imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader;
 
 - (void)searchTweetsWithText:(NSString *)text;
 
 @end
 
-@protocol STUsersDataSourceDelegate  <NSObject>
+@protocol STSearchDataSourceDelegate  <NSObject>
 
 - (void)updateTableUsers;
 

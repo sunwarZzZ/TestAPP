@@ -21,7 +21,7 @@
 {
     if(_tapeTweetsDataSource == nil)
     {
-        _tapeTweetsDataSource = [[STTapeTweetsDataSource_iPhone alloc] initWithDelegate:self requestManager:_requestManager];
+        _tapeTweetsDataSource = [[STTapeTweetsDataSource_iPhone alloc] initWithDelegate:self tweetsAPI:_tweetsAPI imageDownloader:_imageDownloader];
     }
     return _tapeTweetsDataSource;
 }
@@ -30,7 +30,7 @@
 {
     if(_searchDataSource == nil)
     {
-        _searchDataSource = [[STSearchDataSource_iPhone alloc] initWithDelegate:self requestManager:_requestManager];
+        _searchDataSource = [[STSearchDataSource_iPhone alloc] initWithDelegate:self tweetsAPI:_tweetsAPI imageDownloader:_imageDownloader];
     }
     return _searchDataSource;
 }

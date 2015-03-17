@@ -10,12 +10,11 @@
 #import "STRequestManager.h"
 #import "STTweet.h"
 
+
 @interface STTapeTweetsViewController () <UISearchDisplayDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableTweets;
 @property (nonatomic, weak) IBOutlet UISearchDisplayController *searchDisplayController;
-
-@property (nonatomic, strong) STRequestManager *requestManager;
 
 @property (nonatomic, strong) STTapeTweetsDataSource *tapeTweetsDataSource;
 @property (nonatomic, strong) STSearchDataSource *searchDataSource;
@@ -40,19 +39,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.requestManager = [[STRequestManager alloc]init];
-    
+
     [self p_setupUI];
     [self p_setupDataSource];
+    
+    [self.tapeTweetsDataSource requestTweetsCount:kSizePageTweets offset:0];
 }
 
+#pragma mark - public methods
+- (void)setupWithImageDownloader:(id<STImageDownloaderProtocol>)imageDownloader
+{
+    _imageDownloader = imageDownloader;
+}
+
+- (void)setupWithTweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
+{
+    _tweetsAPI = tweetsAPI;
+}
 
 #pragma mark - STTapeTweetsDataSourceDelegate
 - (void)updateTableTapeTweets
 {
     [self.tableTweets reloadData];
 }
+
 
 #pragma mark - STUsersDataSourceDelegate
 - (void)updateTableUsers
@@ -75,13 +85,16 @@
 {
     self.tableTweets.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.tableTweets.tableFooterView = activityIndicator;
+    [activityIndicator startAnimating];
 }
 
 - (void)p_setupDataSource
 {
     self.tableTweets.delegate = self.tapeTweetsDataSource;
     self.tableTweets.dataSource = self.tapeTweetsDataSource;
-    [self.tapeTweetsDataSource requestTweetsCount:10 offset:0];
     
     self.searchDisplayController.searchResultsDataSource = self.searchDataSource;
     self.searchDisplayController.searchResultsDelegate = self.searchDataSource;

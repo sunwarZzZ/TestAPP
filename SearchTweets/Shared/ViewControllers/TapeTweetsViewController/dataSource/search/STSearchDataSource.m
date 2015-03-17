@@ -7,7 +7,6 @@
 //
 
 #import "STSearchDataSource.h"
-#import "STRequestManager.h"
 #import "STTapeTweetsTableCell.h"
 #import "STTweet.h"
 #import "STUser.h"
@@ -17,21 +16,26 @@ static const int kCountSectionTableSearch = 1;
 
 @interface STSearchDataSource()<STTapeTweetsTableCellDelegate>
 
-@property (nonatomic, strong) STRequestManager *requestManager;
-@property (nonatomic, weak) id<STUsersDataSourceDelegate> delegate;
 @property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) STTweetsNibLoader *nibLoader;
+
+
+@property (nonatomic, weak) id<STSearchDataSourceDelegate> delegate;
+@property (nonatomic, weak) id<STTweetsAPIProtocol> tweetsAPI;
+@property (nonatomic, weak) id<STImageDownloaderProtocol> imageDownloader;
 
 @end
 
 @implementation STSearchDataSource
 
-- (instancetype)initWithDelegate:(id<STUsersDataSourceDelegate>)delegate
-                  requestManager:(STRequestManager *)requestManager
+- (instancetype)initWithDelegate:(id<STSearchDataSourceDelegate>)delegate
+                       tweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
+                 imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader
 {
     if(self = [super init])
     {
-        _requestManager = requestManager;
+        _tweetsAPI = tweetsAPI;
+        _imageDownloader = imageDownloader;
         _delegate = delegate;
     }
     return self;
@@ -40,7 +44,7 @@ static const int kCountSectionTableSearch = 1;
 #pragma mark - public methods
 - (void)searchTweetsWithText:(NSString *)text
 {
-    [self.requestManager requestSearchTweetsWithText:text completion:^(NSArray *tweets, NSError *error)
+    [self.tweetsAPI requestSearchTweetsWithText:text completion:^(NSArray *tweets, NSError *error)
     {
         if(tweets && error == nil)
         {
@@ -64,7 +68,7 @@ static const int kCountSectionTableSearch = 1;
     }
     
     STTweet *tweet = [_tweets objectAtIndex:indexPath.row];
-    [cell setupWithTweet:tweet imageDownloader:self.requestManager avatarVisible:YES];
+    [cell setupWithTweet:tweet imageDownloader:self.imageDownloader avatarVisible:YES];
     
     return cell;
 }

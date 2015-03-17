@@ -8,21 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "STImageDownloaderProtocol.h"
+#import "STAvtorizationManagerProtocol.h"
+#import "STTweetsAPIProtocol.h"
 
-@interface STRequestManager : NSObject <STImageDownloaderProtocol>
+@interface STRequestManager : NSObject <STImageDownloaderProtocol, STAvtorizationManagerProtocol, STTweetsAPIProtocol>
 
-+ (BOOL)isAvtorization;
-
-- (void)requestAvtorizationToken:(void(^)(NSURLRequest *const requestToken, NSError *const error))comletion;
-- (void)requestAccessTokenWithOAuthVerifier:(NSString *)verifier
-                                 completion:(void(^)(BOOL success, NSError *error))completion;
-
-- (void)requestTweetsCount:(int)count
-                    offset:(int)offset
-                completion:(void(^)(NSArray *array, NSError *error))completion;
-
-
-- (void)requestSearchTweetsWithText:(NSString *)text
-                         completion:(void(^)(NSArray *tweets, NSError *error))completion;
 
 @end

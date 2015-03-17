@@ -9,18 +9,50 @@
 #import "STNavigationController.h"
 #import "STSegueID.h"
 #import "STRequestManager.h"
+#import "STLocator.h"
+#import "STRootTabBarController.h"
+#import "STAvtorizationViewController.h"
+
+@interface STNavigationController()
+
+@property (nonatomic, strong) STLocator *locator;
+
+@end
 
 @implementation STNavigationController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.locator = [[STLocator alloc] init];
     [self p_selectStartController];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+     id destination = [segue destinationViewController];
+    if ([[segue identifier] isEqualToString:kPresentAvtorizationControllerSegue])
+    {
+        if([destination isKindOfClass:[STAvtorizationViewController class]])
+        {
+            STAvtorizationViewController *avtorizationViewController = destination;
+            [avtorizationViewController setupAvtorizationManager:[self.locator avtorizationManager]];
+        }
+    }
+    else if([[segue identifier] isEqualToString:kPresentRootControllerSegue])
+    {
+        if([destination isKindOfClass:[STRootTabBarController class]])
+        {
+            STRootTabBarController *root = destination;
+            [root setupWithLocator:self.locator];
+        }
+    }
 }
 
 #pragma mark - private methods

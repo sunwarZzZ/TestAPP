@@ -7,7 +7,10 @@
 //
 
 #import "STViewController.h"
+#import "STAvtorizationManagerProtocol.h"
 
 @interface STAvtorizationViewController : STViewController
+
+- (void)setupAvtorizationManager:(id<STAvtorizationManagerProtocol>)avtorizationManager;
 
 @end

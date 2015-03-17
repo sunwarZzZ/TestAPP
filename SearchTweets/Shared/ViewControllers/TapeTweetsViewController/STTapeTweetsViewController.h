@@ -9,15 +9,23 @@
 #import "STViewController.h"
 #import "STTapeTweetsDataSource.h"
 #import "STSearchDataSource.h"
+#import "STImageDownloaderProtocol.h"
+#import "STTweetsAPIProtocol.h"
+
 
 
 @class STRequestManager;
 
-@interface STTapeTweetsViewController : STViewController <STTapeTweetsDataSourceDelegate, STUsersDataSourceDelegate>
+@interface STTapeTweetsViewController : STViewController <STTapeTweetsDataSourceDelegate, STSearchDataSourceDelegate>
 {
     STTapeTweetsDataSource *_tapeTweetsDataSource;
     STSearchDataSource *_searchDataSource;
-    STRequestManager *const _requestManager;
+    
+    id<STImageDownloaderProtocol> _imageDownloader;
+    id<STTweetsAPIProtocol> _tweetsAPI;
 }
+
+- (void)setupWithImageDownloader:(id<STImageDownloaderProtocol>)imageDownloader;
+- (void)setupWithTweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI;
 
 @end
