@@ -7,15 +7,23 @@
 //
 
 #import "STSettingsManager.h"
+#import "STNotificationsKey.h"
 
-static NSString *const kCacheAvatarsKey = @"cacheAvatars";
+static NSString *const kAvatarsVisible = @"avatarsVisible";
 
 @implementation STSettingsManager
 
-- (void)сacheAvatarsEnable:(BOOL)enable
+#pragma mark - STSettingsManagerProtocol
+- (void)setupAvatarsVisible:(BOOL)visible
 {
-    [UserDefaultsStandart setObject:[NSNumber numberWithBool:enable] forKey:kCacheAvatarsKey];
+    [UserDefaultsStandart setObject:[NSNumber numberWithBool:visible] forKey:kAvatarsVisible];
     [UserDefaultsStandart synchronize];
+    [NotificationCenterDefault postNotificationName:kAvatarAvailabilityNotificationKey object:[NSNumber numberWithBool:visible]];
+}
+
+- (BOOL)avatarsVisible
+{
+    return [[UserDefaultsStandart objectForKey:kAvatarsVisible] boolValue];
 }
 
 

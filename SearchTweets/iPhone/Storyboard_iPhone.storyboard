@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="KIV-bU-DAT" kind="custom" identifier="PresentAvtorizationControllerSegue" id="dkU-SF-Gre"/>
-                        <segue destination="AJa-bg-K8e" kind="custom" identifier="PresentRootControllerSegue" id="daC-ZJ-D6X"/>
+                        <segue destination="KIV-bU-DAT" kind="show" identifier="PresentAvtorizationControllerSegue" id="dkU-SF-Gre"/>
+                        <segue destination="AJa-bg-K8e" kind="show" identifier="PresentRootControllerSegue" id="daC-ZJ-D6X"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="its-l7-Al8" userLabel="First Responder" sceneMemberID="firstResponder"/>

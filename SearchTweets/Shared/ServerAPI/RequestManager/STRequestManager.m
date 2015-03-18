@@ -36,6 +36,7 @@
         _webCore = [[STWebCore alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         _consumer =  [[OAConsumer alloc] initWithKey:kConsumerKey secret:kConsumerSecretKey];
         _queue = [[NSOperationQueue alloc] init];
+        _queue.maxConcurrentOperationCount = 1;
         
         _dateFormater = [NSDateFormatter new];
         [_dateFormater setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];

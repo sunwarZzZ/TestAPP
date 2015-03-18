@@ -136,7 +136,7 @@
 		[request setHTTPMethod:method];
 	}
 
-	if (self.parameters) {
+	if (self.parameters) {        
 		[request setParameters:self.parameters];
 	}
 //	if (self.files) {

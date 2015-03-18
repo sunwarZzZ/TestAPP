@@ -207,6 +207,7 @@
 		F10A87311AB9BFC500FD6F18 /* STSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsManager.h; sourceTree = "<group>"; };
 		F10A87321AB9BFC500FD6F18 /* STSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSettingsManager.m; sourceTree = "<group>"; };
 		F10A87341AB9C07000FD6F18 /* STSettingsManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsManagerProtocol.h; sourceTree = "<group>"; };
+		F10A87351AB9D0C300FD6F18 /* STNotificationsKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STNotificationsKey.h; sourceTree = "<group>"; };
 		F1C17A691AB4540B00C00C4D /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		F1C17A6C1AB551D400C00C4D /* STTokenStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTokenStorage.h; sourceTree = "<group>"; };
 		F1C17A6D1AB551D400C00C4D /* STTokenStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTokenStorage.m; sourceTree = "<group>"; };
@@ -936,6 +937,7 @@
 			isa = PBXGroup;
 			children = (
 				F1D565201A6D96BF002692BD /* STSegueID.h */,
+				F10A87351AB9D0C300FD6F18 /* STNotificationsKey.h */,
 			);
 			path = Constans;
 			sourceTree = "<group>";

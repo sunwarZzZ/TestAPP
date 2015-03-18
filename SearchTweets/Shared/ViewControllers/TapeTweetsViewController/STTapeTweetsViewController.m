@@ -11,16 +11,22 @@
 #import "STTweet.h"
 #import "STTweetsAPIProtocol.h"
 #import "STDataBaseStrorageProtocol.h"
+#import "STNotificationsKey.h"
 
 static const int kCountTweets = 100;
 
 @interface STTapeTweetsViewController () <UISearchDisplayDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableTweets;
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @property (nonatomic, weak) IBOutlet UISearchDisplayController *searchDisplayController;
+#pragma clang diagnostic pop
 
 @property (nonatomic, weak) id<STTweetsAPIProtocol> tweetsAPI;
 @property (nonatomic, weak) id<STDataBaseStrorageProtocol> dataBaseStorage;
+@property (nonatomic, weak) id<STSettingsManagerProtocol> settingsManager;
 
 @property (nonatomic, strong) STTapeTweetsDataSource *tapeTweetsDataSource;
 @property (nonatomic, strong) STSearchDataSource *searchDataSource;
@@ -32,12 +38,18 @@ static const int kCountTweets = 100;
 
 @synthesize searchDisplayController;
 
+- (void)dealloc
+{
+    [self p_unsubscribeNotifications];
+}
+
 #pragma mark - UIViewController methods
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if(self = [super initWithCoder:aDecoder])
     {
         self.title = STLocalizedString(@"Main");
+        [self p_subscribeNotifications];
     }
     return self;
 }
@@ -57,6 +69,12 @@ static const int kCountTweets = 100;
     [self p_requestTweetsCount:kCountTweets];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
 #pragma mark - public methods
 - (void)setupWithAvatarManager:(id<STAvatarManagerProtocol>)avatarManager;
 {
@@ -73,6 +91,21 @@ static const int kCountTweets = 100;
     self.dataBaseStorage = dataBaseStorage;
 }
 
+- (void)setupWithSettingsManager:(id<STSettingsManagerProtocol>)settingsManager
+{
+    self.settingsManager = settingsManager;
+}
+
+#pragma mark - Notification handlers
+- (void)avatarsAvailabilityNotification:(NSNotification *)notification
+{
+    if([notification object])
+    {
+        [_avatarManager setupEnableAvatars:[[notification object] boolValue]];
+        [self.tableTweets reloadData];
+        [self.searchDisplayController.searchResultsTableView reloadData];
+    }
+}
 
 #pragma mark - UISearchControllerDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -86,11 +119,11 @@ static const int kCountTweets = 100;
 
 - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
-    [_avatarManager setupEnableCache:NO];
+    [_avatarManager setupCacheEnable:NO];
 }
 - (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
-    [_avatarManager setupEnableCache:YES];
+    [_avatarManager setupCacheEnable:YES];
 }
 
 #pragma mark - private methods
@@ -146,6 +179,16 @@ static const int kCountTweets = 100;
              NSLog(@"search error %@", error);
          }
      }];
+}
+
+- (void)p_subscribeNotifications
+{
+    [NotificationCenterDefault addObserver:self selector:@selector(avatarsAvailabilityNotification:) name:kAvatarAvailabilityNotificationKey  object:nil];
+}
+
+- (void)p_unsubscribeNotifications
+{
+    [NotificationCenterDefault removeObserver:self forKeyPath:kAvatarAvailabilityNotificationKey];
 }
 
 @end

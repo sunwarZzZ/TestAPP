@@ -10,6 +10,7 @@
 #import "STLocator.h"
 #import "STTapeTweetsViewController.h"
 #import "STProfileViewController.h"
+#import "STNotificationsKey.h"
 
 @interface STRootTabBarController ()
 
@@ -19,10 +20,16 @@
 
 @implementation STRootTabBarController
 
+- (void)dealloc
+{
+
+}
+
 #pragma mark - UIViewController methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self p_setupChildControllers];
     [self p_setupUI];
 }
@@ -33,6 +40,7 @@
 {
     self.locator = locator;
 }
+
 
 #pragma mark - private methods
 - (void)p_setupUI
@@ -50,10 +58,12 @@
             [tapeTweetsViewController setupWithAvatarManager:[self.locator avatarManager]];
             [tapeTweetsViewController setupWithTweetsAPI:[self.locator tweetsAPI]];
             [tapeTweetsViewController setupWithDataBaseStorage:[self.locator dataBaseStorage]];
+            [tapeTweetsViewController setupWithSettingsManager:[self.locator settingsManager]];
         }
-        else if([[navigationController.viewControllers firstObject] isKindOfClass:[STTapeTweetsViewController class]])
+        else if([[navigationController.viewControllers firstObject] isKindOfClass:[STProfileViewController class]])
         {
-            
+            STProfileViewController *profileViewController = [navigationController.viewControllers firstObject];
+            [profileViewController setupSettingsManager:[self.locator settingsManager]];
         }
     }
 }

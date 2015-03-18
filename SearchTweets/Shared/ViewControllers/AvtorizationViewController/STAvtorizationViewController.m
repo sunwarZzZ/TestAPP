@@ -51,7 +51,7 @@
 #pragma mark - public methods
 - (void)setupAvtorizationManager:(id<STAvtorizationManagerProtocol>)avtorizationManager
 {
-
+    self.avtorizationManager = avtorizationManager;
 }
 
 #pragma mark - UIWebView delegate

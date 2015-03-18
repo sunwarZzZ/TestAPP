@@ -10,7 +10,7 @@
 
 typedef NS_ENUM(int, STSettingsItemType)
 {
-    STSettingsItemTypeCache
+    STSettingsItemTypeAvatarVisible
 };
 
 @interface STSettingsItem : NSObject

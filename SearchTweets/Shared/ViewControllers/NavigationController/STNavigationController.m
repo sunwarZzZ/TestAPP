@@ -25,9 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.locator = [[STLocator alloc] init];
-    [[self.locator avatarManager] setupEnableCache:YES];
+
+    [self p_initAplication];
     [self p_selectStartController];
 }
 
@@ -58,6 +57,12 @@
 }
 
 #pragma mark - private methods
+- (void)p_initAplication
+{
+    self.locator = [[STLocator alloc] init];
+    [[self.locator avatarManager] setupEnableAvatars:[[self.locator settingsManager] avatarsVisible]];
+}
+
 - (void)p_selectStartController
 {
     if([STRequestManager isAvtorization])

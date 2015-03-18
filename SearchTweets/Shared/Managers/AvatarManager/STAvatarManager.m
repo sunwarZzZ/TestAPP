@@ -9,13 +9,16 @@
 #import "STAvatarManager.h"
 #import "STUser.h"
 
+
 @interface STAvatarManager()
+{
+    BOOL _enableCache;
+    BOOL _enableAvatars;
+}
 
 @property (nonatomic, strong) NSCache *avatars;
 @property (nonatomic, weak) id<STImageDownloaderProtocol>imageDownloader;
 @property (nonatomic, weak) id<STFileManagerProtocol>fileManager;
-@property (nonatomic, assign) BOOL enableCache;
-
 
 @end
 
@@ -37,12 +40,14 @@
 - (void)avatarWithUser:(STUser *)user
             completion:(void(^)(UIImage *avatar))completion;
 {
+    if(_enableAvatars == NO)
+    {
+        return completion(nil);
+    }
+    
+
     [self p_avatarForUserId:user.userId completion:^(UIImage *avatar) {
-        if(avatar)
-        {
-            completion(avatar);
-        }
-        else
+        if(avatar == nil)
         {
             [self.imageDownloader requestAvatarWithStringURL:user.avatarURLString completion:^(UIImage *avatar, NSError *error) {
                 
@@ -57,23 +62,30 @@
                 });
             }];
         }
+        else completion(avatar);
     }];
 }
 
-- (void)setupEnableCache:(BOOL)enable
+- (void)setupCacheEnable:(BOOL)enable
 {
-    self.enableCache = enable;
+    _enableCache = enable;
 }
+
+- (void)setupEnableAvatars:(BOOL)enable
+{
+    _enableAvatars = enable;
+}
+
 
 #pragma mark - private methods
 - (void)p_avatarForUserId:(long long)userId completion:(void(^)(UIImage *avatar))completion
 {
     __block UIImage *avatar = [self.avatars objectForKey:[NSNumber numberWithLongLong:userId]];
-    if(avatar == nil && self.enableCache)
+    
+    if(avatar == nil && _enableCache)
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             avatar = [UIImage imageWithContentsOfFile:[self p_avatarPathForUserId:userId]];
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 if(avatar)
@@ -84,17 +96,14 @@
             });
         });
     }
-    else
-    {
-        completion(avatar);
-    }
+    else completion(avatar);
 }
 
 - (void)p_setAvatar:(UIImage *)image userId:(long long)userId
 {
     [self.avatars setObject:image forKey:[NSNumber numberWithLongLong:userId]];
     
-    if(self.enableCache)
+    if(_enableCache)
     {
         NSString *avatarPath = [self p_avatarPathForUserId:userId];
         if([self.fileManager fileExistsAtPath: avatarPath] == NO)

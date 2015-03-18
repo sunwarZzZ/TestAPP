@@ -13,10 +13,10 @@
 
 @interface STProfileViewController () <UITableViewDataSource, UITableViewDelegate>
 
-
 @property (nonatomic, weak) IBOutlet UITableView *tableProfile;
-@property (nonatomic, strong) NSArray *profileItems;
 
+@property (nonatomic, strong) NSArray *profileItems;
+@property (nonatomic, weak) id<STSettingsManagerProtocol> settingsManager;
 
 @end
 
@@ -55,8 +55,15 @@
         {
             STSettingsViewController *settingsViewController = destination;
             settingsViewController.hidesBottomBarWhenPushed = YES;
+            [settingsViewController setupSettingsManager:self.settingsManager];
         }
     }
+}
+
+#pragma mark - public methods
+- (void)setupSettingsManager:(id<STSettingsManagerProtocol>)settingsManager
+{
+    self.settingsManager = settingsManager;
 }
 
 #pragma mark - UITableView methods

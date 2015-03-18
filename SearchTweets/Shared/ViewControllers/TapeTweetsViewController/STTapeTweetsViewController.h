@@ -10,6 +10,7 @@
 #import "STTapeTweetsDataSource.h"
 #import "STSearchDataSource.h"
 #import "STAvatarManagerProtocol.h"
+#import "STSettingsManagerProtocol.h"
 
 @interface STTapeTweetsViewController : STViewController
 {
@@ -21,5 +22,6 @@
 - (void)setupWithAvatarManager:(id<STAvatarManagerProtocol>)avatarManager;
 - (void)setupWithTweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI;
 - (void)setupWithDataBaseStorage:(id<STDataBaseStrorageProtocol>)dataBaseStorage;
+- (void)setupWithSettingsManager:(id<STSettingsManagerProtocol>)settingsManager;
 
 @end

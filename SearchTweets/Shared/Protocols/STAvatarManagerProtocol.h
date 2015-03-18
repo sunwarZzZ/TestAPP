@@ -19,6 +19,8 @@
 
 - (void)avatarWithUser:(STUser *)user
               completion:(void(^)(UIImage *avatar))completion;
-- (void)setupEnableCache:(BOOL)enable;
+
+- (void)setupCacheEnable:(BOOL)enable;
+- (void)setupEnableAvatars:(BOOL)enable;
 
 @end

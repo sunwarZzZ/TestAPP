@@ -10,6 +10,7 @@
 
 @protocol STSettingsManagerProtocol <NSObject>
 
-- (void)сacheAvatarsEnable:(BOOL)enable;
+- (void)setupAvatarsVisible:(BOOL)visible;
+- (BOOL)avatarsVisible;
 
 @end

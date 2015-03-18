@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <STSettingsManagerProtocol.h>
+#import "STSettingsManagerProtocol.h"
 
 @interface STSettingsManager : NSObject <STSettingsManagerProtocol>
 

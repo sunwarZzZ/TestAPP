@@ -7,7 +7,10 @@
 //
 
 #import "STViewController.h"
+#import "STSettingsManagerProtocol.h"
 
 @interface STProfileViewController : STViewController
+
+- (void)setupSettingsManager:(id<STSettingsManagerProtocol>)settingsManager;
 
 @end

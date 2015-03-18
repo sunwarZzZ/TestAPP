@@ -11,6 +11,7 @@
 #import "STRequestManager.h"
 #import "STDataBaseStorage.h"
 #import "STAvatarManager.h"
+#import "STSettingsManager.h"
 
 @interface STLocator()
 {
@@ -18,6 +19,7 @@
     STRequestManager  *_requestManager;
     STDataBaseStorage *_dataBaseStorage;
     STAvatarManager   *_avatarManager;
+    STSettingsManager *_settingsManager;
 }
 
 @end
@@ -58,13 +60,22 @@
    return [self p_requestManager];
 }
 
-- (id<STAvatarManagerProtocol>)avatarManager
+- (id<STAvatarManagerProtocol> const)avatarManager
 {
     if(_avatarManager == nil)
     {
         _avatarManager = [[STAvatarManager alloc] initWithImageDownloader:[self imageDownloader] fileManager:[self fileManager]];
     }
     return _avatarManager;
+}
+
+- (id<STSettingsManagerProtocol> const)settingsManager
+{
+    if(_settingsManager == nil)
+    {
+        _settingsManager = [[STSettingsManager alloc] init];
+    }
+    return _settingsManager;
 }
 
 #pragma mark - private methods

@@ -13,14 +13,16 @@
 #import "STAvtorizationManagerProtocol.h"
 #import "STTweetsAPIProtocol.h"
 #import "STAvatarManagerProtocol.h"
+#import "STSettingsManagerProtocol.h"
 
 @interface STLocator : NSObject
 
-- (id<STDataBaseStrorageProtocol> const)dataBaseStorage;
-- (id<STImageDownloaderProtocol> const)imageDownloader;
-- (id<STFileManagerProtocol> const)fileManager;
+- (id<STDataBaseStrorageProtocol>    const)dataBaseStorage;
+- (id<STImageDownloaderProtocol>     const)imageDownloader;
+- (id<STFileManagerProtocol>         const)fileManager;
 - (id<STAvtorizationManagerProtocol> const)avtorizationManager;
-- (id<STTweetsAPIProtocol> const)tweetsAPI;
-- (id<STAvatarManagerProtocol>)avatarManager;
+- (id<STTweetsAPIProtocol>           const)tweetsAPI;
+- (id<STAvatarManagerProtocol>       const)avatarManager;
+- (id<STSettingsManagerProtocol>     const)settingsManager;
 
 @end

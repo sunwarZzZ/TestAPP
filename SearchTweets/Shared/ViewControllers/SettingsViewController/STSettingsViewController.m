@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableSettings;
 
 @property (nonatomic, strong) NSArray *settingsItems;
+@property (nonatomic, weak) id<STSettingsManagerProtocol> settingsManager;
 
 @end
 
@@ -33,6 +34,12 @@
     [self.tableSettings reloadData];
 }
 
+#pragma mark - public methods
+- (void)setupSettingsManager:(id<STSettingsManagerProtocol>)settingsManager
+{
+    self.settingsManager = settingsManager;
+}
+
 #pragma mark - UITableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -43,7 +50,15 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseId];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
-        //[cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+    
+    if([self.settingsManager avatarsVisible])
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+    else
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     
     STSettingsItem *item = [self.settingsItems objectAtIndex:indexPath.row];
@@ -60,11 +75,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     STSettingsItem *item = [self.settingsItems objectAtIndex:indexPath.row];
-    if(item.type ==  STSettingsItemTypeCache)
+    if(item.type ==  STSettingsItemTypeAvatarVisible)
     {
-        
+        [self.settingsManager setupAvatarsVisible:![self.settingsManager avatarsVisible]];
+        [self.tableSettings reloadData];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -77,11 +92,11 @@
 
 - (void)p_setupDataSource
 {
-    STSettingsItem *cacheItem = [STSettingsItem new];
-    cacheItem.title = STLocalizedString(@"CacheAvatarAvailable");
-    cacheItem.settingsId = 1;
+    STSettingsItem *avatarsVisibleItem = [STSettingsItem new];
+    avatarsVisibleItem.title = STLocalizedString(@"AvatarVisible");
+    avatarsVisibleItem.settingsId = 1;
     
-    self.settingsItems = [NSArray arrayWithObject:cacheItem];
+    self.settingsItems = [NSArray arrayWithObject:avatarsVisibleItem];
     
     self.tableSettings.delegate = self;
     self.tableSettings.dataSource = self;

@@ -200,8 +200,10 @@ for (; theInIndex < inInputDataSize; )
 		}
 	else if (theSequence == 1)
 		{
+
 		theOutputOctet |= (theSextet >- 0 ? theSextet : 0) >> 4 & kBits_00000011;
 		theOutPtr[theOutIndex++] = theOutputOctet;
+
 		}
 	else if (theSequence == 2)
 		{

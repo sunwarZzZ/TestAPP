@@ -9,8 +9,9 @@
 #ifndef SearchTweets_STMacros_h
 #define SearchTweets_STMacros_h
 
-#define STLocalizedString(key)   NSLocalizedString(key, nil)
-#define Bundle                   [NSBundle mainBundle]
-#define UserDefaultsStandart     [NSUserDefaults  standardUserDefaults]
+#define STLocalizedString(key)    NSLocalizedString(key, nil)
+#define Bundle                    [NSBundle mainBundle]
+#define UserDefaultsStandart      [NSUserDefaults  standardUserDefaults]
+#define NotificationCenterDefault [NSNotificationCenter defaultCenter]
 
 #endif
