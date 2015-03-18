@@ -9,16 +9,21 @@
 #import "STTapeTweetsViewController.h"
 #import "STRequestManager.h"
 #import "STTweet.h"
+#import "STTweetsAPIProtocol.h"
+#import "STDataBaseStrorageProtocol.h"
 
+static const int kCountTweets = 100;
 
 @interface STTapeTweetsViewController () <UISearchDisplayDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableTweets;
 @property (nonatomic, weak) IBOutlet UISearchDisplayController *searchDisplayController;
 
+@property (nonatomic, weak) id<STTweetsAPIProtocol> tweetsAPI;
+@property (nonatomic, weak) id<STDataBaseStrorageProtocol> dataBaseStorage;
+
 @property (nonatomic, strong) STTapeTweetsDataSource *tapeTweetsDataSource;
 @property (nonatomic, strong) STSearchDataSource *searchDataSource;
-
 
 
 @end
@@ -44,63 +49,48 @@
     [self p_setupUI];
     [self p_setupDataSource];
     
-    [self.tapeTweetsDataSource requestTweetsCount:kSizePageTweets offset:0];
+    [self.dataBaseStorage tweets:^(NSArray *tweets) {
+        [self.tapeTweetsDataSource setupWithTweets:tweets];
+        [self.tableTweets reloadData];
+    }];
+    
+    [self p_requestTweetsCount:kCountTweets];
 }
 
 #pragma mark - public methods
-- (void)setupWithImageDownloader:(id<STImageDownloaderProtocol>)imageDownloader
+- (void)setupWithAvatarManager:(id<STAvatarManagerProtocol>)avatarManager;
 {
-    _imageDownloader = imageDownloader;
+    _avatarManager = avatarManager;
 }
 
 - (void)setupWithTweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
 {
-    _tweetsAPI = tweetsAPI;
+    self.tweetsAPI = tweetsAPI;
 }
 
 - (void)setupWithDataBaseStorage:(id<STDataBaseStrorageProtocol>)dataBaseStorage
 {
-    _dataBaseStorage = dataBaseStorage;
+    self.dataBaseStorage = dataBaseStorage;
 }
 
-#pragma mark - STTapeTweetsDataSourceDelegate
-- (void)updateTableTapeTweets
-{
-    [self p_progressVisible:NO];
-    [self.tableTweets reloadData];
-}
-
-- (void)loadPageTweetsWithOffset:(int)offset count:(int)count
-{
-    [self p_progressVisible:YES];
-    [self.tapeTweetsDataSource requestTweetsCount:count offset:offset];
-}
-
-- (void)loadTweetsError:(NSError *)error
-{
-    [self p_progressVisible:YES];
-}
-
-
-#pragma mark - STSearchDataSourceDelegate
-- (void)updateTableSearch
-{
-    [self.searchDisplayController.searchResultsTableView reloadData];
-}
-
-- (void)searchTweetsError:(NSError *)error
-{
-
-}
 
 #pragma mark - UISearchControllerDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     if(searchString)
     {
-        [self.searchDataSource searchTweetsWithText:searchString];
+        [self p_searchTweetsWithText:searchString];
     }
     return YES;
+}
+
+- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
+{
+    [_avatarManager setupEnableCache:NO];
+}
+- (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
+{
+    [_avatarManager setupEnableCache:YES];
 }
 
 #pragma mark - private methods
@@ -120,19 +110,42 @@
     self.searchDisplayController.delegate = self;
 }
 
-- (void)p_progressVisible:(BOOL)visible
+- (void)p_requestTweetsCount:(int)count
 {
-    if(visible)
-    {
-        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        self.tableTweets.tableFooterView = activityIndicator;
-        [activityIndicator startAnimating];
-    }
-    else
-    {
-        self.tableTweets.tableFooterView = nil;
-    }
+    [self.tweetsAPI requestTweetsCount:count completion:^(NSArray *array, NSError *error) {
+        if(array && error == nil)
+        {
+            [self.dataBaseStorage addTweets:array completion:^{
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tapeTweetsDataSource setupWithTweets:array];
+                    [self.tableTweets reloadData];
+                });
+            }];
+        }
+        else
+        {
+            NSLog(@"request tweets error %@", error);
+        }
+    }];
 }
 
+- (void)p_searchTweetsWithText:(NSString *)text
+{
+    [self.tweetsAPI requestSearchTweetsWithText:text completion:^(NSArray *tweets, NSError *error)
+     {
+         if(tweets && error == nil)
+         {
+             [self.searchDataSource setupWithTweets:tweets];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.searchDisplayController.searchResultsTableView reloadData];
+             });
+         }
+         else
+         {
+             NSLog(@"search error %@", error);
+         }
+     }];
+}
 
 @end

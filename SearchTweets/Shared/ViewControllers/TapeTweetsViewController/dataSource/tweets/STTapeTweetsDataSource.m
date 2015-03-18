@@ -15,68 +15,32 @@
 #import "STImageDownloaderProtocol.h"
 
 static const int kCountSectionTableTweets = 1;
-const int kSizePageTweets = 10;
-
 
 @interface STTapeTweetsDataSource() <STTapeTweetsTableCellDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak) id<STTapeTweetsDataSourceDelegate> delegate;
-@property (nonatomic, strong) NSMutableArray *tweets;
+@property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) STTweetsNibLoader *nibLoader;
-
-@property (nonatomic, weak) id<STTweetsAPIProtocol> tweetsAPI;
-@property (nonatomic, weak) id<STImageDownloaderProtocol> imageDownloader;
-@property (nonatomic, weak) id<STDataBaseStrorageProtocol> dataBaseStorage;
+@property (nonatomic, weak) id<STAvatarManagerProtocol> avatarManager;
 
 @end
 
 @implementation STTapeTweetsDataSource
 
-- (instancetype)initWithDelegate:(id<STTapeTweetsDataSourceDelegate>)delegate
-                       tweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
-                 imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader
-                 dataBaseStorage:(id<STDataBaseStrorageProtocol>)dataBaseStorage
+- (instancetype)initWithAvatarManager:(STAvatarManager *)avatarManager
 {
     if(self = [super init])
     {
-        _tweetsAPI = tweetsAPI;
-        _imageDownloader = imageDownloader;
-        _dataBaseStorage = dataBaseStorage;
-        _delegate = delegate;
+        self.avatarManager = avatarManager;
     }
     return self;
 }
 
 
 #pragma mark - public methods
-- (void)requestTweetsCount:(int)count offset:(int)offset
+- (void)setupWithTweets:(NSArray *)tweets
 {
-    [self.tweetsAPI requestTweetsCount:count offset:offset completion:^(NSArray *array, NSError *error) {
-        
-        if(array && error == nil)
-        {
-            if(self.tweets == nil)
-            {
-                self.tweets = [NSMutableArray arrayWithArray:array];
-            }
-            else
-            {
-                [self.tweets addObjectsFromArray:array];
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate updateTableTapeTweets];
-            });
-        }
-        else
-        {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate loadTweetsError:error];
-            });
-        }
-    }];
+    self.tweets = tweets;
 }
-
 
 #pragma mark - UITableView methods
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,12 +54,8 @@ const int kSizePageTweets = 10;
     }
     
     STTweet *tweet = [_tweets objectAtIndex:indexPath.row];
-    [cell setupWithTweet:tweet imageDownloader:self.imageDownloader avatarVisible:YES];
+    [cell setupWithTweet:tweet avatarManager:self.avatarManager];
     
-    if(self.tweets.count > 0 && indexPath.row == (self.tweets.count - 1))
-    {
-        [self.delegate loadPageTweetsWithOffset:self.tweets.count count:kSizePageTweets];
-    }
     return cell;
 }
 

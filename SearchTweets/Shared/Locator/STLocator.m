@@ -10,12 +10,14 @@
 #import "STFileManager.h"
 #import "STRequestManager.h"
 #import "STDataBaseStorage.h"
+#import "STAvatarManager.h"
 
 @interface STLocator()
 {
-    STFileManager *_fileManager;
-    STRequestManager *_requestManager;
+    STFileManager     *_fileManager;
+    STRequestManager  *_requestManager;
     STDataBaseStorage *_dataBaseStorage;
+    STAvatarManager   *_avatarManager;
 }
 
 @end
@@ -54,6 +56,15 @@
 - (id<STTweetsAPIProtocol> const)tweetsAPI
 {
    return [self p_requestManager];
+}
+
+- (id<STAvatarManagerProtocol>)avatarManager
+{
+    if(_avatarManager == nil)
+    {
+        _avatarManager = [[STAvatarManager alloc] initWithImageDownloader:[self imageDownloader] fileManager:[self fileManager]];
+    }
+    return _avatarManager;
 }
 
 #pragma mark - private methods

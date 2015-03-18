@@ -9,7 +9,6 @@
 #import "STTapeTweetsTableCell.h"
 #import "STTweet.h"
 #import "STUser.h"
-#import "STDownloadImageView.h"
 
 static const int MAX_WIDTH_CONTAINER = 246;
 
@@ -17,7 +16,8 @@ static const int MAX_WIDTH_CONTAINER = 246;
 
 @property (nonatomic, weak) IBOutlet UILabel *nameUserLabel;
 @property (nonatomic, weak) IBOutlet UILabel *tweetTextLabel;
-@property (nonatomic, weak) IBOutlet STDownloadImageView *avatarImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
+@property (nonatomic, weak) id<STAvatarManagerProtocol> avatarManager;
 
 @property (nonatomic, strong) STTweet *tweet;
 
@@ -64,30 +64,19 @@ static const int MAX_WIDTH_CONTAINER = 246;
     return [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
 }
 
-- (void)setupWithTweet:(STTweet *)tweet
-       imageDownloader:(id<STImageDownloaderProtocol> )imageDownloader
-         avatarVisible:(BOOL)visible
+- (void)setupWithTweet:(STTweet *)tweet avatarManager:(id<STAvatarManagerProtocol>)avatarManager
 {
     self.tweet = tweet;
-    [self.avatarImageView setupImageDownloader:imageDownloader];
+    self.avatarManager = avatarManager;
     
     self.tweetTextLabel.text = self.tweet.text;
     self.nameUserLabel.text = self.tweet.user.name;
+      self.avatarImageView.image = nil;
     
-    if(visible)
-    {
-        if(self.tweet.user.avatarImage)
-        {
-            self.avatarImageView.image = self.tweet.user.avatarImage;
-        }
-        else
-        {
-            [self.avatarImageView requestImageWithURLString:self.tweet.user.avatarURLString completion:^(UIImage *image)
-             {
-                 self.tweet.user.avatarImage = image;
-             }];
-        }
-    }
+    [self.avatarManager avatarWithUser:self.tweet.user completion:^(UIImage *avatar) {
+        self.avatarImageView.image = avatar;
+    }];
+    
 }
 
 #pragma mark - private methods

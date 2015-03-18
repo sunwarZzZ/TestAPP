@@ -11,5 +11,6 @@
 
 static NSString * const kPresentRootControllerSegue         = @"PresentRootControllerSegue";
 static NSString * const kPresentAvtorizationControllerSegue = @"PresentAvtorizationControllerSegue";
+static NSString * const kPresentSettingsControllerSegue     = @"PresentSettingsControllerSegue";
 
 #endif

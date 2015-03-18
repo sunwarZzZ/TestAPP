@@ -12,7 +12,6 @@
 		9D39DA8B1AB6C8760025F665 /* STTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39DA8A1AB6C8760025F665 /* STTableViewCell.m */; };
 		9D4DEC421AB72779009D7886 /* STTapeTweetsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DEC3F1AB72779009D7886 /* STTapeTweetsDataSource.m */; };
 		9D4DEC4B1AB7279A009D7886 /* STTapeTweetsDataSource_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DEC471AB7279A009D7886 /* STTapeTweetsDataSource_iPhone.m */; };
-		9D4DEC741AB81DCD009D7886 /* STDownloadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DEC731AB81DCD009D7886 /* STDownloadImageView.m */; };
 		9D4DEC821AB83347009D7886 /* STSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DEC7F1AB83347009D7886 /* STSearchDataSource.m */; };
 		9D4DEC8A1AB8334F009D7886 /* STSearchDataSource_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DEC861AB8334F009D7886 /* STSearchDataSource_iPhone.m */; };
 		9D4DEC901AB83695009D7886 /* STTweetsNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DEC8F1AB83695009D7886 /* STTweetsNibLoader.m */; };
@@ -43,6 +42,10 @@
 		9D83749B1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83749A1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m */; };
 		9D83749F1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D83749E1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m */; };
 		9D8374A31AB2E314004BE1D2 /* STDataBaseStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8374A21AB2E314004BE1D2 /* STDataBaseStorage.m */; };
+		F10A87201AB9873600FD6F18 /* STAvatarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F10A871F1AB9873600FD6F18 /* STAvatarManager.m */; };
+		F10A87281AB9B35300FD6F18 /* STProfileItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F10A87271AB9B35300FD6F18 /* STProfileItem.m */; };
+		F10A872C1AB9BAD900FD6F18 /* STSettingsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F10A872B1AB9BAD900FD6F18 /* STSettingsItem.m */; };
+		F10A87331AB9BFC500FD6F18 /* STSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F10A87321AB9BFC500FD6F18 /* STSettingsManager.m */; };
 		F1C17A6E1AB551D400C00C4D /* STTokenStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C17A6D1AB551D400C00C4D /* STTokenStorage.m */; };
 		F1C17A721AB551F900C00C4D /* STRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C17A711AB551F900C00C4D /* STRequestManager.m */; };
 		F1C17A761AB5575400C00C4D /* STWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C17A751AB5575400C00C4D /* STWebCore.m */; };
@@ -127,8 +130,6 @@
 		9D4DEC3F1AB72779009D7886 /* STTapeTweetsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTapeTweetsDataSource.m; sourceTree = "<group>"; };
 		9D4DEC461AB7279A009D7886 /* STTapeTweetsDataSource_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTapeTweetsDataSource_iPhone.h; sourceTree = "<group>"; };
 		9D4DEC471AB7279A009D7886 /* STTapeTweetsDataSource_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTapeTweetsDataSource_iPhone.m; sourceTree = "<group>"; };
-		9D4DEC721AB81DCD009D7886 /* STDownloadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDownloadImageView.h; sourceTree = "<group>"; };
-		9D4DEC731AB81DCD009D7886 /* STDownloadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDownloadImageView.m; sourceTree = "<group>"; };
 		9D4DEC761AB81E35009D7886 /* STImageDownloaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STImageDownloaderProtocol.h; sourceTree = "<group>"; };
 		9D4DEC7E1AB83347009D7886 /* STSearchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSearchDataSource.h; sourceTree = "<group>"; };
 		9D4DEC7F1AB83347009D7886 /* STSearchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSearchDataSource.m; sourceTree = "<group>"; };
@@ -196,6 +197,16 @@
 		9D83749E1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTapeTweetsViewController_iPad.m; sourceTree = "<group>"; };
 		9D8374A11AB2E314004BE1D2 /* STDataBaseStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STDataBaseStorage.h; sourceTree = "<group>"; };
 		9D8374A21AB2E314004BE1D2 /* STDataBaseStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STDataBaseStorage.m; sourceTree = "<group>"; };
+		F10A871E1AB9873600FD6F18 /* STAvatarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvatarManager.h; sourceTree = "<group>"; };
+		F10A871F1AB9873600FD6F18 /* STAvatarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAvatarManager.m; sourceTree = "<group>"; };
+		F10A87211AB987DB00FD6F18 /* STAvatarManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvatarManagerProtocol.h; sourceTree = "<group>"; };
+		F10A87261AB9B35300FD6F18 /* STProfileItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STProfileItem.h; sourceTree = "<group>"; };
+		F10A87271AB9B35300FD6F18 /* STProfileItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STProfileItem.m; sourceTree = "<group>"; };
+		F10A872A1AB9BAD900FD6F18 /* STSettingsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsItem.h; sourceTree = "<group>"; };
+		F10A872B1AB9BAD900FD6F18 /* STSettingsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSettingsItem.m; sourceTree = "<group>"; };
+		F10A87311AB9BFC500FD6F18 /* STSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsManager.h; sourceTree = "<group>"; };
+		F10A87321AB9BFC500FD6F18 /* STSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSettingsManager.m; sourceTree = "<group>"; };
+		F10A87341AB9C07000FD6F18 /* STSettingsManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSettingsManagerProtocol.h; sourceTree = "<group>"; };
 		F1C17A691AB4540B00C00C4D /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		F1C17A6C1AB551D400C00C4D /* STTokenStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTokenStorage.h; sourceTree = "<group>"; };
 		F1C17A6D1AB551D400C00C4D /* STTokenStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTokenStorage.m; sourceTree = "<group>"; };
@@ -322,23 +333,6 @@
 			path = tweets;
 			sourceTree = "<group>";
 		};
-		9D4DEC701AB81D5A009D7886 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9D4DEC711AB81DB3009D7886 /* DownloadImageView */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		9D4DEC711AB81DB3009D7886 /* DownloadImageView */ = {
-			isa = PBXGroup;
-			children = (
-				9D4DEC721AB81DCD009D7886 /* STDownloadImageView.h */,
-				9D4DEC731AB81DCD009D7886 /* STDownloadImageView.m */,
-			);
-			path = DownloadImageView;
-			sourceTree = "<group>";
-		};
 		9D4DEC751AB81DFD009D7886 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +341,8 @@
 				9D4DECA31AB84E34009D7886 /* STDataBaseStrorageProtocol.h */,
 				9D4DECA81AB850A1009D7886 /* STAvtorizationManagerProtocol.h */,
 				9D4DECA91AB851C3009D7886 /* STTweetsAPIProtocol.h */,
+				F10A87211AB987DB00FD6F18 /* STAvatarManagerProtocol.h */,
+				F10A87341AB9C07000FD6F18 /* STSettingsManagerProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -390,6 +386,8 @@
 		9D4DEC9D1AB84AB8009D7886 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F10A872D1AB9BF8D00FD6F18 /* SettingsManager */,
+				F10A871B1AB9872400FD6F18 /* AvatarManager */,
 				9D4DEC9E1AB84AB8009D7886 /* FileManager */,
 			);
 			path = Managers;
@@ -467,6 +465,7 @@
 		9D83745C1AB1BAC1004BE1D2 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F10A87291AB9BAC600FD6F18 /* SettingsItem */,
 				9D83745F1AB1BAF6004BE1D2 /* STSettingsViewController.h */,
 				9D8374601AB1BAF6004BE1D2 /* STSettingsViewController.m */,
 			);
@@ -539,6 +538,7 @@
 		9D8374881AB2D205004BE1D2 /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F10A87251AB9B34400FD6F18 /* ProfileItem */,
 				9D83748B1AB2D28A004BE1D2 /* STProfileViewController.h */,
 				9D83748C1AB2D28A004BE1D2 /* STProfileViewController.m */,
 			);
@@ -601,6 +601,42 @@
 				F1C17A791AB622F600C00C4D /* Tweet */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F10A871B1AB9872400FD6F18 /* AvatarManager */ = {
+			isa = PBXGroup;
+			children = (
+				F10A871E1AB9873600FD6F18 /* STAvatarManager.h */,
+				F10A871F1AB9873600FD6F18 /* STAvatarManager.m */,
+			);
+			path = AvatarManager;
+			sourceTree = "<group>";
+		};
+		F10A87251AB9B34400FD6F18 /* ProfileItem */ = {
+			isa = PBXGroup;
+			children = (
+				F10A87261AB9B35300FD6F18 /* STProfileItem.h */,
+				F10A87271AB9B35300FD6F18 /* STProfileItem.m */,
+			);
+			path = ProfileItem;
+			sourceTree = "<group>";
+		};
+		F10A87291AB9BAC600FD6F18 /* SettingsItem */ = {
+			isa = PBXGroup;
+			children = (
+				F10A872A1AB9BAD900FD6F18 /* STSettingsItem.h */,
+				F10A872B1AB9BAD900FD6F18 /* STSettingsItem.m */,
+			);
+			path = SettingsItem;
+			sourceTree = "<group>";
+		};
+		F10A872D1AB9BF8D00FD6F18 /* SettingsManager */ = {
+			isa = PBXGroup;
+			children = (
+				F10A87311AB9BFC500FD6F18 /* STSettingsManager.h */,
+				F10A87321AB9BFC500FD6F18 /* STSettingsManager.m */,
+			);
+			path = SettingsManager;
 			sourceTree = "<group>";
 		};
 		F1C17A621AB4536200C00C4D /* Categories */ = {
@@ -788,7 +824,6 @@
 				9D4DECA41AB84E92009D7886 /* Locator */,
 				9D4DEC9D1AB84AB8009D7886 /* Managers */,
 				9D4DEC751AB81DFD009D7886 /* Protocols */,
-				9D4DEC701AB81D5A009D7886 /* Views */,
 				F1C17A621AB4536200C00C4D /* Categories */,
 				9D51DD9D1A765C5A003E2D49 /* Utils */,
 				F1D564D01A6C67F6002692BD /* AbstractClasses */,
@@ -1052,6 +1087,7 @@
 			files = (
 				9D8374931AB2D2F4004BE1D2 /* STProfileViewController_iPad.m in Sources */,
 				9D8374641AB1BB0D004BE1D2 /* STSettingsViewController_iPhone.m in Sources */,
+				F10A87331AB9BFC500FD6F18 /* STSettingsManager.m in Sources */,
 				9D83746D1AB1BBDE004BE1D2 /* STRootTabBarController.m in Sources */,
 				9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */,
 				9D4DEC4B1AB7279A009D7886 /* STTapeTweetsDataSource_iPhone.m in Sources */,
@@ -1074,6 +1110,7 @@
 				F1D564C11A6C614D002692BD /* AppDelegate.m in Sources */,
 				F1D564F31A6C69B8002692BD /* STAvtorizationViewController_iPhone.m in Sources */,
 				9D83749F1AB2D8E4004BE1D2 /* STTapeTweetsViewController_iPad.m in Sources */,
+				F10A872C1AB9BAD900FD6F18 /* STSettingsItem.m in Sources */,
 				9D389E631AB18C88009B9AAB /* SSKeychain.m in Sources */,
 				9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */,
 				F1C17A6E1AB551D400C00C4D /* STTokenStorage.m in Sources */,
@@ -1081,12 +1118,13 @@
 				F1C17A821AB6232F00C00C4D /* STTweet.m in Sources */,
 				F1D564F91A6C6A2E002692BD /* STAvtorizationViewController_iPad.m in Sources */,
 				F1D5651E1A6D92F2002692BD /* STNavigationController_iPhone.m in Sources */,
-				9D4DEC741AB81DCD009D7886 /* STDownloadImageView.m in Sources */,
 				9D83749B1AB2D8D2004BE1D2 /* STTapeTweetsViewController_iPhone.m in Sources */,
 				9D83744F1AB1B44C004BE1D2 /* STViewController.m in Sources */,
 				9D8374701AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m in Sources */,
 				9D83748D1AB2D28A004BE1D2 /* STProfileViewController.m in Sources */,
 				9D8374611AB1BAF6004BE1D2 /* STSettingsViewController.m in Sources */,
+				F10A87281AB9B35300FD6F18 /* STProfileItem.m in Sources */,
+				F10A87201AB9873600FD6F18 /* STAvatarManager.m in Sources */,
 				9D4DECA71AB84EA8009D7886 /* STLocator.m in Sources */,
 				9D8374671AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m in Sources */,
 				F1C17A721AB551F900C00C4D /* STRequestManager.m in Sources */,

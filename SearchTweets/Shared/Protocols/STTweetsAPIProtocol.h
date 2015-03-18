@@ -11,7 +11,6 @@
 @protocol STTweetsAPIProtocol <NSObject>
 
 - (void)requestTweetsCount:(int)count
-                    offset:(int)offset
                 completion:(void(^)(NSArray *array, NSError *error))completion;
 
 

@@ -21,11 +21,13 @@
 
 @implementation STNavigationController
 
+#pragma mark - ViewController methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.locator = [[STLocator alloc] init];
+    [[self.locator avatarManager] setupEnableCache:YES];
     [self p_selectStartController];
 }
 
@@ -68,7 +70,6 @@
     }
 }
 
-#pragma mark - private methods
 - (void)p_setupUI
 {
     self.navigationBar.translucent = YES;

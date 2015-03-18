@@ -12,7 +12,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ = %@, userId = %ld, name = %@, descriptionText = %@, avatarURLString = %@", [self class], self, _userId, _name, _descriptionText, _avatarURLString];
+    return [NSString stringWithFormat:@"%@ = %@, userId = %lld, name = %@, descriptionText = %@, avatarURLString = %@", [self class], self, _userId, _name, _descriptionText, _avatarURLString];
 }
 
 - (NSString *)debugDescription

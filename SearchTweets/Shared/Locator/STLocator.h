@@ -12,6 +12,7 @@
 #import "STFileManagerProtocol.h"
 #import "STAvtorizationManagerProtocol.h"
 #import "STTweetsAPIProtocol.h"
+#import "STAvatarManagerProtocol.h"
 
 @interface STLocator : NSObject
 
@@ -20,5 +21,6 @@
 - (id<STFileManagerProtocol> const)fileManager;
 - (id<STAvtorizationManagerProtocol> const)avtorizationManager;
 - (id<STTweetsAPIProtocol> const)tweetsAPI;
+- (id<STAvatarManagerProtocol>)avatarManager;
 
 @end

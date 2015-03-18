@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zFM-e9-q9g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zFM-e9-q9g">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -53,15 +53,64 @@
                     <view key="view" contentMode="scaleToFill" id="Ck6-nb-zR7">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pwr-GB-7Bo" userLabel="Table View - profile">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Pwr-GB-7Bo" secondAttribute="trailing" id="42i-af-yDn"/>
+                            <constraint firstItem="Pwr-GB-7Bo" firstAttribute="leading" secondItem="Ck6-nb-zR7" secondAttribute="leading" id="hPN-Kd-ovP"/>
+                            <constraint firstItem="CJX-oj-SYg" firstAttribute="top" secondItem="Pwr-GB-7Bo" secondAttribute="bottom" id="nOF-8I-agx"/>
+                            <constraint firstItem="Pwr-GB-7Bo" firstAttribute="top" secondItem="uLJ-ds-xDm" secondAttribute="bottom" id="sKG-Py-5a2"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Item 2" id="cLY-Do-Ngx"/>
                     <navigationItem key="navigationItem" id="2OB-mZ-e3s"/>
+                    <connections>
+                        <outlet property="tableProfile" destination="Pwr-GB-7Bo" id="erc-qc-1o5"/>
+                        <segue destination="bvI-wz-Bu9" kind="show" identifier="PresentSettingsControllerSegue" id="qGN-w9-3Iy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIM-AO-1Xa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2703" y="-441"/>
+        </scene>
+        <!--Settings View Controller i Phone-->
+        <scene sceneID="fSW-QJ-cJJ">
+            <objects>
+                <viewController id="bvI-wz-Bu9" customClass="STSettingsViewController_iPhone" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Hr-Zb-uV4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fmk-Ph-M1V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DCi-il-rDh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OZz-KN-Rdk" userLabel="Table View - settings">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OZz-KN-Rdk" firstAttribute="leading" secondItem="DCi-il-rDh" secondAttribute="leading" id="6vj-d2-N2P"/>
+                            <constraint firstAttribute="trailing" secondItem="OZz-KN-Rdk" secondAttribute="trailing" id="80o-dQ-gvG"/>
+                            <constraint firstAttribute="bottom" secondItem="OZz-KN-Rdk" secondAttribute="bottom" id="LYy-QE-6gY"/>
+                            <constraint firstItem="OZz-KN-Rdk" firstAttribute="top" secondItem="DCi-il-rDh" secondAttribute="top" id="tRa-61-0hK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableSettings" destination="OZz-KN-Rdk" id="eyp-zL-EjR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bj3-1W-cJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3493" y="-441"/>
         </scene>
         <!--Main-->
         <scene sceneID="9wR-3w-F5S">

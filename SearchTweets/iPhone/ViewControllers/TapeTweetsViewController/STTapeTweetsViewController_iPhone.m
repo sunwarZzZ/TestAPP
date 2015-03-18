@@ -12,7 +12,6 @@
 
 @interface STTapeTweetsViewController_iPhone ()
 
-
 @end
 
 @implementation STTapeTweetsViewController_iPhone
@@ -21,7 +20,7 @@
 {
     if(_tapeTweetsDataSource == nil)
     {
-        _tapeTweetsDataSource = [[STTapeTweetsDataSource_iPhone alloc] initWithDelegate:self tweetsAPI:_tweetsAPI imageDownloader:_imageDownloader dataBaseStorage:_dataBaseStorage];
+        _tapeTweetsDataSource = [[STTapeTweetsDataSource_iPhone alloc] initWithAvatarManager:_avatarManager];
     }
     return _tapeTweetsDataSource;
 }
@@ -30,7 +29,7 @@
 {
     if(_searchDataSource == nil)
     {
-        _searchDataSource = [[STSearchDataSource_iPhone alloc] initWithDelegate:self tweetsAPI:_tweetsAPI imageDownloader:_imageDownloader];
+        _searchDataSource = [[STSearchDataSource_iPhone alloc] initWithAvatarManager:_avatarManager];
     }
     return _searchDataSource;
 }

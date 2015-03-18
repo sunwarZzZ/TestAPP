@@ -21,6 +21,9 @@
 @property (nonatomic, strong) OAConsumer *consumer;
 @property (nonatomic, strong) OAToken *requestToken;
 
+@property (nonatomic, strong) NSDateFormatter *dateFormater;
+
+@property (nonatomic, strong) NSOperationQueue *queue;
 
 @end
 
@@ -32,6 +35,10 @@
     {
         _webCore = [[STWebCore alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         _consumer =  [[OAConsumer alloc] initWithKey:kConsumerKey secret:kConsumerSecretKey];
+        _queue = [[NSOperationQueue alloc] init];
+        
+        _dateFormater = [NSDateFormatter new];
+        [_dateFormater setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
     }
     return self;
 }
@@ -103,10 +110,9 @@
 }
 
 - (void)requestTweetsCount:(int)count
-                    offset:(int)offset
                 completion:(void(^)(NSArray *array, NSError *error))completion
 {
-    OAMutableURLRequest *request = [self p_createURLrequestTweetsCount:count offset:offset];
+    OAMutableURLRequest *request = [self p_createURLrequestTweetsCount:count];
     [[self.webCore createTaskJSONWithRequest:request completion:^(id JSON, NSError *error)
      {
          NSArray *tweets = nil;
@@ -118,35 +124,29 @@
          
      }] resume];
 }
-
-
-
 - (void)requestSearchTweetsWithText:(NSString *)text
                          completion:(void(^)(NSArray *tweets, NSError *error))completion;
 {
-
+    [self.queue cancelAllOperations];
     OAMutableURLRequest *request = [self p_createURLRequestSearchWithString:text];
-    [[self.webCore createTaskJSONWithRequest:request completion:^(id JSON, NSError *error)
-      {
-          NSArray *tweets = nil;
-          if(JSON)
+    [self.queue addOperationWithBlock:^{
+        [[self.webCore createTaskJSONWithRequest:request completion:^(id JSON, NSError *error)
           {
-              tweets = [self p_parseSearchTweetsFromJSON:JSON];
-          }
-          completion(tweets, error);
-          
-      }] resume];
+              NSArray *tweets = nil;
+              if(JSON)
+              {
+                  tweets = [self p_parseSearchTweetsFromJSON:JSON];
+              }
+              completion(tweets, error);
+              
+          }] resume];
+    }];
 }
-
-
-
-
-
 #pragma mark - private methods
 #pragma mark create request methods
 - (OAMutableURLRequest *)p_createURLrequestAvtorizationToken
 {
-    NSURL *requestTokenURL = [NSURL URLWithString:kRequestTokenURLString];
+    NSURL *requestTokenURL = [NSURL URLWithString:kTokenURLString];
     OARequestParameter* requestParametrs = [[OARequestParameter alloc] initWithName:kOauthCallbackKey value:kCallbackURL];
     OAMutableURLRequest *requestAvtorization = [[OAMutableURLRequest alloc] initWithURL:requestTokenURL
                                                                                consumer:self.consumer
@@ -162,9 +162,9 @@
 
 - (OAMutableURLRequest *)p_createURLrequestAccessTokenVerifier:(NSString *)verifier
 {
-    NSURL* accessTokenUrl = [NSURL URLWithString:@"https://api.twitter.com/oauth/access_token"];
+    NSURL* accessTokenUrl = [NSURL URLWithString:kAccessTokenURLString];
     OAMutableURLRequest* accessTokenRequest = [[OAMutableURLRequest alloc] initWithURL:accessTokenUrl consumer:self.consumer token:self.requestToken realm:nil signatureProvider:nil];
-    OARequestParameter* verifierParam = [[OARequestParameter alloc] initWithName:@"oauth_verifier" value:verifier];
+    OARequestParameter* verifierParam = [[OARequestParameter alloc] initWithName:kOauthVeriferKey value:verifier];
     [accessTokenRequest setHTTPMethod:@"POST"];
     accessTokenRequest.oa_parameters = [NSArray arrayWithObject:verifierParam];
     return accessTokenRequest;
@@ -180,13 +180,12 @@
                                                                                realm:nil
                                                                    signatureProvider:nil];
     NSString* oauthToken = self.requestToken.key;
-    OARequestParameter* oauthTokenParam = [[OARequestParameter alloc] initWithName:@"oauth_token" value:oauthToken];
+    OARequestParameter* oauthTokenParam = [[OARequestParameter alloc] initWithName:kOauthTokenKey value:oauthToken];
     authorizeRequest.oa_parameters = [NSArray arrayWithObject:oauthTokenParam];
     return authorizeRequest;
 }
 
 - (OAMutableURLRequest *)p_createURLrequestTweetsCount:(int)count
-                                                offset:(int)offset
 {
     NSURL *url = [NSURL URLWithString: [kBaseURLStringAPI_1_1 stringByAppendingString:kHomeTimeline]];
     OAToken *token = [[OAToken alloc] initWithKey:[STTokenStorage key] secret:[STTokenStorage privateKey]];
@@ -197,7 +196,7 @@
                                                                       realm:nil
                                                           signatureProvider:nil];
     
-    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:@"count" value:[NSString stringWithFormat:@"%d",count]];
+    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:kCountKey value:[NSString stringWithFormat:@"%d",count]];
     request.oa_parameters = [NSArray arrayWithObjects:countParamater, nil];
     
     [request setHTTPMethod:@"GET"];
@@ -233,13 +232,15 @@
                                                                       realm:nil
                                                           signatureProvider:nil];
     
-    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:@"q" value:string];
+    OARequestParameter *countParamater = [[OARequestParameter alloc] initWithName:kSearchKey value:string];
     request.oa_parameters = [NSArray arrayWithObject:countParamater];
     
     [request setHTTPMethod:@"GET"];
     
     return request;
 }
+
+
 
 #pragma mark JSON parser methods
 - (NSArray *)p_parseTweetsFromJSON:(id)json
@@ -252,17 +253,32 @@
         
         for(NSDictionary *dictionary in json)
         {
-            STUser *user = [self p_userFromDictionary:[dictionary objectForKey:@"user"]];
+            STUser *user = [self p_userFromDictionary:[dictionary objectForKey:kUserKey]];
             if(user)
             {
                 STTweet *tweet = [STTweet new];
                 tweet.user = user;
-                NSString *text = [dictionary objectForKey:@"text"];
+                NSString *text = [dictionary objectForKey:kTextKey];
+                NSNumber *tweetID = [dictionary objectForKey:kIdKey];
+                NSString *dateCreatedString = [dictionary objectForKey:kCreatedKey];
+                NSDate *dateCreated = [self.dateFormater dateFromString:dateCreatedString];
                 
-                if([text isEqual:[NSNull null]] == NO)
+                
+                if(text && [text isEqual:[NSNull null]] == NO)
                 {
                     tweet.text = text;
                 }
+                
+                if(tweetID && [tweetID isEqual:[NSNull null]] == NO)
+                {
+                    tweet.tweetId = [tweetID longLongValue];
+                }
+                
+                if(dateCreated && [dateCreated isEqual:[NSNull null]] == NO)
+                {
+                    tweet.dateCreated = [dateCreated timeIntervalSince1970];
+                }
+                
                 [tweets addObject:tweet];
             }
         }
@@ -278,21 +294,35 @@
     if([json isKindOfClass:[NSDictionary class]])
     {
         tweets = [NSMutableArray new];
-        NSArray *statuses = [json objectForKey:@"statuses"];
+        NSArray *statuses = [json objectForKey:kStatusesKey];
         
         for(NSDictionary *dictionary in statuses)
         {
-            STUser *user = [self p_userFromDictionary:[dictionary objectForKey:@"user"]];
+            STUser *user = [self p_userFromDictionary:[dictionary objectForKey:kUserKey]];
             if(user)
             {
                 STTweet *tweet = [STTweet new];
                 tweet.user = user;
-                NSString *text = [dictionary objectForKey:@"text"];
+                NSString *text = [dictionary objectForKey:kTextKey];
+                NSNumber *tweetID = [dictionary objectForKey:kIdKey];
+                NSString *dateCreatedString = [dictionary objectForKey:kCreatedKey];
+                NSDate *dateCreated = [self.dateFormater dateFromString:dateCreatedString];
                 
-                if([text isEqual:[NSNull null]] == NO)
+                if(text && [text isEqual:[NSNull null]] == NO)
                 {
                     tweet.text = text;
                 }
+                
+                if(tweetID && [tweetID isEqual:[NSNull null]] == NO)
+                {
+                    tweet.tweetId = [tweetID longLongValue];
+                }
+                
+                if(dateCreated && [dateCreated isEqual:[NSNull null]] == NO)
+                {
+                    tweet.dateCreated = [dateCreated timeIntervalSince1970];;
+                }
+                
                 [tweets addObject:tweet];
             }
         }
@@ -307,10 +337,10 @@
     
     if(dictionary)
     {
-        long userId = [[dictionary objectForKey:@"id"] longValue];
-        NSString *name = [dictionary objectForKey:@"name"];
-        NSString *description = [dictionary objectForKey:@"description"];
-        NSString *imageURLString = [dictionary objectForKey:@"profile_image_url"];
+        long long userId = [[dictionary objectForKey:kIdKey] longLongValue];
+        NSString *name = [dictionary objectForKey:kNameKey];
+        NSString *description = [dictionary objectForKey:kDescriptionKey];
+        NSString *imageURLString = [dictionary objectForKey:kProfileImageUrlKey];
         
         if(name && [name isEqual:[NSNull null]] == NO)
         {
@@ -318,12 +348,12 @@
             user.userId = userId;
             user.name = name;
             
-            if([description isEqual:[NSNull null]] == NO)
+            if(description && [description isEqual:[NSNull null]] == NO)
             {
                 user.descriptionText = description;
             }
             
-            if([imageURLString isEqual:[NSNull null]] == NO)
+            if(imageURLString && [imageURLString isEqual:[NSNull null]] == NO)
             {
                 user.avatarURLString = imageURLString;
             }

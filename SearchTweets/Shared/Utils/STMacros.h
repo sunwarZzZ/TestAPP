@@ -11,5 +11,6 @@
 
 #define STLocalizedString(key)   NSLocalizedString(key, nil)
 #define Bundle                   [NSBundle mainBundle]
+#define UserDefaultsStandart     [NSUserDefaults  standardUserDefaults]
 
 #endif

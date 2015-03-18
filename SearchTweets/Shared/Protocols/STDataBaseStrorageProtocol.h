@@ -14,6 +14,8 @@
 @protocol STDataBaseStrorageProtocol <NSObject>
 
 - (instancetype)initWithFileManager:(id<STFileManagerProtocol>)fileManager;
-- (void)addTweets:(NSArray *)tweets;
+
+- (void)addTweets:(NSArray *)tweets completion:(void(^)(void))completion;
+- (void)tweets:(void(^)(NSArray *tweets))completion;
 
 @end

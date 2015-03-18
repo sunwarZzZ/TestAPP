@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "STTableViewCell.h"
-#import "STImageDownloaderProtocol.h"
+#import "STAvatarManagerProtocol.h"
 
 @class STTweet;
-@class STRequestManager;
 @protocol STTapeTweetsTableCellDelegate;
 
 @interface STTapeTweetsTableCell : STTableViewCell
@@ -24,8 +23,8 @@
 + (UIFont *const)fontUserName;
 
 - (void)setupWithTweet:(STTweet *)tweet
-        imageDownloader:(id<STImageDownloaderProtocol> )imageDownloader
-         avatarVisible:(BOOL)visible;
+         avatarManager:(id<STAvatarManagerProtocol>)avatarManager;
+
 
 
 @property (nonatomic, weak) id<STTapeTweetsTableCellDelegate> delegate;

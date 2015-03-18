@@ -47,13 +47,13 @@
         if([[navigationController.viewControllers firstObject] isKindOfClass:[STTapeTweetsViewController class]])
         {
             STTapeTweetsViewController *tapeTweetsViewController = [navigationController.viewControllers firstObject];
-            [tapeTweetsViewController setupWithImageDownloader:[self.locator imageDownloader]];
+            [tapeTweetsViewController setupWithAvatarManager:[self.locator avatarManager]];
             [tapeTweetsViewController setupWithTweetsAPI:[self.locator tweetsAPI]];
             [tapeTweetsViewController setupWithDataBaseStorage:[self.locator dataBaseStorage]];
         }
         else if([[navigationController.viewControllers firstObject] isKindOfClass:[STTapeTweetsViewController class]])
         {
-            STProfileViewController *profileViewController = [navigationController.viewControllers firstObject];
+            
         }
     }
 }

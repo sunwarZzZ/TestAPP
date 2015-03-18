@@ -10,7 +10,7 @@
 
 @interface STUser : NSObject
 
-@property (nonatomic, assign) long userId;
+@property (nonatomic, assign) long long userId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *descriptionText;
 @property (nonatomic, strong) NSString *avatarURLString;

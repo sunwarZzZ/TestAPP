@@ -7,29 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "STTweetsAPIProtocol.h"
-#import "STImageDownloaderProtocol.h"
+#import "STTapeTweetsDataSource.h"
 
-@protocol STSearchDataSourceDelegate;
-@class STRequestManager;
-@class STTweetsNibLoader;
-
-@interface STSearchDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
-{
-    STTweetsNibLoader *_nibLoader;
-}
-
-- (instancetype)initWithDelegate:(id<STSearchDataSourceDelegate>)delegate
-                       tweetsAPI:(id<STTweetsAPIProtocol>)tweetsAPI
-                 imageDownloader:(id<STImageDownloaderProtocol>)imageDownloader;
-
-- (void)searchTweetsWithText:(NSString *)text;
-
-@end
-
-@protocol STSearchDataSourceDelegate  <NSObject>
-
-- (void)updateTableSearch;
-- (void)searchTweetsError:(NSError *)error;
+@interface STSearchDataSource : STTapeTweetsDataSource
 
 @end

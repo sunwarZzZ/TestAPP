@@ -12,8 +12,9 @@
 
 @interface STTweet : NSObject
 
-@property (nonatomic, assign) int tweetId;
+@property (nonatomic, assign) long long tweetId;
 @property (nonatomic, strong) NSString *text;
+@property (nonatomic, assign) int dateCreated;
 
 @property (nonatomic, strong) STUser *user;
 
