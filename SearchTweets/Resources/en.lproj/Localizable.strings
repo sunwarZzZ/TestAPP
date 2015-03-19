@@ -6,7 +6,7 @@
   Copyright (c) 2015 Aleksei Ivankov. All rights reserved.
 */
 
-"LogIn" = "Log in";
+"Login" = "Log in";
 "Avtorization" = "Avtorization";
 "Cancel" = "Cancel";
 "Warning" = "Warning";

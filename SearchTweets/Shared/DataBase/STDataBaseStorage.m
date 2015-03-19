@@ -69,7 +69,7 @@ static NSString *const kNameTweetsTable = @"ST_TWEETS";
      [self.fmdataBaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback)
       {
           NSMutableArray *tweets = [NSMutableArray new];
-          FMResultSet *result = [db executeQuery:[NSString stringWithFormat:@"SELECT * FROM %@ LEFT JOIN %@  ON %@.USER_ID=%@.ID ORDER BY DATE_CREATED DESC",kNameTweetsTable,kNameUsersTable,kNameTweetsTable,kNameUsersTable ]];
+          FMResultSet *result = [db executeQuery:[NSString stringWithFormat:@"SELECT * FROM %@ LEFT JOIN %@  ON %@.USER_ID=%@.ID ORDER BY TWEET_ID DESC",kNameTweetsTable,kNameUsersTable,kNameTweetsTable,kNameUsersTable ]];
           while ([result next])
           {
               STTweet *tweet = [STTweet new];

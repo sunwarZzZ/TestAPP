@@ -10,4 +10,19 @@
 
 @implementation STViewController
 
+- (void)dealloc
+{
+    NSLog(@"destroy controller  %@", self);
+}
+
+- (void)didReceiveMemoryWarning
+{
+    NSLog(@"memory Warning %@", self);
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 @end

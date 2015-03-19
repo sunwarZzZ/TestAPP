@@ -20,10 +20,6 @@
 
 @implementation STRootTabBarController
 
-- (void)dealloc
-{
-
-}
 
 #pragma mark - UIViewController methods
 - (void)viewDidLoad
@@ -40,7 +36,6 @@
 {
     self.locator = locator;
 }
-
 
 #pragma mark - private methods
 - (void)p_setupUI

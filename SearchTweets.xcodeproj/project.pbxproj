@@ -21,6 +21,8 @@
 		9D4DEC9C1AB83748009D7886 /* STTapeTweetsTableCell_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4DEC9A1AB83748009D7886 /* STTapeTweetsTableCell_iPhone.xib */; };
 		9D4DECA11AB84AD9009D7886 /* STFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DECA01AB84AD9009D7886 /* STFileManager.m */; };
 		9D4DECA71AB84EA8009D7886 /* STLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DECA61AB84EA8009D7886 /* STLocator.m */; };
+		9D4DECE51ABAB887009D7886 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4DECE41ABAB887009D7886 /* LaunchScreen.xib */; };
+		9D4DECEB1ABAC217009D7886 /* STQueueTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4DECEA1ABAC217009D7886 /* STQueueTask.m */; };
 		9D4F0B751A89FF1B0005E8C9 /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B6F1A89FF1B0005E8C9 /* RIButtonItem.m */; };
 		9D4F0B761A89FF1B0005E8C9 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B711A89FF1B0005E8C9 /* UIActionSheet+Blocks.m */; };
 		9D4F0B771A89FF1B0005E8C9 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0B731A89FF1B0005E8C9 /* UIAlertView+Blocks.m */; };
@@ -152,6 +154,9 @@
 		9D4DECA61AB84EA8009D7886 /* STLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLocator.m; sourceTree = "<group>"; };
 		9D4DECA81AB850A1009D7886 /* STAvtorizationManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAvtorizationManagerProtocol.h; sourceTree = "<group>"; };
 		9D4DECA91AB851C3009D7886 /* STTweetsAPIProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetsAPIProtocol.h; sourceTree = "<group>"; };
+		9D4DECE41ABAB887009D7886 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		9D4DECE91ABAC217009D7886 /* STQueueTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STQueueTask.h; sourceTree = "<group>"; };
+		9D4DECEA1ABAC217009D7886 /* STQueueTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STQueueTask.m; sourceTree = "<group>"; };
 		9D4F0B6B1A89F8910005E8C9 /* STAPIConstans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STAPIConstans.h; sourceTree = "<group>"; };
 		9D4F0B6D1A89FF1B0005E8C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D4F0B6E1A89FF1B0005E8C9 /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
@@ -179,8 +184,6 @@
 		9D83746F1AB1BBF0004BE1D2 /* STRootTabBarController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootTabBarController_iPhone.m; sourceTree = "<group>"; };
 		9D8374711AB1BC0B004BE1D2 /* STRootTabBarController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STRootTabBarController_iPad.h; sourceTree = "<group>"; };
 		9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STRootTabBarController_iPad.m; sourceTree = "<group>"; };
-		9D8374821AB2D144004BE1D2 /* STTweetListViewController_iPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetListViewController_iPhone.h; sourceTree = "<group>"; };
-		9D8374831AB2D144004BE1D2 /* STTweetListViewController_iPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetListViewController_iPhone.m; sourceTree = "<group>"; };
 		9D8374851AB2D153004BE1D2 /* STTweetListViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTweetListViewController_iPad.h; sourceTree = "<group>"; };
 		9D8374861AB2D153004BE1D2 /* STTweetListViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTweetListViewController_iPad.m; sourceTree = "<group>"; };
 		9D83748B1AB2D28A004BE1D2 /* STProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STProfileViewController.h; sourceTree = "<group>"; };
@@ -412,6 +415,15 @@
 			path = Locator;
 			sourceTree = "<group>";
 		};
+		9D4DECE81ABAC1EA009D7886 /* QueueTask */ = {
+			isa = PBXGroup;
+			children = (
+				9D4DECE91ABAC217009D7886 /* STQueueTask.h */,
+				9D4DECEA1ABAC217009D7886 /* STQueueTask.m */,
+			);
+			path = QueueTask;
+			sourceTree = "<group>";
+		};
 		9D4F0B6C1A89FF1B0005E8C9 /* UIAlertView-Blocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,15 +528,6 @@
 				9D8374721AB1BC0B004BE1D2 /* STRootTabBarController_iPad.m */,
 			);
 			path = RootTabBarController;
-			sourceTree = "<group>";
-		};
-		9D83747D1AB2D0DB004BE1D2 /* TweetListViewController */ = {
-			isa = PBXGroup;
-			children = (
-				9D8374821AB2D144004BE1D2 /* STTweetListViewController_iPhone.h */,
-				9D8374831AB2D144004BE1D2 /* STTweetListViewController_iPhone.m */,
-			);
-			path = TweetListViewController;
 			sourceTree = "<group>";
 		};
 		9D83747E1AB2D10A004BE1D2 /* TweetListViewController */ = {
@@ -668,6 +671,7 @@
 		F1C17A731AB5575400C00C4D /* WebCore */ = {
 			isa = PBXGroup;
 			children = (
+				9D4DECE81ABAC1EA009D7886 /* QueueTask */,
 				F1C17A741AB5575400C00C4D /* STWebCore.h */,
 				F1C17A751AB5575400C00C4D /* STWebCore.m */,
 			);
@@ -789,7 +793,6 @@
 			children = (
 				9D8374981AB2D8D2004BE1D2 /* TapeTweetsViewController */,
 				9D8374891AB2D20B004BE1D2 /* ProfileViewController */,
-				9D83747D1AB2D0DB004BE1D2 /* TweetListViewController */,
 				9D8374691AB1BBB5004BE1D2 /* RootTabBarController */,
 				9D83745D1AB1BAC7004BE1D2 /* SettingsViewController */,
 				F1D565171A6D926E002692BD /* NavigationController */,
@@ -811,6 +814,7 @@
 		F1D564AD1A6C614D002692BD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9D4DECE41ABAB887009D7886 /* LaunchScreen.xib */,
 				9D51DD991A765BB2003E2D49 /* Localizable.strings */,
 				F1D564B21A6C614D002692BD /* Images.xcassets */,
 			);
@@ -993,6 +997,7 @@
 				TargetAttributes = {
 					F1D564771A6C6030002692BD = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = VNW9E6NMGY;
 					};
 					F1D564931A6C6030002692BD = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -1069,6 +1074,7 @@
 				9D4DEC9C1AB83748009D7886 /* STTapeTweetsTableCell_iPhone.xib in Resources */,
 				9D51DD9B1A765BB2003E2D49 /* Localizable.strings in Resources */,
 				F1D564C41A6C62DA002692BD /* Storyboard_iPhone.storyboard in Resources */,
+				9D4DECE51ABAB887009D7886 /* LaunchScreen.xib in Resources */,
 				F1D564C61A6C62E1002692BD /* Storyboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1126,6 +1132,7 @@
 				9D83748D1AB2D28A004BE1D2 /* STProfileViewController.m in Sources */,
 				9D8374611AB1BAF6004BE1D2 /* STSettingsViewController.m in Sources */,
 				F10A87281AB9B35300FD6F18 /* STProfileItem.m in Sources */,
+				9D4DECEB1ABAC217009D7886 /* STQueueTask.m in Sources */,
 				F10A87201AB9873600FD6F18 /* STAvatarManager.m in Sources */,
 				9D4DECA71AB84EA8009D7886 /* STLocator.m in Sources */,
 				9D8374671AB1BB1E004BE1D2 /* STSettingsViewController_iPad.m in Sources */,
@@ -1260,6 +1267,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "SearchTweets/Other/SearchTweets-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/SearchTweets/External/FMDB/src/",
@@ -1268,6 +1278,7 @@
 					"$(PROJECT_DIR)/SearchTweets/External/OAuthConsumer/src/Crypto/",
 				);
 				INFOPLIST_FILE = SearchTweets/Other/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1275,6 +1286,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1282,6 +1295,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "SearchTweets/Other/SearchTweets-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/SearchTweets/External/FMDB/src/",
@@ -1290,6 +1306,7 @@
 					"$(PROJECT_DIR)/SearchTweets/External/OAuthConsumer/src/Crypto/",
 				);
 				INFOPLIST_FILE = SearchTweets/Other/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1297,6 +1314,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

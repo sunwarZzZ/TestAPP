@@ -45,7 +45,6 @@
         return completion(nil);
     }
     
-
     [self p_avatarForUserId:user.userId completion:^(UIImage *avatar) {
         if(avatar == nil)
         {
@@ -53,8 +52,11 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
 
-                    [self p_setAvatar:avatar userId:user.userId];
-                    if(error)
+                    if(avatar && error == nil)
+                    {
+                        [self p_setAvatar:avatar userId:user.userId];
+                    }
+                    else
                     {
                         NSLog(@"load avatar error!!");
                     }

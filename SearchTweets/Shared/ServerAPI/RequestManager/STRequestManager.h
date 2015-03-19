@@ -13,5 +13,4 @@
 
 @interface STRequestManager : NSObject <STImageDownloaderProtocol, STAvtorizationManagerProtocol, STTweetsAPIProtocol>
 
-
 @end

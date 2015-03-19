@@ -61,6 +61,7 @@
 {
     self.locator = [[STLocator alloc] init];
     [[self.locator avatarManager] setupEnableAvatars:[[self.locator settingsManager] avatarsVisible]];
+    [[self.locator avatarManager] setupCacheEnable:YES];
 }
 
 - (void)p_selectStartController
@@ -73,11 +74,6 @@
     {
         [self performSegueWithIdentifier:kPresentAvtorizationControllerSegue sender:self];
     }
-}
-
-- (void)p_setupUI
-{
-    self.navigationBar.translucent = YES;
 }
 
 

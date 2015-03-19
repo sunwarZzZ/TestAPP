@@ -136,7 +136,6 @@ dispatch_source_t createDispatchTimer(uint64_t interval, uint64_t leeway, dispat
     }
 }
 
-
 #pragma mark - UISearchControllerDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
@@ -150,11 +149,13 @@ dispatch_source_t createDispatchTimer(uint64_t interval, uint64_t leeway, dispat
 - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
     [_avatarManager setupCacheEnable:NO];
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
     [self p_stopTimer];
 }
 - (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
     [_avatarManager setupCacheEnable:YES];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self p_startTimer];
 }
 
@@ -163,6 +164,8 @@ dispatch_source_t createDispatchTimer(uint64_t interval, uint64_t leeway, dispat
 {
     self.tableTweets.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableTweets.backgroundColor = [UIColor greenColor];
+    self.searchDisplayController.searchResultsTableView.backgroundColor = [UIColor redColor];
     self.timeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
     self.timeLabel.textColor = [UIColor redColor];
     self.timeLabel.text = [NSString string];
@@ -204,8 +207,9 @@ dispatch_source_t createDispatchTimer(uint64_t interval, uint64_t leeway, dispat
      {
          if(tweets && error == nil)
          {
-             [self.searchDataSource setupWithTweets:tweets];
              dispatch_async(dispatch_get_main_queue(), ^{
+                 
+                 [self.searchDataSource setupWithTweets:tweets];
                  [self.searchDisplayController.searchResultsTableView reloadData];
              });
          }

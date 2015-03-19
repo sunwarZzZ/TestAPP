@@ -10,4 +10,14 @@
 
 @implementation STTweet
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ = %@, tweetId = %lld, text = %@, dateCreated = %d, user = %@", [self class], self, _tweetId, _text, _dateCreated, _user];
+}
+
+- (NSString *)debugDescription
+{
+    return [self description];
+}
+
 @end

@@ -12,6 +12,7 @@
 #import "SSKeychain.h"
 #import "STTokenStorage.h"
 #import "STWebCore.h"
+#import "STQueueTask.h"
 #import "STUser.h"
 #import "STTweet.h"
 
@@ -23,7 +24,7 @@
 
 @property (nonatomic, strong) NSDateFormatter *dateFormater;
 
-@property (nonatomic, strong) NSOperationQueue *queue;
+@property (nonatomic, strong) STQueueTask *queueSearchTask;
 
 @end
 
@@ -35,8 +36,7 @@
     {
         _webCore = [[STWebCore alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         _consumer =  [[OAConsumer alloc] initWithKey:kConsumerKey secret:kConsumerSecretKey];
-        _queue = [[NSOperationQueue alloc] init];
-        _queue.maxConcurrentOperationCount = 1;
+        _queueSearchTask = [[STQueueTask alloc] init];
         
         _dateFormater = [NSDateFormatter new];
         [_dateFormater setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
@@ -114,7 +114,7 @@
                 completion:(void(^)(NSArray *array, NSError *error))completion
 {
     OAMutableURLRequest *request = [self p_createURLrequestTweetsCount:count];
-    [[self.webCore createTaskJSONWithRequest:request completion:^(id JSON, NSError *error)
+   [[self.webCore createTaskJSONWithRequest:request completion:^(id JSON, NSError *error)
      {
          NSArray *tweets = nil;
          if(JSON)
@@ -128,20 +128,19 @@
 - (void)requestSearchTweetsWithText:(NSString *)text
                          completion:(void(^)(NSArray *tweets, NSError *error))completion;
 {
-    [self.queue cancelAllOperations];
+    [self.queueSearchTask cancelALlTasks];
     OAMutableURLRequest *request = [self p_createURLRequestSearchWithString:text];
-    [self.queue addOperationWithBlock:^{
-        [[self.webCore createTaskJSONWithRequest:request completion:^(id JSON, NSError *error)
+    NSURLSessionDataTask *task = [self.webCore createTaskJSONWithRequest:request completion:^(id JSON, NSError *error)
+      {
+          NSArray *tweets = nil;
+          if(JSON)
           {
-              NSArray *tweets = nil;
-              if(JSON)
-              {
-                  tweets = [self p_parseSearchTweetsFromJSON:JSON];
-              }
-              completion(tweets, error);
-              
-          }] resume];
-    }];
+              tweets = [self p_parseSearchTweetsFromJSON:JSON];
+          }
+          completion(tweets, error);
+          
+      }];
+    [self.queueSearchTask addTask:task];
 }
 #pragma mark - private methods
 #pragma mark create request methods
@@ -240,7 +239,6 @@
     
     return request;
 }
-
 
 
 #pragma mark JSON parser methods
@@ -363,6 +361,5 @@
     
     return user;
 }
-
 
 @end
