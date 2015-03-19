@@ -14,8 +14,26 @@
 #import "STNotificationsKey.h"
 
 static const int kCountTweets = 100;
+static NSTimeInterval kTimeIntervalUpdateContent = 60;
+static NSString *const kDefaultTextTimer = @"0";
+
+
+dispatch_source_t createDispatchTimer(uint64_t interval, uint64_t leeway, dispatch_queue_t queue, dispatch_block_t block)
+{
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    if (timer)
+    {
+        dispatch_source_set_timer(timer, dispatch_walltime(NULL, 0), interval, leeway);
+        dispatch_source_set_event_handler(timer, block);
+        dispatch_resume(timer);
+    }
+    return timer;
+}
 
 @interface STTapeTweetsViewController () <UISearchDisplayDelegate>
+{
+    dispatch_source_t timerUpdate;
+}
 
 @property (nonatomic, weak) IBOutlet UITableView *tableTweets;
 
@@ -24,13 +42,14 @@ static const int kCountTweets = 100;
 @property (nonatomic, weak) IBOutlet UISearchDisplayController *searchDisplayController;
 #pragma clang diagnostic pop
 
+@property (nonatomic, weak) IBOutlet UILabel *timeLabel;
+
 @property (nonatomic, weak) id<STTweetsAPIProtocol> tweetsAPI;
 @property (nonatomic, weak) id<STDataBaseStrorageProtocol> dataBaseStorage;
 @property (nonatomic, weak) id<STSettingsManagerProtocol> settingsManager;
 
 @property (nonatomic, strong) STTapeTweetsDataSource *tapeTweetsDataSource;
 @property (nonatomic, strong) STSearchDataSource *searchDataSource;
-
 
 @end
 
@@ -73,6 +92,16 @@ static const int kCountTweets = 100;
 {
     [super viewWillAppear:animated];
     
+    if([self.searchDisplayController isActive] == NO)
+    {
+        [self p_startTimer];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self p_stopTimer];
 }
 
 #pragma mark - public methods
@@ -107,6 +136,7 @@ static const int kCountTweets = 100;
     }
 }
 
+
 #pragma mark - UISearchControllerDelegate
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
@@ -120,10 +150,12 @@ static const int kCountTweets = 100;
 - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
     [_avatarManager setupCacheEnable:NO];
+    [self p_stopTimer];
 }
 - (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller
 {
     [_avatarManager setupCacheEnable:YES];
+    [self p_startTimer];
 }
 
 #pragma mark - private methods
@@ -131,6 +163,9 @@ static const int kCountTweets = 100;
 {
     self.tableTweets.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.timeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
+    self.timeLabel.textColor = [UIColor redColor];
+    self.timeLabel.text = [NSString string];
 }
 
 - (void)p_setupDataSource
@@ -189,6 +224,34 @@ static const int kCountTweets = 100;
 - (void)p_unsubscribeNotifications
 {
     [NotificationCenterDefault removeObserver:self forKeyPath:kAvatarAvailabilityNotificationKey];
+}
+
+- (void)p_startTimer
+{
+        timerUpdate = createDispatchTimer(1ull * NSEC_PER_SEC, (1ull * NSEC_PER_SEC) / 10, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+         
+        dispatch_async(dispatch_get_main_queue(), ^
+        {
+            int time = [self.timeLabel.text intValue];
+            if(time < kTimeIntervalUpdateContent)
+            {
+                time++;
+                self.timeLabel.text = [NSString stringWithFormat:@"%d", time];
+            }
+            else
+            {
+                self.timeLabel.text = kDefaultTextTimer;
+                [self p_requestTweetsCount:kCountTweets];
+            }
+        });
+
+    });
+}
+
+- (void)p_stopTimer
+{
+    dispatch_source_cancel(timerUpdate);
+    self.timeLabel.text = kDefaultTextTimer;
 }
 
 @end

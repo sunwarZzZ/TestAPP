@@ -158,15 +158,30 @@
                                 <rect key="frame" x="0.0" y="44" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctB-lA-Qfe">
+                                <rect key="frame" x="550" y="467" width="50" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="eFT-qM-LJn">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="20" id="ruX-K0-Lhm">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="9qa-ia-E60" firstAttribute="top" secondItem="ctB-lA-Qfe" secondAttribute="bottom" id="2Gr-Ko-Oms"/>
                             <constraint firstAttribute="trailing" secondItem="5pj-Cr-bL1" secondAttribute="trailing" id="6Yz-dS-124"/>
                             <constraint firstItem="JeQ-o1-nfC" firstAttribute="leading" secondItem="fZj-Gf-AK2" secondAttribute="leadingMargin" constant="-16" id="Bc5-V1-dLq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JeQ-o1-nfC" secondAttribute="trailing" constant="-16" id="C9v-TN-1qu"/>
                             <constraint firstItem="JeQ-o1-nfC" firstAttribute="top" secondItem="fZj-Gf-AK2" secondAttribute="topMargin" id="TCN-fa-SB3"/>
                             <constraint firstItem="JeQ-o1-nfC" firstAttribute="bottom" secondItem="fZj-Gf-AK2" secondAttribute="bottomMargin" id="TKu-XS-NhN"/>
                             <constraint firstItem="5pj-Cr-bL1" firstAttribute="leading" secondItem="fZj-Gf-AK2" secondAttribute="leading" id="YJO-ct-sWi"/>
+                            <constraint firstAttribute="trailing" secondItem="ctB-lA-Qfe" secondAttribute="trailing" id="s8z-cM-j0u"/>
                             <constraint firstItem="5pj-Cr-bL1" firstAttribute="top" secondItem="a4W-ID-fce" secondAttribute="bottom" id="tUd-d9-jLg"/>
                             <constraint firstItem="JeQ-o1-nfC" firstAttribute="top" secondItem="5pj-Cr-bL1" secondAttribute="bottom" id="zhy-Nk-9aQ"/>
                         </constraints>
@@ -182,6 +197,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="uwa-Jc-XFI" id="f6q-gI-UxY"/>
                         <outlet property="tableTweets" destination="JeQ-o1-nfC" id="f5I-EH-V5Z"/>
+                        <outlet property="timeLabel" destination="ctB-lA-Qfe" id="0bD-Xw-Fb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C09-bc-y6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
